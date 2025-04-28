@@ -19,7 +19,7 @@
     header {
       position: relative;
       background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
-      height: 70vh;
+      height: 60vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -39,7 +39,7 @@
       border-radius: 8px;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 0.5rem;
       text-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
@@ -49,32 +49,27 @@
       max-width: 90%;
       text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
-    header a.button {
-      background: #4CAF50;
-      padding: 0.7rem 1.2rem;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      font-size: 1rem;
-      display: inline-block;
-      margin-top: 1rem;
+    .intro {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-    section {
-      padding: 2rem 1rem;
-      background: #fff;
-    }
-    h2 {
+    .intro h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
-      text-align: center;
-      color: #333;
+      color: #4CAF50;
     }
-    p {
-      font-size: 1.2rem;
+    .intro p {
+      font-size: 1.1rem;
       line-height: 1.8;
       margin-bottom: 1.5rem;
-      text-align: justify;
+    }
+    .intro .cta {
+      font-weight: bold;
+      color: #4CAF50;
     }
     footer {
       background: #fff;
@@ -82,41 +77,36 @@
       text-align: center;
       font-size: 1.1rem;
       font-weight: bold;
-      color: #333;
+      border-top: 1px solid #ddd;
     }
-    /* Responsive */
-    @media (min-width: 768px) {
-      header {
-        height: 100vh;
-      }
-      header h1 {
-        font-size: 2.5rem;
-      }
-      header p {
-        font-size: 1.2rem;
-      }
+    footer a {
+      color: #4CAF50;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
-    </a>
-    <h1>Giới Thiệu BrHut</h1>
-  </header>
+<header>
+  <a href="index.html" class="logo">
+    <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
+  </a>
+  <h1>BrHut - Nơi Mộc Mạc và Tự Nhiên Gặp Gỡ</h1>
+  <p>Khám phá hành trình tạo ra những sản phẩm đơn giản, gần gũi và chân thực nhất với thiên nhiên.</p>
+</header>
 
-  <section>
-    <h2>Chào Mừng Bạn Đến Với BrHut</h2>
-    <p>Không lời thoại, không kịch bản – chỉ là tiếng gió, tiếng suối, tiếng dụng cụ và nhịp điệu của công việc cùng thiên nhiên.</p>
-    <p>Dự án này bắt đầu từ mong muốn sống gần hơn với thiên nhiên, tự tay tạo ra những gì mình cần, và chia sẻ lại hành trình ấy qua hình ảnh và âm thanh. Không cầu kỳ – chỉ là những nỗ lực thật, từng bước nhỏ và sự sáng tạo mộc mạc.</p>
-    <p>BrHut không hướng đến sự hoàn hảo. Mình chỉ đang học hỏi từng ngày, tận hưởng quá trình và tìm ý nghĩa trong những điều đơn giản mà mình tạo nên. Nếu bạn yêu thiên nhiên, đồ handmade và hình ảnh yên ả, hy vọng bạn sẽ thấy thân thuộc ở đây.</p>
-    <p>Email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
-  </section>
+<section class="intro">
+  <h2>Giới Thiệu Về BrHut</h2>
+  <p>Chào mừng bạn đến với BrHut, nơi chúng tôi tập trung vào việc sống gần gũi với thiên nhiên và tự tay tạo ra những sản phẩm thủ công mộc mạc. Dự án này bắt đầu từ mong muốn không chỉ sống gần thiên nhiên mà còn tạo ra những thứ đơn giản, nhưng có giá trị thật sự. Chúng tôi chia sẻ hành trình của mình qua hình ảnh và âm thanh, không cầu kỳ, chỉ là những nỗ lực chân thành để học hỏi và phát triển.</p>
 
-  <footer>
-    Try with our vegetables<br>
-    Our favourite recipes
-  </footer>
+  <p class="cta">Chúng tôi không theo đuổi sự hoàn hảo, mà chỉ mong mỏi tìm thấy niềm vui và sự sáng tạo trong những điều giản dị nhất. Nếu bạn yêu thiên nhiên, đồ handmade và một phong cách sống chậm rãi, hy vọng bạn sẽ cảm thấy thân thuộc với BrHut.</p>
+
+  <p>Với BrHut, mọi thứ đều bắt nguồn từ sự sáng tạo mộc mạc và đam mê với thiên nhiên. Chúng tôi rất vui khi được chia sẻ hành trình này cùng bạn.</p>
+
+  <p>Email liên hệ: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
+</section>
+
+<footer>
+  <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
+</footer>
 </body>
 </html>
