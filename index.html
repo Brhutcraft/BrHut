@@ -17,6 +17,7 @@
       line-height: 1.6;
     }
     header {
+      position: relative;
       background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
       height: 70vh;
       display: flex;
@@ -26,6 +27,16 @@
       text-align: center;
       color: #fff;
       padding: 1rem;
+    }
+    .logo {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+    }
+    .logo img {
+      width: 50px;
+      height: auto;
+      border-radius: 8px;
     }
     header h1 {
       font-size: 1.8rem;
@@ -38,7 +49,7 @@
       max-width: 90%;
       text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
-    header a {
+    header a.button {
       background: #4CAF50;
       padding: 0.7rem 1.2rem;
       color: #fff;
@@ -46,6 +57,8 @@
       font-weight: bold;
       border-radius: 5px;
       font-size: 1rem;
+      display: inline-block;
+      margin-top: 1rem;
     }
     .categories {
       display: grid;
@@ -59,6 +72,9 @@
       border-radius: 10px;
       overflow: hidden;
       background: #ddd;
+      display: block;
+      text-decoration: none;
+      color: inherit;
     }
     .category img {
       width: 100%;
@@ -104,7 +120,7 @@
       font-weight: bold;
     }
 
-    /* Responsive cho màn lớn hơn 768px */
+    /* Responsive */
     @media (min-width: 768px) {
       header {
         height: 100vh;
@@ -122,8 +138,6 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
-
-    /* Responsive cho màn lớn hơn 1024px */
     @media (min-width: 1024px) {
       .categories {
         grid-template-columns: repeat(5, 1fr);
@@ -137,32 +151,35 @@
 <body>
 
 <header>
+  <a href="index.html" class="logo">
+    <img src="LINK-LOGO-CUA-BAN" alt="Logo">
+  </a>
   <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
   <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
-  <a href="#">Xem thêm</a>
+  <a href="LINK-CUA-BAN" class="button">Xem thêm</a>
 </header>
 
 <section class="categories">
-  <div class="category">
+  <a href="LINK-DO-THU-CONG" class="category">
     <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png" alt="Handmade">
     <h3>Đồ Thủ Công</h3>
-  </div>
-  <div class="category">
+  </a>
+  <a href="LINK-DUNG-CU-SINH-TON" class="category">
     <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453215875158203934831320675485.png" alt="Survival Essentials">
     <h3>Dụng Cụ Sinh Tồn</h3>
-  </div>
-  <div class="category">
+  </a>
+  <a href="LINK-DAC-SAN" class="category">
     <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745323724037851352921594230041.png" alt="Specialty">
     <h3>Đặc Sản</h3>
-  </div>
-  <div class="category">
+  </a>
+  <a href="LINK-VUON-UOM-XANH" class="category">
     <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745331932592854088223531181729.png" alt="Green Nursery">
     <h3>Vườn Ươm Xanh</h3>
-  </div>
-  <div class="category">
+  </a>
+  <a href="LINK-GOI-KY-NANG" class="category">
     <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458175842903752646802185968006.png" alt="Skill Pack">
     <h3>Gói Kỹ Năng</h3>
-  </div>
+  </a>
 </section>
 
 <section class="stats">
