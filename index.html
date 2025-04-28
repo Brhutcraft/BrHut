@@ -1,3 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Của Tùng</title>
+    <style>
+        /* Reset cơ bản cho các phần tử */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid #fff;
+        }
+
+        header h1 {
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            font-weight: lighter;
+        }
+
+        /* Thanh điều hướng */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #fff;
+            color: #333;
+            transform: scale(1.1);
+        }
+
+        nav a.active {
+            background-color: #2575fc;
+            color: white;
+        }
+
+        /* Nội dung chính */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .container h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+
+        .container p {
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        /* Hiệu ứng cho các phần tử */
+        .fade-in {
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Đầu trang -->
+    <header class="fade-in">
+        <h1>Chào Mừng Đến Với Trang Web Của Tùng</h1>
+        <p>Khám phá những ý tưởng sáng tạo và tự tay làm mọi thứ từ thiên nhiên.</p>
+    </header>
+
+    <!-- Thanh điều hướng -->
+    <nav>
+        <a href="#home" class="active">Trang Chủ</a>
+        <a href="#about">Giới Thiệu</a>
+        <a href="#services">Dịch Vụ</a>
+        <a href="#contact">Liên Hệ</a>
+    </nav>
+
+    <!-- Nội dung chính -->
+    <div class="container fade-in">
+        <h2>Giới thiệu về trang web</h2>
+        <p>Đây là một trang web mẫu, nơi bạn có thể tìm thấy các sản phẩm tự làm và các ý tưởng sáng tạo về cách sống gần gũi với thiên nhiên.</p>
+    </div>
+</body>
+</html>
 <!-- wp:paragraph -->
 <p></p>
 <!-- /wp:paragraph -->
