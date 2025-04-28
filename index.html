@@ -1,272 +1,184 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Web Của Tùng</title>
-    <style>
-        /* Reset cơ bản cho các phần tử */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BrHut - Nhà Của Sự Đơn Giản</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f7f2;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: url('banner.jpg') center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 1rem;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
+    header p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      max-width: 90%;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
+    header a {
+      background: #4CAF50;
+      padding: 0.7rem 1.2rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .categories {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 2rem 1rem;
+      background: #fff;
+    }
+    .category {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ddd;
+    }
+    .category img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .category h3 {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .stats {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .stats h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .numbers {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .numbers div {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    footer {
+      background: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-            color: #fff;
-            line-height: 1.6;
-        }
+    /* Responsive cho màn lớn hơn 768px */
+    @media (min-width: 768px) {
+      header {
+        height: 100vh;
+      }
+      header h1 {
+        font-size: 2.5rem;
+      }
+      header p {
+        font-size: 1.2rem;
+      }
+      .categories {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .numbers {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-        header {
-            text-align: center;
-            padding: 50px 20px;
-            background: rgba(0, 0, 0, 0.5);
-            border-bottom: 2px solid #fff;
-        }
-
-        header h1 {
-            font-size: 3em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1.2em;
-            font-weight: lighter;
-        }
-
-        /* Thanh điều hướng */
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #333;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: #fff;
-            color: #333;
-            transform: scale(1.1);
-        }
-
-        nav a.active {
-            background-color: #2575fc;
-            color: white;
-        }
-
-        /* Nội dung chính */
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .container h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #ffcc00;
-        }
-
-        .container p {
-            font-size: 1.2em;
-            line-height: 1.8;
-        }
-
-        /* Hiệu ứng cho các phần tử */
-        .fade-in {
-            animation: fadeIn 2s ease-in-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
+    /* Responsive cho màn lớn hơn 1024px */
+    @media (min-width: 1024px) {
+      .categories {
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .numbers {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Đầu trang -->
-    <header class="fade-in">
-        <h1>Chào Mừng Đến Với Trang Web Của Tùng</h1>
-        <p>Khám phá những ý tưởng sáng tạo và tự tay làm mọi thứ từ thiên nhiên.</p>
-    </header>
 
-    <!-- Thanh điều hướng -->
-    <nav>
-        <a href="#home" class="active">Trang Chủ</a>
-        <a href="#about">Giới Thiệu</a>
-        <a href="#services">Dịch Vụ</a>
-        <a href="#contact">Liên Hệ</a>
-    </nav>
+<header>
+  <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
+  <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
+  <a href="#">Xem thêm</a>
+</header>
 
-    <!-- Nội dung chính -->
-    <div class="container fade-in">
-        <h2>Giới thiệu về trang web</h2>
-        <p>Đây là một trang web mẫu, nơi bạn có thể tìm thấy các sản phẩm tự làm và các ý tưởng sáng tạo về cách sống gần gũi với thiên nhiên.</p>
-    </div>
+<section class="categories">
+  <div class="category">
+    <img src="handmade.jpg" alt="Handmade">
+    <h3>Đồ Thủ Công</h3>
+  </div>
+  <div class="category">
+    <img src="survival.jpg" alt="Survival Essentials">
+    <h3>Dụng Cụ Sinh Tồn</h3>
+  </div>
+  <div class="category">
+    <img src="specialty.jpg" alt="Specialty">
+    <h3>Đặc Sản</h3>
+  </div>
+  <div class="category">
+    <img src="nursery.jpg" alt="Green Nursery">
+    <h3>Vườn Ươm Xanh</h3>
+  </div>
+  <div class="category">
+    <img src="skillpack.jpg" alt="Skill Pack">
+    <h3>Gói Kỹ Năng</h3>
+  </div>
+</section>
+
+<section class="stats">
+  <h2>Meet us better<br>Our Organic Farm in Numbers</h2>
+  <div class="numbers">
+    <div>470 households per month</div>
+    <div>23 experts working</div>
+    <div>5 awards won</div>
+    <div>100% satisfied customers</div>
+  </div>
+</section>
+
+<footer>
+  Try with our vegetables<br>
+  Our favourite recipes
+</footer>
+
 </body>
 </html>
-<!-- wp:paragraph -->
-<p></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:cover {"url":"https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250422_1647477391128837912572926.jpg?w=1024","id":92,"dimRatio":60,"overlayColor":"foreground","isUserOverlayColor":true,"contentPosition":"center center","align":"full","className":"is-light is-position-center-center"} -->
-<div class="wp-block-cover alignfull is-light is-position-center-center"><span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-60 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-92" alt="" src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250422_1647477391128837912572926.jpg?w=1024" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:image {"id":99,"sizeSlug":"thumbnail","linkDestination":"custom","align":"left"} -->
-<figure class="wp-block-image alignleft size-thumbnail"><a href="https://brhut.wordpress.com/"><img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239322020994519917367726.png?w=150" alt="" class="wp-image-99"/></a></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"textAlign":"left","level":3} -->
-<h3 class="wp-block-heading has-text-align-left"><strong><mark style="background-color:rgba(0, 0, 0, 0);color:#abb8c3" class="has-inline-color has-cyan-bluish-gray-color">Nhà Của Sự Đơn Giản - Mộc Mạc.</mark></strong></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p><mark style="background-color:rgba(0, 0, 0, 0);color:#abb8c3" class="has-inline-color has-cyan-bluish-gray-color"><em>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình..</em></mark></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"primary","textColor":"background","className":"is-style-fill"} -->
-<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-background-color has-primary-background-color has-text-color has-background wp-element-button" href="https://brhut.wordpress.com/gioi-thieu/" target="_blank" rel="noreferrer noopener">Xem thêm</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div></div>
-<!-- /wp:cover -->
-
-<!-- wp:group {"align":"full","className":"has-background-background-color has-background"} -->
-<div class="wp-block-group alignfull has-background-background-color has-background"><!-- wp:spacer {"height":"32px"} -->
-<div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:paragraph {"align":"center","className":"margin-bottom-half","fontSize":"small"} -->
-<p class="has-text-align-center margin-bottom-half has-small-font-size"></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:separator {"opacity":"css"} -->
-<hr class="wp-block-separator has-css-opacity"/>
-<!-- /wp:separator -->
-
-<!-- wp:columns {"className":"alignwide"} -->
-<div class="wp-block-columns alignwide"><!-- wp:column -->
-<div class="wp-block-column"><!-- wp:image {"id":45,"sizeSlug":"large","linkDestination":"custom","align":"center"} -->
-<figure class="wp-block-image aligncenter size-large"><a href="https://brhut.wordpress.com/do-thu-cong/"><img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png?w=1024" alt="" class="wp-image-45"/></a><figcaption class="wp-element-caption"><mark style="background-color:rgba(0,0,0,0);color:#abb8c3" class="has-inline-color has-cyan-bluish-gray-color">Đồ Thủ Công</mark></figcaption></figure>
-<!-- /wp:image --></div>
-<!-- /wp:column -->
-
-<!-- wp:column -->
-<div class="wp-block-column"><!-- wp:image {"id":46,"sizeSlug":"large","linkDestination":"custom","className":"is-style-default"} -->
-<figure class="wp-block-image size-large is-style-default"><a href="https://brhut.wordpress.com/dung-cu-sinh-ton/"><img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453215875158203934831320675485.png?w=1024" alt="" class="wp-image-46"/></a><figcaption class="wp-element-caption"><mark style="background-color:rgba(0,0,0,0);color:#abb8c3" class="has-inline-color has-cyan-bluish-gray-color">Dụng Cụ Sinh Tồn</mark></figcaption></figure>
-<!-- /wp:image --></div>
-<!-- /wp:column -->
-
-<!-- wp:column -->
-<div class="wp-block-column"><!-- wp:image {"id":51,"sizeSlug":"large","linkDestination":"custom"} -->
-<figure class="wp-block-image size-large"><a href="https://brhut.wordpress.com/dac-san/"><img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745323724037851352921594230041.png?w=1024" alt="" class="wp-image-51"/></a><figcaption class="wp-element-caption"><mark style="background-color:rgba(0, 0, 0, 0);color:#abb8c3" class="has-inline-color has-cyan-bluish-gray-color">Đặc Sản</mark></figcaption></figure>
-<!-- /wp:image -->
-
-<!-- wp:image {"id":87,"sizeSlug":"large","linkDestination":"custom","align":"center"} -->
-<figure class="wp-block-image aligncenter size-large"><a href="https://brhut.wordpress.com/vuon-uom-xanh/"><img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453319325923318989873180406733.png?w=1024" alt="" class="wp-image-87"/></a><figcaption class="wp-element-caption"><mark style="background-color:rgba(0, 0, 0, 0);color:#abb8c3" class="has-inline-color has-cyan-bluish-gray-color">Vườn Ươm Xanh</mark></figcaption></figure>
-<!-- /wp:image --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns -->
-
-<!-- wp:spacer {"height":"40px"} -->
-<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer --></div>
-<!-- /wp:group -->
-
-<!-- wp:cover {"url":"https://brhut.wordpress.com/wp-content/uploads/2025/04/17453245784806637621418805782018.jpg?w=1024","id":67,"dimRatio":60,"overlayColor":"foreground","isUserOverlayColor":true,"align":"full","className":"is-light"} -->
-<div class="wp-block-cover alignfull is-light"><span aria-hidden="true" class="wp-block-cover__background has-foreground-background-color has-background-dim-60 has-background-dim"></span><img class="wp-block-cover__image-background wp-image-67" alt="" src="https://brhut.wordpress.com/wp-content/uploads/2025/04/17453245784806637621418805782018.jpg?w=1024" data-object-fit="cover"/><div class="wp-block-cover__inner-container"><!-- wp:spacer {"height":"32px"} -->
-<div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:paragraph {"align":"center","className":"margin-bottom-half","fontSize":"small"} -->
-<p class="has-text-align-center margin-bottom-half has-small-font-size"><strong>Meet us better</strong></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading {"textAlign":"center","className":"margin-top-half"} -->
-<h2 class="wp-block-heading has-text-align-center margin-top-half">Our Organic Farm in Numbers</h2>
-<!-- /wp:heading -->
-
-<!-- wp:separator {"opacity":"css"} -->
-<hr class="wp-block-separator has-css-opacity"/>
-<!-- /wp:separator -->
-
-<!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center"><strong>470</strong> households per month</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center"><strong>23</strong> experts working</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center"><strong>5</strong> awards won</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center"><strong>100%</strong> satisfied customers</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:spacer {"height":"32px"} -->
-<div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer --></div></div>
-<!-- /wp:cover -->
-
-<!-- wp:spacer {"height":"32px"} -->
-<div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:paragraph {"align":"center","className":"margin-bottom-half","fontSize":"small"} -->
-<p class="has-text-align-center margin-bottom-half has-small-font-size"><strong>Try with our vegetables</strong></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:heading {"textAlign":"center","level":3,"className":"margin-top-half"} -->
-<h3 class="wp-block-heading has-text-align-center margin-top-half">Our favourite recipes</h3>
-<!-- /wp:heading -->
-
-<!-- wp:separator {"opacity":"css"} -->
-<hr class="wp-block-separator has-css-opacity"/>
-<!-- /wp:separator -->
-
-<!-- wp:latest-posts {"displayPostContent":true,"excerptLength":30,"postLayout":"grid"} /-->
-
-<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"}} -->
-<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline"} -->
-<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/blog">More recipes</a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons -->
-
-<!-- wp:spacer {"height":"32px"} -->
-<div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:group {"align":"full","backgroundColor":"secondary","textColor":"background"} -->
-<div class="wp-block-group alignfull has-background-color has-secondary-background-color has-text-color has-background"><!-- wp:spacer {"height":"32px"} -->
-<div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer -->
-
-<!-- wp:quote -->
-<blockquote class="wp-block-quote"><!-- wp:paragraph -->
-<p>We are very happy with the quality of the box and we value the service. </p>
-<!-- /wp:paragraph --><cite>Joseph </cite></blockquote>
-<!-- /wp:quote -->
-
-<!-- wp:spacer {"height":"32px"} -->
-<div style="height:32px" aria-hidden="true" class="wp-block-spacer"></div>
-<!-- /wp:spacer --></div>
-<!-- /wp:group -->
-
-<!-- wp:audio /-->
