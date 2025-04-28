@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="vi">
+<!DOCTYPE html><html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -118,86 +117,64 @@
       text-align: center;
       font-size: 1.1rem;
       font-weight: bold;
-    }
+    }/* Responsive */
+@media (min-width: 768px) {
+  header {
+    height: 100vh;
+  }
+  header h1 {
+    font-size: 2.5rem;
+  }
+  header p {
+    font-size: 1.2rem;
+  }
+  .categories {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .numbers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .categories {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .numbers {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
-    /* Responsive */
-    @media (min-width: 768px) {
-      header {
-        height: 100vh;
-      }
-      header h1 {
-        font-size: 2.5rem;
-      }
-      header p {
-        font-size: 1.2rem;
-      }
-      .categories {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .numbers {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (min-width: 1024px) {
-      .categories {
-        grid-template-columns: repeat(5, 1fr);
-      }
-      .numbers {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
   </style>
 </head>
-<body>
-
-<header>
+<body><header>
   <a href="index.html" class="logo">
     <img src="LINK-LOGO-CUA-BAN" alt="Logo">
   </a>
   <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
   <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
   <a href="LINK-CUA-BAN" class="button">Xem thêm</a>
-</header>
-
-<section class="categories">
+</header><section class="categories">
   <a href="LINK-DO-THU-CONG" class="category">
-    <picture>
-      <source srcset="https://brhut.wordpress.com/wp-content/uploads/2025/04/your-image-webp1.webp" type="image/webp">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/your-image1.jpg" alt="Handmade">
-    </picture>
+    <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png" alt="Handmade">
     <h3>Đồ Thủ Công</h3>
   </a>
   <a href="LINK-DUNG-CU-SINH-TON" class="category">
-    <picture>
-      <source srcset="https://brhut.wordpress.com/wp-content/uploads/2025/04/your-image-webp2.webp" type="image/webp">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/your-image2.jpg" alt="Survival Essentials">
-    </picture>
+    <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453215875158203934831320675485.png" alt="Survival Essentials">
     <h3>Dụng Cụ Sinh Tồn</h3>
   </a>
   <a href="LINK-DAC-SAN" class="category">
-    <picture>
-      <source srcset="https://brhut.wordpress.com/wp-content/uploads/2025/04/your-image-webp3.webp" type="image/webp">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/your-image3.jpg" alt="Specialty">
-    </picture>
+    <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745323724037851352921594230041.png" alt="Specialty">
     <h3>Đặc Sản</h3>
   </a>
   <a href="LINK-VUON-UOM-XANH" class="category">
-    <picture>
-      <source srcset="https://brhut.wordpress.com/wp-content/uploads/2025/04/your-image-webp4.webp" type="image/webp">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/your-image4.jpg" alt="Green Nursery">
-    </picture>
+    <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745331932592854088223531181729.png" alt="Green Nursery">
     <h3>Vườn Ươm Xanh</h3>
   </a>
   <a href="LINK-GOI-KY-NANG" class="category">
-    <picture>
-      <source srcset="https://brhut.wordpress.com/wp-content/uploads/2025/04/your-image-webp5.webp" type="image/webp">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/your-image5.jpg" alt="Skill Pack">
-    </picture>
+    <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458175842903752646802185968006.png" alt="Skill Pack">
     <h3>Gói Kỹ Năng</h3>
   </a>
-</section>
-
-<section class="stats">
+</section><section class="stats">
   <h2>Meet us better<br>Our Organic Farm in Numbers</h2>
   <div class="numbers">
     <div>470 households per month</div>
@@ -205,12 +182,8 @@
     <div>5 awards won</div>
     <div>100% satisfied customers</div>
   </div>
-</section>
-
-<footer>
+</section><footer>
   Try with our vegetables<br>
   Our favourite recipes
-</footer>
-
-</body>
+</footer></body>
 </html>
