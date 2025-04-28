@@ -1,1 +1,102 @@
-ok
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      font-size: 1rem;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+    .categories {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 2rem 1rem;
+      background: #fff;
+    }
+    .category {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ddd;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .category img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+    .category h3 {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .stats {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .stats h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .numbers {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .numbers div {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    footer {
+      background: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }/* Responsive */
+@media (min-width: 768px) {
+  header {
+    height: 100vh;
+  }
+  header h1 {
+    font-size: 2.5rem;
+  }
+  header p {
+    font-size: 1.2rem;
+  }
+  .categories {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .numbers {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .categories {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .numbers {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+  </style>
+</head>
+<body><header>
+  <a href="index.html" class="logo">
+    <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
+  </a>
+  <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
+  <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
+  <a href="LINK-CUA-BAN" class="button">Xem thêm</a>
+</header>
