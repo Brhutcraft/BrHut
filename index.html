@@ -3,29 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BrHut</title>
+  <title>BrHut - Tự Lập Giữa Thiên Nhiên</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      flex-direction: column;
-    }
-    h1 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
       color: #333;
     }
-    p {
-      color: #666;
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .button {
+      background-color: #00796b;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #004d40;
+    }
+    .store-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+    .store-item {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 280px;
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .store-item:hover {
+      transform: translateY(-5px);
+    }
+    .store-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .store-item h3 {
+      margin: 15px 0;
+      font-size: 22px;
+    }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 36px;
+      }
+      .store-item {
+        width: 90%;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Chào mừng đến với BrHut!</h1>
-  <p>Website đơn giản đầu tiên của mình.</p>
+
+<header>
+  <h1>BrHut</h1>
+  <p>Tự Lập Giữa Thiên Nhiên</p>
+  <a href="#store" class="button">Xem thêm</a>
+</header>
+
+<section id="store" class="store-section">
+  <a href="#" class="store-item">
+    <img src="https://via.placeholder.com/300x180?text=Đồ+thủ+công" alt="Đồ thủ công">
+    <h3>Đồ thủ công</h3>
+  </a>
+  <a href="#" class="store-item">
+    <img src="https://via.placeholder.com/300x180?text=Dụng+cụ+sinh+tồn" alt="Dụng cụ sinh tồn">
+    <h3>Dụng cụ sinh tồn</h3>
+  </a>
+  <a href="#" class="store-item">
+    <img src="https://via.placeholder.com/300x180?text=Vườn+ươm+Xanh" alt="Vườn ươm Xanh">
+    <h3>Vườn ươm Xanh</h3>
+  </a>
+</section>
+
 </body>
 </html>
