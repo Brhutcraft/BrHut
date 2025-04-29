@@ -36,20 +36,21 @@
       left: 15px;
     }
     .logo img {
-      width: 110px;
+      width: 90px;
       border-radius: 10px;
     }
     header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.6rem;
+      font-size: 1.7rem;
+      margin-bottom: 0.5rem;
       text-shadow: 0 2px 5px rgba(0,0,0,0.4);
       font-weight: 600;
     }
     header p {
-      font-size: 1.1rem;
-      max-width: 80%;
+      font-size: 1rem;
+      max-width: 85%;
       text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     }
+
     .intro {
       max-width: 860px;
       margin: 3rem auto;
@@ -106,6 +107,16 @@
     }
     .social-link:hover {
       color: #4CAF50;
+    }
+
+    /* Responsive text sizing */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      header p {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
