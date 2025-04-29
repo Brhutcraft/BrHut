@@ -3,21 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BrHut - Giới Thiệu</title>
+  <title>Giới Thiệu - BrHut</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    :root {
+      --primary-color: #4CAF50;
+      --text-color: #333;
+      --background-color: #f9f7f2;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f9f7f2;
-      color: #333;
+      background-color: var(--background-color);
+      color: var(--text-color);
       line-height: 1.8;
     }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     header {
       position: relative;
       background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
@@ -30,125 +47,144 @@
       color: #fff;
       padding: 1rem;
     }
+
     .logo {
       position: absolute;
       top: 15px;
       left: 15px;
     }
+
     .logo img {
-      width: 90px;
+      width: 80px;
       border-radius: 10px;
     }
+
     header h1 {
-      font-size: 1.7rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+      font-size: 2rem;
       font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
     }
+
     header p {
       font-size: 1rem;
       max-width: 85%;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 
     .intro {
-      max-width: 860px;
+      max-width: 900px;
       margin: 3rem auto;
       padding: 2.5rem 2rem;
       background-color: #fff;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
     }
+
     .intro h2 {
-      font-size: 1.9rem;
-      margin-bottom: 1rem;
-      color: #4CAF50;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
       text-align: center;
     }
+
     .intro p {
       font-size: 1.05rem;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.3rem;
       text-align: justify;
     }
-    .intro .cta {
+
+    .cta {
       font-weight: 500;
       color: #2e7d32;
     }
 
     footer {
       background-color: #f4f4f9;
-      color: #333;
+      color: var(--text-color);
       padding: 2rem 1rem;
       text-align: center;
-      font-family: 'Poppins', sans-serif;
-      border-top: 2px solid #4CAF50;
+      border-top: 2px solid var(--primary-color);
     }
+
     .footer-content p {
       font-size: 0.9rem;
       margin: 0.4rem 0;
-      font-weight: 300;
     }
-    .footer-content a {
-      color: #4CAF50;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .footer-content a:hover {
-      text-decoration: underline;
-    }
+
     .footer-social {
       margin-top: 1rem;
     }
+
     .social-link {
-      color: #333;
-      margin: 0 12px;
+      color: var(--text-color);
+      margin: 0 10px;
       font-size: 1.5rem;
       transition: color 0.3s ease;
     }
+
     .social-link:hover {
-      color: #4CAF50;
+      color: var(--primary-color);
     }
 
-    /* Responsive text sizing */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      header {
+        height: 50vh;
+        padding: 1rem 0.5rem;
+      }
+
       header h1 {
         font-size: 1.5rem;
       }
+
       header p {
         font-size: 0.95rem;
+      }
+
+      .intro {
+        padding: 2rem 1.2rem;
+      }
+
+      .intro h2 {
+        font-size: 1.6rem;
+      }
+
+      .intro p {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <a href="index.html" class="logo">
-    <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
-  </a>
-  <h1>BrHut - Nơi Mộc Mạc và Tự Nhiên Gặp Gỡ</h1>
-  <p>Khám phá hành trình tạo ra những sản phẩm đơn giản, gần gũi và chân thực nhất với thiên nhiên.</p>
-</header>
+  <header>
+    <a href="index.html" class="logo">
+      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="BrHut Logo">
+    </a>
+    <h1>BrHut - Nơi Mộc Mạc và Tự Nhiên Gặp Gỡ</h1>
+    <p>Khám phá hành trình tạo ra những sản phẩm đơn giản, gần gũi và chân thực nhất với thiên nhiên.</p>
+  </header>
 
-<section class="intro">
-  <h2>Giới Thiệu Về BrHut</h2>
-  <p>Chào mừng bạn đến với <strong>BrHut</strong>, nơi mình tập trung vào việc sống gần gũi với thiên nhiên và tự tay tạo ra những sản phẩm thủ công mộc mạc. Dự án này bắt đầu từ mong muốn không chỉ sống gần thiên nhiên mà còn tạo ra những thứ đơn giản nhưng có giá trị thật sự. Mình chia sẻ hành trình này qua hình ảnh và âm thanh, không cầu kỳ – chỉ là những nỗ lực chân thành để học hỏi và phát triển.</p>
-  <p class="cta">BrHut không theo đuổi sự hoàn hảo, mà chỉ mong mỏi tìm thấy niềm vui và sự sáng tạo trong những điều giản dị nhất. Nếu bạn cũng yêu thích thiên nhiên, đồ handmade và một phong cách sống chậm rãi, hy vọng bạn sẽ cảm thấy thân thuộc với BrHut.</p>
-  <p>Với BrHut, mọi thứ đều bắt nguồn từ sự sáng tạo mộc mạc và đam mê với thiên nhiên. Mình rất vui khi được chia sẻ hành trình này cùng bạn!</p>
-</section>
+  <section class="intro">
+    <h2>Giới Thiệu Về BrHut</h2>
+    <p>Chào mừng bạn đến với <strong>BrHut</strong>, nơi mình tập trung vào việc sống gần gũi với thiên nhiên và tự tay tạo ra những sản phẩm thủ công mộc mạc. Dự án này bắt đầu từ mong muốn không chỉ sống gần thiên nhiên mà còn tạo ra những thứ đơn giản nhưng có giá trị thật sự. Mình chia sẻ hành trình này qua hình ảnh và âm thanh, không cầu kỳ – chỉ là những nỗ lực chân thành để học hỏi và phát triển.</p>
+    <p class="cta">BrHut không theo đuổi sự hoàn hảo, mà chỉ mong mỏi tìm thấy niềm vui và sự sáng tạo trong những điều giản dị nhất. Nếu bạn cũng yêu thích thiên nhiên, đồ handmade và một phong cách sống chậm rãi, hy vọng bạn sẽ cảm thấy thân thuộc với BrHut.</p>
+    <p>Với BrHut, mọi thứ đều bắt nguồn từ sự sáng tạo mộc mạc và đam mê với thiên nhiên. Mình rất vui khi được chia sẻ hành trình này cùng bạn!</p>
+  </section>
 
-<footer>
-  <div class="footer-content">
-    <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
-    <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
-  </div>
-  <div class="footer-social">
-    <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/brhutcraft" class="social-link"><i class="fab fa-instagram"></i></a>
-    <a href="https://youtube.com/@brhut" class="social-link"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.tiktok.com/@brhutcraft" class="social-link"><i class="fab fa-tiktok"></i></a>
-  </div>
-</footer>
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
+      <p>Liên hệ: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/brhutcraft" class="social-link"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@brhut" class="social-link"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@brhutcraft" class="social-link"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </footer>
 
 </body>
 </html>
