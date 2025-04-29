@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
+<!DOCTYPE html><html lang="vi"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BrHut - Nhà Của Sự Đơn Giản</title>
@@ -13,209 +11,56 @@
       --text-light: #fff;
       --accent: #ff7e5f;
       --accent-secondary: #feb47b;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    }* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--background); color: var(--text-dark); line-height: 1.6; }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--background);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
+a { text-decoration: none; color: inherit; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+header { background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat; height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--text-light); padding: 1rem; position: relative; }
 
-    header {
-      background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
-      height: 70vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: var(--text-light);
-      padding: 1rem;
-      position: relative;
-    }
+.logo { position: absolute; top: 15px; left: 15px; }
 
-    .logo {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-    }
+.logo img { width: 100px; border-radius: 8px; }
 
-    .logo img {
-      width: 100px;
-      border-radius: 8px;
-    }
+header h1 { font-size: 2rem; margin-bottom: 0.5rem; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
 
-    header h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-    }
+header p { font-size: 1.1rem; max-width: 600px; text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
 
-    header p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-    }
+.button { margin-top: 1.5rem; background: var(--main-color); padding: 0.7rem 1.2rem; color: var(--text-light); border-radius: 5px; font-weight: bold; transition: background 0.3s; }
 
-    .button {
-      margin-top: 1.5rem;
-      background: var(--main-color);
-      padding: 0.7rem 1.2rem;
-      color: var(--text-light);
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
+.button:hover { background: #388E3C; }
 
-    .button:hover {
-      background: #388E3C;
-    }
+.categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; padding: 2rem; background: #fff; }
 
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
-      background: #fff;
-    }
+.category { position: relative; border-radius: 10px; overflow: hidden; background: #ddd; transition: transform 0.3s, box-shadow 0.3s; }
 
-    .category {
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      background: #ddd;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+.category:hover { transform: scale(1.02); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
 
-    .category:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
+.category img { width: 100%; height: 200px; object-fit: cover; }
 
-    .category img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+.category h3 { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.6); color: #fff; padding: 0.3rem 0.8rem; border-radius: 5px; }
 
-    .category h3 {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      padding: 0.3rem 0.8rem;
-      border-radius: 5px;
-    }
+footer { background-color: #f4f4f9; color: var(--text-dark); padding: 2rem 1rem; text-align: center; border-top: 3px solid var(--main-color); }
 
-    footer {
-      background-color: #f4f4f9;
-      color: var(--text-dark);
-      padding: 2rem 1rem;
-      text-align: center;
-      border-top: 3px solid var(--main-color);
-    }
+.footer-content p { font-size: 0.9rem; margin: 0.5rem 0; line-height: 1.5; }
 
-    .footer-content p {
-      font-size: 0.9rem;
-      margin: 0.5rem 0;
-      line-height: 1.5;
-    }
+.footer-content a { color: var(--main-color); font-weight: bold; }
 
-    .footer-content a {
-      color: var(--main-color);
-      font-weight: bold;
-    }
+.footer-social { margin-top: 1rem; }
 
-    .footer-social {
-      margin-top: 1rem;
-    }
+.social-link { color: #333; margin: 0 10px; font-size: 1.5rem; transition: color 0.3s; }
 
-    .social-link {
-      color: #333;
-      margin: 0 10px;
-      font-size: 1.5rem;
-      transition: color 0.3s;
-    }
+.social-link:hover { color: var(--main-color); }
 
-    .social-link:hover {
-      color: var(--main-color);
-    }
+@media (max-width: 768px) { header h1 { font-size: 1.5rem; }
 
-    .status-share {
-      margin-top: 2rem;
-      padding: 1rem;
-      background: var(--accent-secondary);
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
+header p { font-size: 0.95rem; }
 
-    .status-share h3 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
+.logo img { width: 80px; } }
 
-    .status-share .status-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .status-share .status-actions {
-      display: flex;
-      gap: 10px;
-    }
-
-    .status-share .like-btn,
-    .status-share .share-btn {
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-      background: var(--main-color);
-      color: var(--text-light);
-      border: none;
-      transition: background 0.3s;
-    }
-
-    .status-share .like-btn:hover,
-    .status-share .share-btn:hover {
-      background: #388E3C;
-    }
-
-    .status-share .read-count {
-      font-size: 1rem;
-      color: var(--text-dark);
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
-
-      header p {
-        font-size: 0.95rem;
-      }
-
-      .logo img {
-        width: 80px;
-      }
-
-      .status-share h3 {
-        font-size: 1rem;
-      }
-    }
   </style>
 </head>
 <body>
@@ -226,9 +71,7 @@
     <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
     <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
     <a href="about.html" class="button">Xem thêm</a>
-  </header>
-
-  <section class="categories">
+  </header>  <section class="categories">
     <a href="#" class="category">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png" alt="Handmade">
       <h3>Đồ Thủ Công</h3>
@@ -249,30 +92,18 @@
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458175842903752646802185968006.png" alt="Skill Pack">
       <h3>Gói Kỹ Năng</h3>
     </a>
-  </section>
-
+  </section> 
   <footer>
-    <div class="footer-content">
-      <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
-      <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
-    </div>
-    <div class="footer-social">
-      <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://youtube.com/@brhut" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
-    </div>
-  </footer>
-
-  <div class="status-share">
-    <h3>Chia sẻ trạng thái của bạn</h3>
-    <div class="status-content">
-      <span class="read-count">Lượt đọc: 152</span>
-      <div class="status-actions">
-        <button class="like-btn">Like</button>
-        <button class="share-btn">Chia sẻ</button>
-      </div>
-    </div>
+  <div class="footer-content">
+    <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
+    <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
   </div>
+  <div class="footer-social">
+    <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://youtube.com/@brhut" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+  </div>
+</footer>
 </body>
 </html>
