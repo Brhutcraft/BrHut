@@ -8,10 +8,14 @@
     body { font-family: Arial; padding: 20px; background: #fff; }
     h1 { margin-bottom: 10px; }
     .content { margin-top: 20px; }
+    .image { max-width: 100%; height: auto; }
+    .author { font-style: italic; }
   </style>
 </head>
 <body>
   <h1 id="title">Đang tải...</h1>
+  <img id="image" class="image" src="" alt="Image" />
+  <div class="author" id="author"></div>
   <div class="content" id="content"></div>
 
   <script>
@@ -29,6 +33,8 @@
           if (post) {
             document.getElementById('title').innerText = post.title;
             document.getElementById('content').innerHTML = post.content;
+            document.getElementById('image').src = post.image;
+            document.getElementById('author').innerText = `Tác giả: ${post.author}`;
           } else {
             document.getElementById('title').innerText = 'Không tìm thấy bài viết';
           }
