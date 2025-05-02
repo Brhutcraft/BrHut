@@ -1,209 +1,172 @@
-<!DOCTYPE html>
-<html lang="vi">
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <title>BrHut - Hành Trình Sống Chậm</title>  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />  
+  <style>  
+    :root {  
+      --main-color: #4CAF50;  
+      --background: #f9f7f2;  
+      --text-dark: #333;  
+      --text-light: #fff;  
+      --accent: #ff7e5f;  
+      --accent-secondary: #feb47b;  
+    }  
+    * { margin: 0; padding: 0; box-sizing: border-box; }  
+    body {  
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+      background-color: var(--background);  
+      color: var(--text-dark);  
+      line-height: 1.6;  
+    }  
+    a { text-decoration: none; color: inherit; }  
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Giới Thiệu - BrHut</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    :root {
-      --main-color: #4CAF50;
-      --background: #f9f7f2;
-      --text-dark: #333;
-      --text-light: #fff;
-    }
+    header {  
+      background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;  
+      height: 70vh;  
+      display: flex;  
+      flex-direction: column;  
+      justify-content: center;  
+      align-items: center;  
+      text-align: center;  
+      color: var(--text-light);  
+      padding: 1rem;  
+      position: relative;  
+    }  
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--background);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
-
-    /* CHỈNH SỬA HEADER: Bỏ background ở đây, thêm position và overflow */
-    header {
-      /* background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat; */
-      min-height: 60vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: var(--text-light);
-      position: relative; /* Cần thiết cho pseudo-element */
-      padding: 1rem;
-      overflow: hidden; /* Ngăn viền tràn ra */
-    }
-
-    /* THÊM PSEUDO-ELEMENT ::before CHO HEADER LÀM NỀN VỚI OVERLAY */
+    /* Thêm lớp phủ tối màu */
     header::before {
-      content: ""; /* Bắt buộc phải có */
-      /* Sử dụng background với 2 lớp: màu overlay và ảnh nền */
-      background:
-        /* Lớp 1: Màu đen bán trong suốt (0.4 là độ trong suốt, 0 là hoàn toàn trong, 1 là hoàn toàn đặc) */
-        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-        /* Lớp 2: Ảnh nền */
-        url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: -1; /* Đặt element này ra phía sau nội dung */
-      /* filter: blur(3px); */ /* Bỏ dòng blur đi */
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* Thay đổi giá trị opacity ở đây để điều chỉnh độ tối */
+      z-index: 1;
     }
 
+    .logo {  
+      position: absolute;  
+      top: 15px;  
+      left: 15px;  
+    }  
+    .logo img {  
+      width: 100px;  
+      border-radius: 8px;  
+    }  
+    header h1 {  
+      font-size: 2rem;  
+      margin-bottom: 0.5rem;  
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);  
+      z-index: 2; /* Đảm bảo chữ luôn hiển thị trên lớp phủ */
+    }  
+    header p {  
+      font-size: 1.1rem;  
+      max-width: 600px;  
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);  
+      z-index: 2; /* Đảm bảo chữ luôn hiển thị trên lớp phủ */
+    }  
+    .button {  
+      margin-top: 1.5rem;  
+      background: var(--main-color);  
+      padding: 0.7rem 1.2rem;  
+      color: var(--text-light);  
+      border-radius: 5px;  
+      font-weight: bold;  
+      transition: background 0.3s;  
+      z-index: 2; /* Đảm bảo nút luôn hiển thị trên lớp phủ */
+    }  
+    .button:hover { background: #388E3C; }  
 
-    .logo {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      z-index: 10; /* Đảm bảo logo nổi lên trên background và text */
+    section {  
+      padding: 2rem 1rem;  
+      max-width: 900px;  
+      margin: auto;  
+      background-color: #fff;  
+      border-radius: 10px;  
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);  
+    }  
+
+    section h2 {  
+      text-align: center;  
+      font-size: 2rem;  
+      margin-bottom: 1rem;  
+      color: var(--main-color);  
+    }  
+
+    section p {  
+      font-size: 1.1rem;  
+      line-height: 1.8;  
+      margin-bottom: 1rem;  
+      color: var(--text-dark);  
     }
 
-    /* CHỈNH SỬA HEADER-TEXT: Thêm position và z-index để nổi lên trên nền */
-    .header-text {
-      /* Nền đen cho khối text này có thể không cần thiết nếu nền chính đã đủ tối, */
-      /* nhưng tôi giữ lại để đảm bảo khả năng đọc cao nhất */
-      background: rgba(0, 0, 0, 0.65);
-      padding: 1.5rem;
-      border-radius: 10px;
-      max-width: 90%;
-      margin: 1rem auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      position: relative; /* Cần có position để z-index hoạt động */
-      z-index: 1; /* Đảm bảo khối text nổi lên trên nền */
-    }
+    footer {  
+      background-color: #f4f4f9;  
+      color: var(--text-dark);  
+      padding: 2rem 1rem;  
+      text-align: center;  
+      border-top: 3px solid var(--main-color);  
+    }  
+    .footer-content p {  
+      font-size: 0.9rem;  
+      margin: 0.5rem 0;  
+      line-height: 1.5;  
+    }  
+    .footer-content a {  
+      color: var(--main-color);  
+      font-weight: bold;  
+    }  
+    .footer-social {  
+      margin-top: 1rem;  
+    }  
+    .social-link {  
+      color: #333;  
+      margin: 0 10px;  
+      font-size: 1.5rem;  
+      transition: color 0.3s;  
+    }  
+    .social-link:hover {  
+      color: var(--main-color);  
+    }  
 
-    .header-text h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+    @media (max-width: 768px) {  
+      header h1 { font-size: 1.5rem; }  
+      header p { font-size: 0.95rem; }  
+      .logo img { width: 80px; }  
+    }  
+  </style>  
+</head>  
+<body>  
+  <header>  
+    <a href="https://brhutcraft.github.io/BrHut/" class="logo">  
+      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">  
+    </a>  
+    <h1>Hành Trình Sống Chậm</h1>  
+    <p>Chia sẻ về cuộc sống mộc mạc và gần gũi với thiên nhiên của BrHut</p>  
+  </header>    
 
-    .header-text p {
-      font-size: 1rem;
-      text-align: justify;
-      line-height: 1.7;
-    }
+  <section>  
+    <h2>Giới thiệu về BrHut</h2>  
+    <p>Hành trình sống chậm, mộc mạc giữa thiên nhiên BrHut, nơi mình tập trung vào việc sống gần gũi với thiên nhiên và tự tay tạo ra những sản phẩm thủ công mộc mạc. Dự án này bắt đầu từ mong muốn không chỉ sống gần thiên nhiên mà còn tạo ra những thứ đơn giản nhưng có giá trị thật sự. Mình chia sẻ hành trình này qua hình ảnh và âm thanh, không cầu kỳ – chỉ là những nỗ lực chân thành để học hỏi và phát triển.</p>  
+    <p>BrHut không theo đuổi sự hoàn hảo, mà chỉ mong mỏi tìm thấy niềm vui và sự sáng tạo trong những điều giản dị nhất. Nếu bạn cũng yêu thích thiên nhiên, đồ handmade và một phong cách sống chậm rãi, hy vọng bạn sẽ cảm thấy thân thuộc với BrHut.</p>  
+    <p>Với BrHut, mọi thứ đều bắt nguồn từ sự sáng tạo mộc mạc và đam mê với thiên nhiên. Mình rất vui khi được chia sẻ hành trình này cùng bạn!</p>  
+  </section>  
 
-    .header-text p br {
-        display: block;
-        content: "";
-        margin-top: 0.5rem;
-    }
-
-
-    footer {
-      background-color: #f4f4f9;
-      color: var(--text-dark);
-      padding: 2rem 1rem;
-      text-align: center;
-      border-top: 3px solid var(--main-color);
-      margin-top: 2rem;
-    }
-
-    .footer-content p {
-      font-size: 0.9rem;
-      margin: 0.5rem 0;
-    }
-
-    .footer-content a {
-      color: var(--main-color);
-      font-weight: bold;
-      text-decoration: none;
-    }
-     .footer-content a:hover {
-         text-decoration: underline;
-     }
-
-    .footer-social {
-      margin-top: 1rem;
-    }
-
-    .social-link {
-      color: #333;
-      margin: 0 12px;
-      font-size: 1.6rem;
-      transition: color 0.3s ease;
-    }
-
-    .social-link:hover {
-      color: var(--main-color);
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      header {
-        min-height: 50vh;
-      }
-      .header-text h1 {
-        font-size: 1.6rem;
-      }
-      .header-text p {
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-      .header-text {
-          padding: 1rem;
-          max-width: 95%;
-      }
-      .logo img {
-        width: 75px;
-      }
-      .social-link {
-          font-size: 1.5rem;
-          margin: 0 10px;
-      }
-    }
-     @media (max-width: 480px) {
-         .header-text h1 {
-             font-size: 1.4rem;
-         }
-          .header-text p {
-            font-size: 0.85rem;
-          }
-     }
-
-  </style>
-</head>
-
-<body>
-  <header>
-    <a href="index.html" class="logo">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo BrHut">
-      </a>
-    <div class="header-text">
-      <h1>Về BrHut</h1>
-      <p>
-        Hành trình sống chậm, mộc mạc giữa thiên nhiên BrHut, nơi mình tập trung vào việc sống gần gũi với thiên nhiên và tự tay tạo ra những sản phẩm thủ công mộc mạc. Dự án này bắt đầu từ mong muốn không chỉ sống gần thiên nhiên mà còn tạo ra những thứ đơn giản nhưng có giá trị thật sự.
-        <br><br>
-        Mình chia sẻ hành trình này qua hình ảnh và âm thanh, không cầu kỳ – chỉ là những nỗ lực chân thành để học hỏi và phát triển.
-        <br><br>
-        BrHut không theo đuổi sự hoàn hảo, mà chỉ mong mỏi tìm thấy niềm vui và sự sáng tạo trong những điều giản dị nhất. Nếu bạn cũng yêu thích thiên nhiên, đồ handmade và một phong cách sống chậm rãi, hy vọng bạn sẽ cảm thấy thân thuộc với BrHut.
-        <br><br>
-        Với BrHut, mọi thứ đều bắt nguồn từ sự sáng tạo mộc mạc và đam mê với thiên nhiên. Mình rất vui khi được chia sẻ hành trình này cùng bạn!
-      </p>
-    </div>
-  </header>
-
-  <footer>
-    <div class="footer-content">
-      <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
-      <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
-    </div>
-    <div class="footer-social">
-      <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://youtube.com/@brhut" class="social-link" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-    </div>
-  </footer>
-</body>
-
+  <footer>  
+    <div class="footer-content">  
+      <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>  
+      <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>  
+    </div>  
+    <div class="footer-social">  
+      <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>  
+      <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>  
+      <a href="https://youtube.com/@brhut" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>  
+      <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>  
+    </div>  
+  </footer>   
+</body>  
 </html>
