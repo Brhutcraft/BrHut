@@ -18,17 +18,25 @@
     const urlParams = new URLSearchParams(window.location.search);
     const postId = urlParams.get('id');
 
-    fetch('news.json')
-      .then(response => response.json())
-      .then(data => {
-        const post = data.find(p => p.id == postId);
-        if (post) {
-          document.getElementById('title').innerText = post.title;
-          document.getElementById('content').innerHTML = post.content;
-        } else {
-          document.getElementById('title').innerText = 'Không tìm thấy bài viết';
-        }
-      });
+    if (!postId) {
+      document.getElementById('title').innerText = 'Không có ID bài viết';
+      document.getElementById('content').innerText = 'Vui lòng kiểm tra lại URL.';
+    } else {
+      fetch('news.json')
+        .then(response => response.json())
+        .then(data => {
+          const post = data.find(p => p.id == postId);
+          if (post) {
+            document.getElementById('title').innerText = post.title;
+            document.getElementById('content').innerHTML = post.content;
+          } else {
+            document.getElementById('title').innerText = 'Không tìm thấy bài viết';
+          }
+        })
+        .catch(() => {
+          document.getElementById('title').innerText = 'Lỗi tải dữ liệu';
+        });
+    }
   </script>
 </body>
 </html>
