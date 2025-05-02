@@ -8,20 +8,29 @@
   <style>  
     :root {  
       --main-color: #4CAF50;  
-      --background: #f9f7f2;  
+      --background: #f4f4f9;  
       --text-dark: #333;  
       --text-light: #fff;  
       --accent: #ff7e5f;  
       --accent-secondary: #feb47b;  
+      --heading-font: 'Poppins', sans-serif;
+      --body-font: 'Roboto', sans-serif;
     }  
-    * { margin: 0; padding: 0; box-sizing: border-box; }  
+    * {  
+      margin: 0;  
+      padding: 0;  
+      box-sizing: border-box;  
+    }  
     body {  
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+      font-family: var(--body-font);  
       background-color: var(--background);  
       color: var(--text-dark);  
       line-height: 1.6;  
     }  
-    a { text-decoration: none; color: inherit; }  
+    a {  
+      text-decoration: none;  
+      color: inherit;  
+    }
 
     header {  
       background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;  
@@ -31,76 +40,90 @@
       justify-content: center;  
       align-items: center;  
       text-align: center;  
-      color: var(--text-light);  
-      padding: 1rem;  
+      padding: 2rem;  
       position: relative;  
+      box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4);  
     }  
 
-    /* Thêm lớp phủ tối màu */
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.4); /* Thay đổi giá trị opacity ở đây để điều chỉnh độ tối */
-      z-index: 1;
+    header::before {  
+      content: '';  
+      position: absolute;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      height: 100%;  
+      background-color: rgba(0, 0, 0, 0.5);  
+      z-index: 1;  
     }
 
     .logo {  
       position: absolute;  
       top: 15px;  
       left: 15px;  
-    }  
+    }
+
     .logo img {  
-      width: 100px;  
+      width: 80px;  
       border-radius: 8px;  
-    }  
+    }
+
     header h1 {  
-      font-size: 2rem;  
+      font-size: 3rem;  
       margin-bottom: 0.5rem;  
-      text-shadow: 0 2px 5px rgba(0,0,0,0.5);  
-      z-index: 2; /* Đảm bảo chữ luôn hiển thị trên lớp phủ */
+      color: var(--text-light);  
+      z-index: 2;  
+      font-family: var(--heading-font);  
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);  
     }  
+
     header p {  
-      font-size: 1.1rem;  
+      font-size: 1.3rem;  
       max-width: 600px;  
-      text-shadow: 0 1px 3px rgba(0,0,0,0.4);  
-      z-index: 2; /* Đảm bảo chữ luôn hiển thị trên lớp phủ */
-    }  
+      color: var(--text-light);  
+      z-index: 2;  
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);  
+      line-height: 1.8;  
+    }
+
     .button {  
       margin-top: 1.5rem;  
       background: var(--main-color);  
-      padding: 0.7rem 1.2rem;  
+      padding: 0.8rem 1.5rem;  
       color: var(--text-light);  
       border-radius: 5px;  
       font-weight: bold;  
       transition: background 0.3s;  
-      z-index: 2; /* Đảm bảo nút luôn hiển thị trên lớp phủ */
+      z-index: 2;  
+      font-size: 1rem;  
     }  
-    .button:hover { background: #388E3C; }  
+
+    .button:hover {  
+      background: #388E3C;  
+    }  
 
     section {  
-      padding: 2rem 1rem;  
+      padding: 3rem 2rem;  
       max-width: 900px;  
-      margin: auto;  
+      margin: 3rem auto;  
       background-color: #fff;  
       border-radius: 10px;  
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);  
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);  
+      color: var(--text-dark);  
+      font-family: var(--body-font);  
     }  
 
     section h2 {  
       text-align: center;  
-      font-size: 2rem;  
-      margin-bottom: 1rem;  
+      font-size: 2.5rem;  
       color: var(--main-color);  
+      margin-bottom: 1rem;  
+      font-family: var(--heading-font);  
     }  
 
     section p {  
       font-size: 1.1rem;  
       line-height: 1.8;  
-      margin-bottom: 1rem;  
+      margin-bottom: 1.5rem;  
       color: var(--text-dark);  
     }
 
@@ -111,32 +134,37 @@
       text-align: center;  
       border-top: 3px solid var(--main-color);  
     }  
+
     .footer-content p {  
       font-size: 0.9rem;  
       margin: 0.5rem 0;  
       line-height: 1.5;  
     }  
+
     .footer-content a {  
       color: var(--main-color);  
       font-weight: bold;  
-    }  
+    }
+
     .footer-social {  
       margin-top: 1rem;  
     }  
+
     .social-link {  
       color: #333;  
       margin: 0 10px;  
-      font-size: 1.5rem;  
+      font-size: 1.8rem;  
       transition: color 0.3s;  
     }  
+
     .social-link:hover {  
       color: var(--main-color);  
     }  
 
     @media (max-width: 768px) {  
-      header h1 { font-size: 1.5rem; }  
-      header p { font-size: 0.95rem; }  
-      .logo img { width: 80px; }  
+      header h1 { font-size: 2rem; }  
+      header p { font-size: 1rem; }  
+      section h2 { font-size: 2rem; }  
     }  
   </style>  
 </head>  
