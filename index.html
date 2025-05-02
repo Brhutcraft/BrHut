@@ -236,33 +236,45 @@
 <script>
   const feed = document.getElementById('news-feed');
 
+  // Dữ liệu fallback khi không load được file
+  const fallbackNews = [
+    {
+      image: "https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png",
+      title: "BrHut ra mắt dòng ghế mây mới",
+      content: "Mỗi chiếc ghế được làm hoàn toàn thủ công, mang hồn cốt của thiên nhiên."
+    },
+    {
+      image: "https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453215875158203934831320675485.png",
+      title: "Gói Kỹ Năng Sinh Tồn đầu tiên lên kệ",
+      content: "Hướng dẫn thực chiến sống sót tự nhiên: nhóm lửa, dựng lều, lọc nước."
+    }
+  ];
+
+  // Hàm hiển thị tin tức
   function renderNews(news) {
     feed.innerHTML = "";
     news.forEach(item => {
       const div = document.createElement('div');
-      div.className = 'bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition';
+      div.className = 'news-item';
       div.innerHTML = `
-        <img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover">
-        <div class="p-4">
-          <h3 class="text-xl font-semibold mb-2">${item.title}</h3>
-          <p class="text-gray-600 text-sm mb-4">${item.summary}</p>
-          <a href="/posts/${item.slug}" class="text-blue-600 hover:underline text-sm font-medium">Đọc thêm</a>
+        <img src="${item.image}" alt="${item.title}">
+        <div class="news-content">
+          <h4>${item.title}</h4>
+          <p>${item.content}</p>
         </div>
       `;
       feed.appendChild(div);
     });
   }
 
+  // Cố gắng load từ news.json
   fetch('news.json')
     .then(res => {
-      if (!res.ok) throw new Error("Không tải được file JSON");
+      if (!res.ok) throw new Error("Không tải được news.json");
       return res.json();
     })
     .then(data => renderNews(data))
-    .catch(err => {
-      feed.innerHTML = `<p class="text-red-500 text-center">Không thể tải bài viết.</p>`;
-      console.error(err);
-    });
+    .catch(() => renderNews(fallbackNews));
 </script>
   
 </body>
