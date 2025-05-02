@@ -234,33 +234,28 @@
   </footer>
 
   <script>
-    // Dữ liệu mẫu: bạn có thể tách ra file news.json sau
-    const newsData = [
-      {
-        title: "Bắt đầu dựng nhà mới bên bờ suối",
-        content: "Khởi đầu hành trình sống giữa thiên nhiên – theo dõi trên BrHut!",
-        image: "https://brhut.wordpress.com/wp-content/uploads/2025/04/sample1.jpg"
-      },
-      {
-        title: "Ghế mây lười từ song rừng",
-        content: "Sản phẩm thủ công độc lạ từ thiên nhiên – đơn sơ mà đẹp lạ!",
-        image: "https://brhut.wordpress.com/wp-content/uploads/2025/04/sample2.jpg"
-      }
-    ];
-
-    const feed = document.getElementById('news-feed');
-    newsData.forEach(item => {
-      const div = document.createElement('div');
-      div.className = 'news-item';
-      div.innerHTML = `
-        <img src="${item.image}" alt="${item.title}">
-        <div class="news-content">
-          <h4>${item.title}</h4>
-          <p>${item.content}</p>
-        </div>
-      `;
-      feed.appendChild(div);
+  fetch('news.json')
+    .then(response => response.json())
+    .then(newsData => {
+      const feed = document.getElementById('news-feed');
+      newsData.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'news-item';
+        div.innerHTML = `
+          <img src="${item.image}" alt="${item.title}">
+          <div class="news-content">
+            <h4>${item.title}</h4>
+            <p>${item.content}</p>
+          </div>
+        `;
+        feed.appendChild(div);
+      });
+    })
+    .catch(error => {
+      console.error('Không thể tải news.json:', error);
+      document.getElementById('news-feed').innerHTML = '<p>Không thể hiển thị tin mới.</p>';
     });
-  </script>
+</script>
+  
 </body>
 </html>
