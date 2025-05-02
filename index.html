@@ -36,15 +36,15 @@
       color: var(--text-light);
       padding: 1rem;
       position: relative; /* Cần thiết cho pseudo-element */
-      overflow: hidden; /* Ngăn viền tràn ra */
+      overflow: hidden; /* Ngăn phần tràn (bao gồm cả phần đồ họa thừa) ra ngoài */
     }
 
     /* THÊM PSEUDO-ELEMENT ::before CHO HEADER LÀM NỀN VỚI OVERLAY */
     header::before {
       content: ""; /* Bắt buộc phải có */
-      /* Sử dụng background với 2 lớp: màu overlay (alpha 0.2) và ảnh nền */
+      /* Sử dụng background với 2 lớp: màu overlay (alpha 0.5) và ảnh nền */
       background:
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Overlay màu đen 0.2 alpha */
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Overlay màu đen 0.5 alpha */
         url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat; /* Ảnh nền */
       position: absolute;
       top: 0;
