@@ -29,66 +29,56 @@
 
     header {
       background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
-      height: 70vh;
+      /* Ảnh gốc bạn cung cấp, đảm bảo URL này còn hoạt động */
+      min-height: 60vh; /* Sử dụng min-height thay vì height để linh hoạt hơn */
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       color: var(--text-light);
       position: relative;
-      padding: 1rem;
+      padding: 1rem; /* Padding tổng thể cho header */
     }
 
     .logo {
       position: absolute;
       top: 15px;
       left: 15px;
+      z-index: 10; /* Đảm bảo logo nổi lên trên */
     }
 
     .logo img {
       width: 100px;
       border-radius: 8px;
+      display: block; /* Tránh khoảng trắng thừa dưới ảnh */
     }
 
     .header-text {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.65); /* Tăng độ đậm của nền chữ */
+      padding: 1.5rem; /* Tăng padding để chữ không quá sát viền */
       border-radius: 10px;
-      max-width: 800px;
+      max-width: 90%; /* Giới hạn chiều rộng tối đa */
+      margin: 1rem auto; /* Tự động căn giữa và thêm margin trên dưới */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm đổ bóng nhẹ */
     }
 
     .header-text h1 {
       font-size: 2rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem; /* Tăng khoảng cách dưới H1 */
     }
 
     .header-text p {
-      font-size: 1.1rem;
-      /* Đoạn text dài này vẫn giữ nguyên, chỉ căn chỉnh thẻ p */
+      font-size: 1rem; /* Kích thước chữ đoạn văn */
+      text-align: justify; /* Căn đều 2 bên cho đẹp hơn */
+      line-height: 1.7; /* Tăng khoảng cách dòng cho dễ đọc */
     }
 
-    /* Bạn có thể thêm một thẻ <section> hoặc <div> để bao bọc nội dung giới thiệu này
-       thay vì để trực tiếp trong <header> nếu muốn tách biệt rõ hơn */
-    /* .about-content {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    .header-text p br {
+        display: block; /* Đảm bảo thẻ br tạo ngắt dòng */
+        content: ""; /* Cần thiết cho một số trình duyệt */
+        margin-top: 0.5rem; /* Tạo khoảng cách nhỏ sau thẻ br */
     }
 
-    .about-content h2 {
-      color: var(--main-color);
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
-
-    .about-content p {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      text-align: justify;
-    } */
 
     footer {
       background-color: #f4f4f9;
@@ -96,6 +86,7 @@
       padding: 2rem 1rem;
       text-align: center;
       border-top: 3px solid var(--main-color);
+      margin-top: 2rem; /* Thêm khoảng cách trên footer */
     }
 
     .footer-content p {
@@ -106,7 +97,11 @@
     .footer-content a {
       color: var(--main-color);
       font-weight: bold;
+      text-decoration: none; /* Bỏ gạch chân link */
     }
+     .footer-content a:hover {
+         text-decoration: underline; /* Thêm lại gạch chân khi hover */
+     }
 
     .footer-social {
       margin-top: 1rem;
@@ -114,26 +109,48 @@
 
     .social-link {
       color: #333;
-      margin: 0 10px;
-      font-size: 1.5rem;
-      transition: color 0.3s;
+      margin: 0 12px; /* Tăng khoảng cách giữa các icon */
+      font-size: 1.6rem; /* Tăng nhẹ kích thước icon */
+      transition: color 0.3s ease;
     }
 
     .social-link:hover {
       color: var(--main-color);
     }
 
+    /* Responsive adjustments */
     @media (max-width: 768px) {
+      header {
+        min-height: 50vh; /* Giảm chiều cao tối thiểu header trên mobile */
+      }
       .header-text h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem; /* Giảm font H1 */
       }
       .header-text p {
-        font-size: 0.95rem;
+        font-size: 0.9rem; /* Giảm font đoạn văn */
+        line-height: 1.6;
+      }
+      .header-text {
+          padding: 1rem; /* Giảm padding khối text */
+          max-width: 95%; /* Cho phép rộng hơn chút trên mobile */
       }
       .logo img {
-        width: 80px;
+        width: 75px; /* Giảm kích thước logo */
+      }
+      .social-link {
+          font-size: 1.5rem; /* Giảm nhẹ icon social */
+          margin: 0 10px;
       }
     }
+     @media (max-width: 480px) {
+         .header-text h1 {
+             font-size: 1.4rem; /* Giảm nữa cho màn hình rất nhỏ */
+         }
+          .header-text p {
+            font-size: 0.85rem;
+          }
+     }
+
   </style>
 </head>
 
@@ -141,12 +158,12 @@
   <header>
     <a href="index.html" class="logo">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo BrHut">
-    </a>
+      </a>
     <div class="header-text">
       <h1>Về BrHut</h1>
       <p>
         Hành trình sống chậm, mộc mạc giữa thiên nhiên BrHut, nơi mình tập trung vào việc sống gần gũi với thiên nhiên và tự tay tạo ra những sản phẩm thủ công mộc mạc. Dự án này bắt đầu từ mong muốn không chỉ sống gần thiên nhiên mà còn tạo ra những thứ đơn giản nhưng có giá trị thật sự.
-        <br><br> {/* Thêm ngắt dòng để dễ đọc hơn nếu cần */}
+        <br><br>
         Mình chia sẻ hành trình này qua hình ảnh và âm thanh, không cầu kỳ – chỉ là những nỗ lực chân thành để học hỏi và phát triển.
         <br><br>
         BrHut không theo đuổi sự hoàn hảo, mà chỉ mong mỏi tìm thấy niềm vui và sự sáng tạo trong những điều giản dị nhất. Nếu bạn cũng yêu thích thiên nhiên, đồ handmade và một phong cách sống chậm rãi, hy vọng bạn sẽ cảm thấy thân thuộc với BrHut.
@@ -162,10 +179,10 @@
       <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
     </div>
     <div class="footer-social">
-      <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://youtube.com/@brhut" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@brhut" class="social-link" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
     </div>
   </footer>
 </body>
