@@ -27,56 +27,76 @@
       line-height: 1.6;
     }
 
+    /* CHỈNH SỬA HEADER: Bỏ background ở đây, thêm position và overflow */
     header {
-      background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
-      /* Ảnh gốc bạn cung cấp, đảm bảo URL này còn hoạt động */
-      min-height: 60vh; /* Sử dụng min-height thay vì height để linh hoạt hơn */
+      /* background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat; */
+      min-height: 60vh;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
       color: var(--text-light);
-      position: relative;
-      padding: 1rem; /* Padding tổng thể cho header */
+      position: relative; /* Cần thiết cho pseudo-element */
+      padding: 1rem;
+      overflow: hidden; /* Ngăn viền mờ tràn ra */
     }
+
+    /* THÊM PSEUDO-ELEMENT ::before CHO HEADER LÀM NỀN */
+    header::before {
+      content: ""; /* Bắt buộc phải có */
+      background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat; /* Ảnh nền */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1; /* Đặt element này ra phía sau nội dung */
+      filter: blur(3px); /* Áp dụng hiệu ứng làm mờ 3px */
+      /* Tùy chọn: phóng to ảnh một chút để che viền mờ */
+      /* transform: scale(1.02); */
+    }
+
 
     .logo {
       position: absolute;
       top: 15px;
       left: 15px;
-      z-index: 10; /* Đảm bảo logo nổi lên trên */
+      z-index: 10; /* Đảm bảo logo nổi lên trên background và text */
     }
 
     .logo img {
       width: 100px;
       border-radius: 8px;
-      display: block; /* Tránh khoảng trắng thừa dưới ảnh */
+      display: block;
     }
 
+    /* CHỈNH SỬA HEADER-TEXT: Thêm position và z-index để nổi lên trên nền */
     .header-text {
-      background: rgba(0, 0, 0, 0.65); /* Tăng độ đậm của nền chữ */
-      padding: 1.5rem; /* Tăng padding để chữ không quá sát viền */
+      background: rgba(0, 0, 0, 0.65);
+      padding: 1.5rem;
       border-radius: 10px;
-      max-width: 90%; /* Giới hạn chiều rộng tối đa */
-      margin: 1rem auto; /* Tự động căn giữa và thêm margin trên dưới */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm đổ bóng nhẹ */
+      max-width: 90%;
+      margin: 1rem auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: relative; /* Cần có position để z-index hoạt động */
+      z-index: 1; /* Đảm bảo khối text nổi lên trên nền */
     }
 
     .header-text h1 {
       font-size: 2rem;
-      margin-bottom: 1rem; /* Tăng khoảng cách dưới H1 */
+      margin-bottom: 1rem;
     }
 
     .header-text p {
-      font-size: 1rem; /* Kích thước chữ đoạn văn */
-      text-align: justify; /* Căn đều 2 bên cho đẹp hơn */
-      line-height: 1.7; /* Tăng khoảng cách dòng cho dễ đọc */
+      font-size: 1rem;
+      text-align: justify;
+      line-height: 1.7;
     }
 
     .header-text p br {
-        display: block; /* Đảm bảo thẻ br tạo ngắt dòng */
-        content: ""; /* Cần thiết cho một số trình duyệt */
-        margin-top: 0.5rem; /* Tạo khoảng cách nhỏ sau thẻ br */
+        display: block;
+        content: "";
+        margin-top: 0.5rem;
     }
 
 
@@ -86,7 +106,7 @@
       padding: 2rem 1rem;
       text-align: center;
       border-top: 3px solid var(--main-color);
-      margin-top: 2rem; /* Thêm khoảng cách trên footer */
+      margin-top: 2rem;
     }
 
     .footer-content p {
@@ -97,10 +117,10 @@
     .footer-content a {
       color: var(--main-color);
       font-weight: bold;
-      text-decoration: none; /* Bỏ gạch chân link */
+      text-decoration: none;
     }
      .footer-content a:hover {
-         text-decoration: underline; /* Thêm lại gạch chân khi hover */
+         text-decoration: underline;
      }
 
     .footer-social {
@@ -109,8 +129,8 @@
 
     .social-link {
       color: #333;
-      margin: 0 12px; /* Tăng khoảng cách giữa các icon */
-      font-size: 1.6rem; /* Tăng nhẹ kích thước icon */
+      margin: 0 12px;
+      font-size: 1.6rem;
       transition: color 0.3s ease;
     }
 
@@ -121,30 +141,30 @@
     /* Responsive adjustments */
     @media (max-width: 768px) {
       header {
-        min-height: 50vh; /* Giảm chiều cao tối thiểu header trên mobile */
+        min-height: 50vh;
       }
       .header-text h1 {
-        font-size: 1.6rem; /* Giảm font H1 */
+        font-size: 1.6rem;
       }
       .header-text p {
-        font-size: 0.9rem; /* Giảm font đoạn văn */
+        font-size: 0.9rem;
         line-height: 1.6;
       }
       .header-text {
-          padding: 1rem; /* Giảm padding khối text */
-          max-width: 95%; /* Cho phép rộng hơn chút trên mobile */
+          padding: 1rem;
+          max-width: 95%;
       }
       .logo img {
-        width: 75px; /* Giảm kích thước logo */
+        width: 75px;
       }
       .social-link {
-          font-size: 1.5rem; /* Giảm nhẹ icon social */
+          font-size: 1.5rem;
           margin: 0 10px;
       }
     }
      @media (max-width: 480px) {
          .header-text h1 {
-             font-size: 1.4rem; /* Giảm nữa cho màn hình rất nhỏ */
+             font-size: 1.4rem;
          }
           .header-text p {
             font-size: 0.85rem;
