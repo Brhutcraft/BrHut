@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Bài Viết 1: Khám Phá Mái Nhà Mộc Mạc",
+    "content": "Đây là bài viết về việc xây dựng một mái nhà đơn giản nhưng bền vững từ các vật liệu tự nhiên. Bài viết chia sẻ kinh nghiệm và những bước cơ bản cần làm.",
+    "image": "https://via.placeholder.com/300x200?text=Image+1"
+  },
+  {
+    "title": "Bài Viết 2: Tự Làm Ghế Mây Đơn Giản",
+    "content": "Hướng dẫn chi tiết cách làm ghế mây từ nguyên liệu tự nhiên. Đây là một dự án thú vị để tạo ra sản phẩm thủ công đẹp mắt cho không gian sống.",
+    "image": "https://via.placeholder.com/300x200?text=Image+2"
+  },
+  {
+    "title": "Bài Viết 3: Cuộc Sống Xung Quanh Thiên Nhiên",
+    "content": "Khám phá vẻ đẹp của cuộc sống gần gũi thiên nhiên, với các hoạt động như nấu ăn ngoài trời, sống tự cung tự cấp và tận hưởng sự yên bình của thiên nhiên.",
+    "image": "https://via.placeholder.com/300x200?text=Image+3"
+  }
+]
