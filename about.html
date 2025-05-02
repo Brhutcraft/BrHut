@@ -1,417 +1,100 @@
-<!DOCTYPE html>  <html lang="vi">  
-<head>  
-  <meta charset="UTF-8" />  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
-  <title>BrHut - Nhà Của Sự Đơn Giản</title>  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />  
-  <style>  
-    :root {  
-      --main-color: #4CAF50;  
-      --background: #f9f7f2;  
-      --text-dark: #333;  
-      --text-light: #fff;  
-      --accent: #ff7e5f;  
-      --accent-secondary: #feb47b;  
-    }  
-    * { margin: 0; padding: 0; box-sizing: border-box; }  
-    body {  
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
-      background-color: var(--background);  
-      color: var(--text-dark);  
-      line-height: 1.6;  
-    }  
-    a { text-decoration: none; color: inherit; }  header {  
-  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;  
-  height: 70vh;  
-  display: flex;  
-  flex-direction: column;  
-  justify-content: center;  
-  align-items: center;  
-  text-align: center;  
-  color: var(--text-light);  
-  padding: 1rem;  
-  position: relative;  
-}  
-.logo {  
-  position: absolute;  
-  top: 15px;  
-  left: 15px;  
-}  
-.logo img {  
-  width: 100px;  
-  border-radius: 8px;  
-}  
-header h1 {  
-  font-size: 2rem;  
-  margin-bottom: 0.5rem;  
-  text-shadow: 0 2px 5px rgba(0,0,0,0.5);  
-}  
-header p {  
-  font-size: 1.1rem;  
-  max-width: 600px;  
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);  
-}  
-.button {  
-  margin-top: 1.5rem;  
-  background: var(--main-color);  
-  padding: 0.7rem 1.2rem;  
-  color: var(--text-light);  
-  border-radius: 5px;  
-  font-weight: bold;  
-  transition: background 0.3s;  
-}  
-.button:hover { background: #388E3C; }  
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Về BrHut</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --main-color: #4CAF50;
+      --background: #f9f7f2;
+      --text-dark: #333;
+      --text-light: #fff;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background);
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .about-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--main-color);
+    }
+    .about-text {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .about-text p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+    footer {
+      background-color: #f4f4f9;
+      color: var(--text-dark);
+      padding: 2rem 1rem;
+      text-align: center;
+      border-top: 3px solid var(--main-color);
+    }
+    .footer-content p {
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+      line-height: 1.5;
+    }
+    .footer-content a {
+      color: var(--main-color);
+      font-weight: bold;
+    }
+    .footer-social {
+      margin-top: 1rem;
+    }
+    .social-link {
+      color: #333;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    .social-link:hover {
+      color: var(--main-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="about-title">Về BrHut</h1>
+    <div class="about-text">
+      <p><strong>BrHut</strong>, nơi mình tập trung vào việc sống gần gũi với thiên nhiên và tự tay tạo ra những sản phẩm thủ công mộc mạc. Dự án này bắt đầu từ mong muốn không chỉ sống gần thiên nhiên mà còn tạo ra những thứ đơn giản nhưng có giá trị thật sự.</p>
+      <p>Mình chia sẻ hành trình này qua hình ảnh và âm thanh, không cầu kỳ – chỉ là những nỗ lực chân thành để học hỏi và phát triển. BrHut không theo đuổi sự hoàn hảo, mà chỉ mong mỏi tìm thấy niềm vui và sự sáng tạo trong những điều giản dị nhất.</p>
+      <p>Nếu bạn cũng yêu thích thiên nhiên, đồ handmade và một phong cách sống chậm rãi, hy vọng bạn sẽ cảm thấy thân thuộc với BrHut. Với BrHut, mọi thứ đều bắt nguồn từ sự sáng tạo mộc mạc và đam mê với thiên nhiên. Mình rất vui khi được chia sẻ hành trình này cùng bạn!</p>
+    </div>
+  </div>
 
-.categories {  
-  display: grid;  
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  
-  gap: 1.5rem;  
-  padding: 2rem;  
-  background: #fff;  
-}  
-.category {  
-  position: relative;  
-  border-radius: 10px;  
-  overflow: hidden;  
-  background: #ddd;  
-  transition: transform 0.3s, box-shadow 0.3s;  
-}  
-.category:hover {  
-  transform: scale(1.02);  
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);  
-}  
-.category img {  
-  width: 100%;  
-  height: 200px;  
-  object-fit: cover;  
-}  
-.category h3 {  
-  position: absolute;  
-  bottom: 10px;  
-  left: 10px;  
-  background: rgba(0,0,0,0.6);  
-  color: #fff;  
-  padding: 0.3rem 0.8rem;  
-  border-radius: 5px;  
-}  
-
-/* News section - Telegram style */  
-.news-section {  
-  background-color: #fff;  
-  padding: 2rem 1rem;  
-}  
-.news-title {  
-  font-size: 1.5rem;  
-  margin-bottom: 1rem;  
-  text-align: center;  
-  color: var(--main-color);  
-}  
-.news-feed {  
-  max-width: 800px;  
-  margin: auto;  
-  display: flex;  
-  flex-direction: column;  
-  gap: 1rem;  
-}  
-.news-item {  
-  border-left: 4px solid var(--main-color);  
-  padding: 1rem;  
-  background-color: #f1f1f1;  
-  border-radius: 10px;  
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);  
-  display: flex;  
-  gap: 1rem;  
-}  
-.news-item img {  
-  width: 80px;  
-  height: 80px;  
-  border-radius: 8px;  
-  object-fit: cover;  
-}  
-.news-content {  
-  flex: 1;  
-}  
-.news-content h4 {  
-  margin-bottom: 0.3rem;  
-  color: var(--text-dark);  
-  font-size: 1rem;  
-}  
-.news-content p {  
-  font-size: 0.9rem;  
-  color: #555;  
-}  
-
-footer {  
-  background-color: #f4f4f9;  
-  color: var(--text-dark);  
-  padding: 2rem 1rem;  
-  text-align: center;  
-  border-top: 3px solid var(--main-color);  
-}  
-.footer-content p {  
-  font-size: 0.9rem;  
-  margin: 0.5rem 0;  
-  line-height: 1.5;  
-}  
-.footer-content a {  
-  color: var(--main-color);  
-  font-weight: bold;  
-}  
-.footer-social {  
-  margin-top: 1rem;  
-}  
-.social-link {  
-  color: #333;  
-  margin: 0 10px;  
-  font-size: 1.5rem;  
-  transition: color 0.3s;  
-}  
-.social-link:hover {  
-  color: var(--main-color);  
-}  
-
-@media (max-width: 768px) {  
-  header h1 { font-size: 1.5rem; }  
-  header p { font-size: 0.95rem; }  
-  .logo img { width: 80px; }  
-}
-
-  </style>  
-</head>  
-<body>  
-  <header>  
-    <a href="https://brhutcraft.github.io/BrHut/" class="logo">  
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">  
-    </a>  
-    <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>  
-    <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>  
-    <a href="about.html" class="button">Xem thêm</a>  
-  </header>  
-
-
-<!DOCTYPE html>  <html lang="vi">  
-<head>  
-  <meta charset="UTF-8" />  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
-  <title>BrHut - Nhà Của Sự Đơn Giản</title>  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />  
-  <style>  
-    :root {  
-      --main-color: #4CAF50;  
-      --background: #f9f7f2;  
-      --text-dark: #333;  
-      --text-light: #fff;  
-      --accent: #ff7e5f;  
-      --accent-secondary: #feb47b;  
-    }  
-    * { margin: 0; padding: 0; box-sizing: border-box; }  
-    body {  
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
-      background-color: var(--background);  
-      color: var(--text-dark);  
-      line-height: 1.6;  
-    }  
-    a { text-decoration: none; color: inherit; }  header {  
-  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;  
-  height: 70vh;  
-  display: flex;  
-  flex-direction: column;  
-  justify-content: center;  
-  align-items: center;  
-  text-align: center;  
-  color: var(--text-light);  
-  padding: 1rem;  
-  position: relative;  
-}  
-.logo {  
-  position: absolute;  
-  top: 15px;  
-  left: 15px;  
-}  
-.logo img {  
-  width: 100px;  
-  border-radius: 8px;  
-}  
-header h1 {  
-  font-size: 2rem;  
-  margin-bottom: 0.5rem;  
-  text-shadow: 0 2px 5px rgba(0,0,0,0.5);  
-}  
-header p {  
-  font-size: 1.1rem;  
-  max-width: 600px;  
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);  
-}  
-.button {  
-  margin-top: 1.5rem;  
-  background: var(--main-color);  
-  padding: 0.7rem 1.2rem;  
-  color: var(--text-light);  
-  border-radius: 5px;  
-  font-weight: bold;  
-  transition: background 0.3s;  
-}  
-.button:hover { background: #388E3C; }  
-
-.categories {  
-  display: grid;  
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  
-  gap: 1.5rem;  
-  padding: 2rem;  
-  background: #fff;  
-}  
-.category {  
-  position: relative;  
-  border-radius: 10px;  
-  overflow: hidden;  
-  background: #ddd;  
-  transition: transform 0.3s, box-shadow 0.3s;  
-}  
-.category:hover {  
-  transform: scale(1.02);  
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);  
-}  
-.category img {  
-  width: 100%;  
-  height: 200px;  
-  object-fit: cover;  
-}  
-.category h3 {  
-  position: absolute;  
-  bottom: 10px;  
-  left: 10px;  
-  background: rgba(0,0,0,0.6);  
-  color: #fff;  
-  padding: 0.3rem 0.8rem;  
-  border-radius: 5px;  
-}  
-
-/* News section - Telegram style */  
-.news-section {  
-  background-color: #fff;  
-  padding: 2rem 1rem;  
-}  
-.news-title {  
-  font-size: 1.5rem;  
-  margin-bottom: 1rem;  
-  text-align: center;  
-  color: var(--main-color);  
-}  
-.news-feed {  
-  max-width: 800px;  
-  margin: auto;  
-  display: flex;  
-  flex-direction: column;  
-  gap: 1rem;  
-}  
-.news-item {  
-  border-left: 4px solid var(--main-color);  
-  padding: 1rem;  
-  background-color: #f1f1f1;  
-  border-radius: 10px;  
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);  
-  display: flex;  
-  gap: 1rem;  
-}  
-.news-item img {  
-  width: 80px;  
-  height: 80px;  
-  border-radius: 8px;  
-  object-fit: cover;  
-}  
-.news-content {  
-  flex: 1;  
-}  
-.news-content h4 {  
-  margin-bottom: 0.3rem;  
-  color: var(--text-dark);  
-  font-size: 1rem;  
-}  
-.news-content p {  
-  font-size: 0.9rem;  
-  color: #555;  
-}  
-
-footer {  
-  background-color: #f4f4f9;  
-  color: var(--text-dark);  
-  padding: 2rem 1rem;  
-  text-align: center;  
-  border-top: 3px solid var(--main-color);  
-}  
-.footer-content p {  
-  font-size: 0.9rem;  
-  margin: 0.5rem 0;  
-  line-height: 1.5;  
-}  
-.footer-content a {  
-  color: var(--main-color);  
-  font-weight: bold;  
-}  
-.footer-social {  
-  margin-top: 1rem;  
-}  
-.social-link {  
-  color: #333;  
-  margin: 0 10px;  
-  font-size: 1.5rem;  
-  transition: color 0.3s;  
-}  
-.social-link:hover {  
-  color: var(--main-color);  
-}  
-
-@media (max-width: 768px) {  
-  header h1 { font-size: 1.5rem; }  
-  header p { font-size: 0.95rem; }  
-  .logo img { width: 80px; }  
-}
-
-  </style>  
-</head>  
-<body>  
-  <header>  
-    <a href="https://brhutcraft.github.io/BrHut/" class="logo">  
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">  
-    </a>  
-    <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>  
-    <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>  
-  
-  </header>  
-  <section class="intro">
-  
-    <p> <strong>BrHut</strong>, nơi mình tập trung vào việc sống gần gũi với thiên nhiên và tự tay tạo ra những sản phẩm thủ công mộc mạc. Dự án này bắt đầu từ mong muốn không chỉ sống gần thiên nhiên mà còn tạo ra những thứ đơn giản nhưng có giá trị thật sự. Mình chia sẻ hành trình này qua hình ảnh và âm thanh, không cầu kỳ – chỉ là những nỗ lực chân thành để học hỏi và phát triển.</p>
-    <p class="cta">BrHut không theo đuổi sự hoàn hảo, mà chỉ mong mỏi tìm thấy niềm vui và sự sáng tạo trong những điều giản dị nhất. Nếu bạn cũng yêu thích thiên nhiên, đồ handmade và một phong cách sống chậm rãi, hy vọng bạn sẽ cảm thấy thân thuộc với BrHut.</p>
-    <p>Với BrHut, mọi thứ đều bắt nguồn từ sự sáng tạo mộc mạc và đam mê với thiên nhiên. Mình rất vui khi được chia sẻ hành trình này cùng bạn!</p>
-  </section>
-  
-  <footer>  
-    <div class="footer-content">  
-      <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>  
-      <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>  
-    </div>  
-    <div class="footer-social">  
-      <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>  
-      <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>  
-      <a href="https://youtube.com/@brhut" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>  
-      <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>  
-    </div>  
-  </footer>   
-</body>  
-</html>
-  
-  
-  <footer>  
-    <div class="footer-content">  
-      <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>  
-      <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>  
-    </div>  
-    <div class="footer-social">  
-      <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>  
-      <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>  
-      <a href="https://youtube.com/@brhut" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>  
-      <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>  
-    </div>  
-  </footer>   
-</body>  
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
+      <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@brhut" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </footer>
+</body>
 </html>
