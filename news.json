@@ -1,17 +1,32 @@
 [
   {
-    "title": "Bài Viết 1: Khám Phá Mái Nhà Mộc Mạc",
-    "content": "Đây là bài viết về việc xây dựng một mái nhà đơn giản nhưng bền vững từ các vật liệu tự nhiên. Bài viết chia sẻ kinh nghiệm và những bước cơ bản cần làm.",
-    "image": "https://via.placeholder.com/300x200?text=Image+1"
+    "id": 1,
+    "title": "Khám Phá Mái Nhà Mộc Mạc",
+    "summary": "Chia sẻ kinh nghiệm xây dựng mái nhà từ vật liệu tự nhiên, đơn giản mà bền vững.",
+    "content": "Đây là bài viết chi tiết về các bước xây dựng một mái nhà bằng vật liệu thiên nhiên như tre, nứa, lá... giúp tiết kiệm chi phí và gần gũi với thiên nhiên.",
+    "image": "https://via.placeholder.com/600x400?text=Image+1",
+    "author": "BrHut",
+    "date": "2025-05-01",
+    "slug": "kham-pha-mai-nha-moc-mac"
   },
   {
-    "title": "Bài Viết 2: Tự Làm Ghế Mây Đơn Giản",
-    "content": "Hướng dẫn chi tiết cách làm ghế mây từ nguyên liệu tự nhiên. Đây là một dự án thú vị để tạo ra sản phẩm thủ công đẹp mắt cho không gian sống.",
-    "image": "https://via.placeholder.com/300x200?text=Image+2"
+    "id": 2,
+    "title": "Tự Làm Ghế Mây Đơn Giản",
+    "summary": "Hướng dẫn từng bước làm ghế mây handmade đơn giản mà đẹp.",
+    "content": "Bài viết chia sẻ các công đoạn cơ bản để làm một chiếc ghế mây với dụng cụ thô sơ, phù hợp cho người mới bắt đầu.",
+    "image": "https://via.placeholder.com/600x400?text=Image+2",
+    "author": "BrHut",
+    "date": "2025-05-02",
+    "slug": "tu-lam-ghe-may-don-gian"
   },
   {
-    "title": "Bài Viết 3: Cuộc Sống Xung Quanh Thiên Nhiên",
-    "content": "Khám phá vẻ đẹp của cuộc sống gần gũi thiên nhiên, với các hoạt động như nấu ăn ngoài trời, sống tự cung tự cấp và tận hưởng sự yên bình của thiên nhiên.",
-    "image": "https://via.placeholder.com/300x200?text=Image+3"
+    "id": 3,
+    "title": "Cuộc Sống Gần Gũi Thiên Nhiên",
+    "summary": "Trải nghiệm cuộc sống hòa mình vào thiên nhiên, tự nấu ăn, tự dựng nhà.",
+    "content": "Tận hưởng cảm giác yên bình khi sống giữa thiên nhiên, tránh xa khói bụi thành phố, học cách sinh tồn và chăm sóc bản thân.",
+    "image": "https://via.placeholder.com/600x400?text=Image+3",
+    "author": "BrHut",
+    "date": "2025-05-03",
+    "slug": "cuoc-song-gan-gui-thien-nhien"
   }
 ]
