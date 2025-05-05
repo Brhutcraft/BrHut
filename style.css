@@ -1,12 +1,12 @@
-/* style.css - COMPLETE and CORRECT version */
+/* style.css - PHIÊN BẢN ĐÃ ĐIỀU CHỈNH MÀU SẮC DỊU MẮT */
 
 :root {
-  --main-color: #4CAF50;
-  --background: #f9f7f2;
-  --text-dark: #333;
+  --main-color: #548C2F; /* Xanh ô liu dịu */
+  --background: #ECEBE4; /* Xám be nhạt */
+  --text-dark: #4A4A4A; /* Xám trung tính */
   --text-light: #fff;
-  --accent: #ff7e5f;
-  --accent-secondary: #feb47b;
+  --accent: #778DA9; /* Xanh xám thanh lịch */
+  --accent-secondary: #A9BCC9; /* Xanh xám nhạt hơn */
 }
 
 * {
@@ -36,9 +36,9 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.95); /* Màu trắng với độ trong suốt 95% */
+  background-color: rgba(255, 255, 255, 0.9); /* Trắng nhạt hơn một chút */
   padding: 0.8rem 1.2rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -209,7 +209,7 @@ header p {
 }
 
 .button:hover {
-  background: #388E3C;
+  background: #437A24; /* Tông xanh ô liu đậm hơn khi hover */
   transform: translateY(-2px);
 }
 
@@ -261,7 +261,7 @@ header p {
     background-color: #fff;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
     margin: 0;
     text-align: left;
     display: flex;
@@ -335,16 +335,16 @@ header p {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  background: #eee;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Fixed missing semicolon */
-} /* Fixed missing closing brace */
+  background: #D3D3D3; /* Xám nhạt hơn */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
 
- .category:hover { /* Added missing hover rule */
+ .category:hover {
    transform: translateY(-5px) scale(1.02);
-   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
  }
 
- .category img { /* Added missing img rule */
+ .category img {
    width: 100%;
    height: 200px;
    object-fit: cover;
@@ -352,15 +352,15 @@ header p {
    transition: transform 0.3s ease-out;
  }
 
-  .category:hover img { /* Added missing hover img rule */
+  .category:hover img {
     transform: scale(1.05);
   }
 
- .category h3 { /* Added missing h3 rule */
+ .category h3 {
    position: absolute;
    bottom: 10px;
    left: 10px;
-   background: rgba(0,0,0,0.6);
+   background: rgba(0,0,0,0.5); /* Đen trong suốt dịu hơn */
    color: #fff;
    padding: 0.3rem 0.8rem;
    border-radius: 5px;
@@ -369,539 +369,39 @@ header p {
    transition: background 0.3s;
  }
 
-  .category:hover h3 { /* Added missing hover h3 rule */
-     background: rgba(76, 175, 80, 0.8);
+  .category:hover h3 {
+     background: rgba(84, 140, 47, 0.8); /* Xanh ô liu trong suốt khi hover */
   }
 
 /* Styles cho phần nội dung chính trang Giới thiệu */
 .about-content {
-  padding: 4rem 0; /* Thêm khoảng trống (padding) trên dưới 4rem */
-  background-color: var(--background); /* Sử dụng màu nền mặc định */
+  padding: 4rem 0;
+  background-color: var(--background);
 }
 
 .about-content .container {
-    max-width: 900px; /* Chiều rộng tối đa cho nội dung */
-    margin: 0 auto; /* Căn giữa khối container */
-    padding: 0 1.5rem; /* Padding ngang bên trong container */
-    text-align: left; /* Đảm bảo văn bản bên trong container căn trái */
-}
-
-.about-content h2 {
-    font-size: clamp(2rem, 5vw, 2.8rem); /* Kích thước chữ tiêu đề H2 */
-    margin-bottom: 2rem; /* Khoảng cách dưới tiêu đề */
-    color: var(--text-dark);
-    line-height: 1.2;
-    text-align: center; /* Căn giữa tiêu đề */
-}
-
-/* Style cho đoạn văn ngay sau H2 (dịch nghĩa) */
-.about-content h2 + p {
-     font-size: 1.1rem; /* Kích thước chữ nhỏ hơn tiêu đề */
-     font-style: italic;
-     color: #555; /* Màu xám cho dịch nghĩa */
-     margin-top: 0;
-     margin-bottom: 3rem; /* Khoảng cách dưới dịch nghĩa */
-     text-align: center; /* Căn giữa đoạn dịch nghĩa */
-     /* Đảm bảo không có style box cho đoạn này */
-     background-color: transparent;
-     padding: 0;
-     box-shadow: none;
-     border-radius: 0;
-}
-
-/* Style cho các đoạn văn bản chính - làm chúng trông như các khung */
-.about-content p {
-    font-size: 1rem; /* Kích thước chữ đoạn văn */
-    line-height: 1.8; /* Giãn dòng cho dễ đọc */
-    margin-bottom: 2rem; /* Khoảng cách giữa các khung đoạn văn */
-    color: var(--text-dark);
-
-    /* Style để tạo khung */
-    background-color: #fff; /* Nền trắng cho khung */
-    padding: 1.5rem; /* Khoảng đệm bên trong khung */
-    border-radius: 8px; /* Bo góc cho khung */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* Đổ bóng nhẹ */
-}
-
-/* Khoảng trống phía trên tiêu đề H2 thứ hai (phần tiếng Anh) */
-.about-content h2:nth-of-type(2) {
-    margin-top: 4rem; /* Tăng khoảng cách phân tách giữa hai ngôn ngữ */
-     margin-bottom: 2rem; /* Đảm bảo margin dưới nhất quán */
-}
-
-/* Đảm bảo tiêu đề H2 đầu tiên không có margin trên thừa */
-.about-content .container > h2:first-child {
-    margin-top: 0;
-}
-
-/* Loại bỏ margin dưới cho đoạn văn cuối cùng */
-.about-content p:last-child {
-    margin-bottom: 0;
-}
-
-/* Footer */ /* Added missing Footer section */
-footer {
-  background-color: #f4f4f9;
-  color: var(--text-dark);
-  padding: 2rem 1rem;
-  text-align: center;
-  border-top: 3px solid var(--main-color);
-}
-
-.footer-content p {
-  font-size: 0.9rem;
-  margin: 0.5rem 0;
-  line-height: 1.5;
-}
-
-.footer-content a {
-  color: var(--main-color);
-  font-weight: bold;
-  transition: color 0.3s;
-}
-.footer-content a:hover {
-   color: #388E3C;
-}
-
-.footer-social {
-  margin-top: 1rem;
-}
-
-.social-link {
-  color: #333;
-  margin: 0 10px;
-  font-size: 1.5rem;
-  transition: color 0.3s, transform 0.3s;
-  display: inline-block;
-}
-
-.social-link:hover {
-  color: var(--main-color);
-  transform: translateY(-3px);
-}
-
-```Ah, tôi hiểu rồi! Rất cảm ơn bạn đã xác nhận. Nếu file của bạn thực sự kết thúc như vậy, thì đó chính là nguyên nhân gây ra tất cả các vấn đề về style không hiển thị.
-
-File CSS của bạn đang **thiếu rất nhiều đoạn mã** và có **lỗi cú pháp** ở cuối. Cụ thể:
-
-1.  Quy tắc CSS cho `.category` bị thiếu dấu chấm phẩy `;` sau `transition: transform`.
-2.  Quy tắc `.category` bị thiếu dấu đóng ngoặc nhọn `}`.
-3.  Toàn bộ các quy tắc CSS sau đó đều bị thiếu (bao gồm style cho `.category:hover`, `.category img`, `.category h3`, **tất cả các style cho `.about-content`**, và toàn bộ style cho Footer).
-
-Trình duyệt đọc file CSS từ trên xuống dưới. Khi nó gặp lỗi cú pháp nghiêm trọng (như thiếu dấu chấm phẩy hoặc dấu đóng ngoặc nhọn), nó thường sẽ **bỏ qua tất cả các quy tắc CSS còn lại** sau điểm lỗi đó.
-
-Đây chính là lý do vì sao các style cho navbar, header, và phần đầu slider có thể hoạt động (vì chúng nằm trước lỗi), nhưng style cho `.about-content` và footer thì không hiển thị gì cả.
-
-**Cách giải quyết là bạn phải thay thế toàn bộ nội dung file `style.css` trên máy tính của bạn bằng phiên bản đầy đủ và chính xác.**
-
-Dưới đây là file **`style.css` HOÀN CHỈNH VÀ ĐÃ SỬA LỖI CÚ PHÁP**, bao gồm tất cả các phần chúng ta đã làm (navbar, header, slider, categories, `.about-content`, và footer) và các style mới nhất (navbar trong suốt, style `.about-content` có khung).
-
-```css
-/* style.css - PHIÊN BẢN HOÀN CHỈNH VÀ ĐÃ SỬA LỖI */
-
-:root {
-  --main-color: #4CAF50;
-  --background: #f9f7f2;
-  --text-dark: #333;
-  --text-light: #fff;
-  --accent: #ff7e5f;
-  --accent-secondary: #feb47b;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--background);
-  color: var(--text-dark);
-  line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.95); /* Màu trắng với độ trong suốt 95% */
-  padding: 0.8rem 1.2rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  transition: transform 0.3s ease-in-out;
-}
-
-.navbar.hidden {
-  transform: translateY(-100%);
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-}
-
-.nav-logo img {
-  width: 90px;
-  height: auto;
-  border-radius: 8px;
-  margin-right: 1rem;
-  display: block;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
-}
-
-.nav-links li a {
-  font-weight: 500;
-  color: var(--text-dark);
-  transition: color 0.3s;
-  display: block;
-  padding: 0.5rem 0;
-}
-
-.nav-links li a:hover {
-  color: var(--main-color);
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-}
-
-.cart-icon {
-  font-size: 1.4rem;
-  position: relative;
-  color: var(--text-dark);
-  transition: color 0.3s;
-}
-
-.cart-icon:hover {
-  color: var(--main-color);
-}
-
-.cart-count {
-  position: absolute;
-  top: -8px;
-  right: -10px;
-  background: var(--main-color);
-  color: white;
-  font-size: 0.7rem;
-  padding: 2px 6px;
-  border-radius: 50%;
-}
-
-.hamburger {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  margin-left: 1rem;
-  color: var(--text-dark);
-  padding: 5px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-left {
-    flex-wrap: wrap;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    background-color: #fff;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    padding: 0 1rem 1rem 1rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    gap: 0;
-    max-height: 0;
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden;
-    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
-  }
-
-  .nav-links.active {
-    max-height: 300px;
-    opacity: 1;
-    visibility: visible;
-    padding-top: 1rem;
-  }
-
-  .nav-links li {
-     border-bottom: 1px solid #eee;
-  }
-   .nav-links li:last-child {
-     border-bottom: none;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .nav-right {
-      margin-left: auto;
-      padding-left: 1rem;
-  }
-
-   .nav-logo, .hamburger {
-       align-self: center;
-   }
-}
-
-header {
-  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: var(--text-light);
-  padding: 1rem;
-  position: relative;
-}
-
-header h1 {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
-header p {
-  font-size: clamp(1rem, 3vw, 1.1rem);
-  max-width: 600px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
-
-.button {
-  margin-top: 1.5rem;
-  background: var(--main-color);
-  padding: 0.7rem 1.2rem;
-  color: var(--text-light);
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s, transform 0.2s;
-  display: inline-block;
-  border: none;
-  cursor: pointer;
-}
-
-.button:hover {
-  background: #388E3C;
-  transform: translateY(-2px);
-}
-
-/* Styles cho phần Slider Trích dẫn */
-.quotes-slider-section {
-  padding: 3rem 0;
-  background-color: var(--background);
-  text-align: center;
-}
-
-.quotes-slider-section .container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.quotes-slider-section h2 {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  margin-bottom: 2rem;
-  color: var(--text-dark);
-}
-
-.quotes-slider-wrapper {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 1.5rem;
-  padding: 0 1.5rem 1.5rem 1.5rem;
-
-  /* Ẩn thanh cuộn mặc định */
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  /* Làm mượt thao tác cuộn/snap */
-  scroll-behavior: smooth;
-}
-
-.quotes-slider-wrapper::-webkit-scrollbar {
-    display: none;
-}
-
-.quotes-slider-wrapper .quote-item {
-  flex: 0 0 auto;
-  overflow: hidden;
-  scroll-snap-align: start;
-}
-
-/* Cải thiện giao diện Blockquote bên trong item */
-.quote-item blockquote {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin: 0;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
     text-align: left;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-    border-left: 5px solid var(--main-color);
-}
-
-/* CSS cho hiệu ứng hiện dần văn bản bên trong item */
-.quote-item blockquote p,
-.quote-item blockquote footer {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.quote-item blockquote footer {
-    transition-delay: 0.1s;
-}
-
-/* Khi item có class 'is-in-view' (do JS thêm vào), văn bản sẽ hiện ra */
-.quote-item.is-in-view blockquote p,
-.quote-item.is-in-view blockquote footer {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Responsive cho item trích dẫn - Tính toán width dựa trên gap */
-@media (max-width: 768px) {
-    .quotes-slider-wrapper .quote-item {
-         width: calc(100% - (2 * 1.5rem));
-         max-width: 400px;
-         margin: 0 auto;
-    }
-     .quotes-slider-wrapper {
-        padding: 0 1.5rem 1.5rem 1.5rem;
-     }
-}
-
-@media (min-width: 769px) {
-    .quotes-slider-wrapper .quote-item {
-        width: calc( (100% - 1.5rem) / 2 );
-        max-width: none;
-        margin: 0;
-    }
-     .quotes-slider-wrapper {
-        padding: 0 1.5rem 1.5rem 1.5rem;
-     }
-}
-
-@media (min-width: 1024px) {
-     .quotes-slider-wrapper .quote-item {
-        width: calc( (100% - 3rem) / 3 );
-     }
-      .quotes-slider-wrapper {
-         padding: 0 1.5rem 1.5rem 1.5rem;
-      }
-}
-
-/* Categories Section */
-.categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  background: #fff;
-}
-
-.category {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #eee;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Đã sửa: Thêm dấu chấm phẩy */
-} /* Đã sửa: Thêm dấu đóng ngoặc nhọn */
-
- .category:hover { /* Đã thêm quy tắc bị thiếu */
-   transform: translateY(-5px) scale(1.02);
-   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
- }
-
- .category img { /* Đã thêm quy tắc bị thiếu */
-   width: 100%;
-   height: 200px;
-   object-fit: cover;
-   display: block;
-   transition: transform 0.3s ease-out;
- }
-
-  .category:hover img { /* Đã thêm quy tắc bị thiếu */
-    transform: scale(1.05);
-  }
-
- .category h3 { /* Đã thêm quy tắc bị thiếu */
-   position: absolute;
-   bottom: 10px;
-   left: 10px;
-   background: rgba(0,0,0,0.6);
-   color: #fff;
-   padding: 0.3rem 0.8rem;
-   border-radius: 5px;
-   font-size: 1rem;
-   margin: 0;
-   transition: background 0.3s;
- }
-
-  .category:hover h3 { /* Đã thêm quy tắc bị thiếu */
-     background: rgba(76, 175, 80, 0.8);
-  }
-
-/* Styles cho phần nội dung chính trang Giới thiệu */
-.about-content {
-  padding: 4rem 0; /* Thêm khoảng trống (padding) trên dưới 4rem */
-  background-color: var(--background); /* Sử dụng màu nền mặc định */
-}
-
-.about-content .container {
-    max-width: 900px; /* Chiều rộng tối đa cho nội dung */
-    margin: 0 auto; /* Căn giữa khối container */
-    padding: 0 1.5rem; /* Padding ngang bên trong container */
-    text-align: left; /* Đảm bảo văn bản bên trong container căn trái */
 }
 
 .about-content h2 {
-    font-size: clamp(2rem, 5vw, 2.8rem); /* Kích thước chữ tiêu đề H2 */
-    margin-bottom: 2rem; /* Khoảng cách dưới tiêu đề */
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 2rem;
     color: var(--text-dark);
     line-height: 1.2;
-    text-align: center; /* Căn giữa tiêu đề */
+    text-align: center;
 }
 
 /* Style cho đoạn văn ngay sau H2 (dịch nghĩa) */
 .about-content h2 + p {
-     font-size: 1.1rem; /* Kích thước chữ nhỏ hơn tiêu đề */
+     font-size: 1.1rem;
      font-style: italic;
-     color: #555; /* Màu xám cho dịch nghĩa */
+     color: #777; /* Xám nhạt hơn */
      margin-top: 0;
-     margin-bottom: 3rem; /* Khoảng cách dưới dịch nghĩa */
-     text-align: center; /* Căn giữa đoạn dịch nghĩa */
-     /* Đảm bảo không có style box cho đoạn này */
+     margin-bottom: 3rem;
+     text-align: center;
      background-color: transparent;
      padding: 0;
      box-shadow: none;
@@ -910,22 +410,22 @@ header p {
 
 /* Style cho các đoạn văn bản chính - làm chúng trông như các khung */
 .about-content p {
-    font-size: 1rem; /* Kích thước chữ đoạn văn */
-    line-height: 1.8; /* Giãn dòng cho dễ đọc */
-    margin-bottom: 2rem; /* Khoảng cách giữa các khung đoạn văn */
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
     color: var(--text-dark);
 
     /* Style để tạo khung */
-    background-color: #fff; /* Nền trắng cho khung */
-    padding: 1.5rem; /* Khoảng đệm bên trong khung */
-    border-radius: 8px; /* Bo góc cho khung */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* Đổ bóng nhẹ */
+    background-color: #F5F5F5; /* Xám rất nhạt cho khung */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Bóng rất nhẹ */
 }
 
 /* Khoảng trống phía trên tiêu đề H2 thứ hai (phần tiếng Anh) */
 .about-content h2:nth-of-type(2) {
-    margin-top: 4rem; /* Tăng khoảng cách phân tách giữa hai ngôn ngữ */
-     margin-bottom: 2rem; /* Đảm bảo margin dưới nhất quán */
+    margin-top: 4rem;
+     margin-bottom: 2rem;
 }
 
 /* Đảm bảo tiêu đề H2 đầu tiên không có margin trên thừa */
@@ -938,9 +438,9 @@ header p {
     margin-bottom: 0;
 }
 
-/* Footer */ /* Đã thêm lại phần Footer bị thiếu */
+/* Footer */
 footer {
-  background-color: #f4f4f9;
+  background-color: #E0E0E0; /* Xám nhạt cho footer */
   color: var(--text-dark);
   padding: 2rem 1rem;
   text-align: center;
@@ -959,7 +459,7 @@ footer {
   transition: color 0.3s;
 }
 .footer-content a:hover {
-   color: #388E3C;
+   color: #437A24; /* Xanh ô liu đậm hơn khi hover */
 }
 
 .footer-social {
@@ -967,7 +467,7 @@ footer {
 }
 
 .social-link {
-  color: #333;
+  color: #777; /* Xám nhạt cho icon */
   margin: 0 10px;
   font-size: 1.5rem;
   transition: color 0.3s, transform 0.3s;
