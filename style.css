@@ -1,4 +1,4 @@
-/* style.css - BỘ MÀU TỐI GIẢN & TINH TẾ (ĐÃ BỔ SUNG CÁC SECTION MỚI) */
+/* style.css - BỘ MÀU TỐI GIẢN & TINH TẾ (ĐÃ BỔ SUNG CÁC SECTION MỚI VÀ ICON SOCIAL FOOTER) */
 
 :root {
   --main-color: #488A99; /* MÀU CHỦ ĐẠO: Xanh Teal Trầm (Bộ màu 4) */
@@ -281,11 +281,6 @@ header p {
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-.quote-item blockquote footer {
-    transition-delay: 0.1s;
-}
-
-/* Khi item có class 'is-in-view' (do JS thêm vào), văn bản sẽ hiện ra */
 .quote-item.is-in-view blockquote p,
 .quote-item.is-in-view blockquote footer {
     opacity: 1;
@@ -520,6 +515,9 @@ footer {
   background-color: transparent; /* Đảm bảo nền chú thích trong suốt (nền thật là của .gallery-item) */
   box-shadow: none; /* Bỏ bóng cho paragraph nếu có */
   border-radius: 0; /* Bỏ bo góc cho paragraph nếu có */
+    /* Đảm bảo các thuộc tính từ .about-content p không ảnh hưởng */
+    margin-bottom: 0;
+    line-height: 1.5; /* Điều chỉnh line-height nếu cần */
 }
 
 
