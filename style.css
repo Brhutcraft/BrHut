@@ -1,1 +1,323 @@
+:root {
+  --main-color: #4CAF50;
+  --background: #f9f7f2;
+  --text-dark: #333;
+  --text-light: #fff;
+  --accent: #ff7e5f;
+  --accent-secondary: #feb47b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- THÊM: Bật hiệu ứng cuộn mượt --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* THÊM: Transition cho hiệu ứng ẩn/hiện */
+  transition: transform 0.3s ease-in-out;
+  /* Đảm bảo navbar có height cố định hoặc có thể tính toán được */
+  /* height: 70px; /* Ví dụ, điều chỉnh nếu cần */ */
+}
+
+/* THÊM: Class để ẩn navbar */
+.navbar.hidden {
+  transform: translateY(-100%); /* Đẩy navbar lên trên bằng chính chiều cao của nó */
+}
+
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  width: 90px;
+  height: auto; /* Giữ tỷ lệ */
+  border-radius: 8px;
+  margin-right: 1rem;
+  display: block; /* Tránh khoảng trống dưới ảnh */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  /* --- THAY ĐỔI/THÊM: Chuẩn bị cho transition trên mobile --- */
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+}
+
+.nav-links li a {
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: color 0.3s;
+  display: block; /* Để padding hoạt động tốt hơn trên mobile */
+  padding: 0.5rem 0; /* Thêm padding cho dễ bấm trên mobile */
+}
+
+.nav-links li a:hover {
+  color: var(--main-color);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  font-size: 1.4rem;
+  position: relative;
+  color: var(--text-dark);
+  transition: color 0.3s;
+}
+
+.cart-icon:hover {
+  color: var(--main-color);
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--main-color);
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+.hamburger {
+  display: none; /* Mặc định ẩn trên desktop */
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  color: var(--text-dark);
+  padding: 5px; /* Tăng vùng bấm */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-left {
+    /* Cho phép hamburger icon xuống dòng nếu cần */
+    flex-wrap: wrap;
+    /* Giữ logo và menu trên cùng hàng */
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    /* --- THAY ĐỔI: Styling và trạng thái ẩn ban đầu cho mobile --- */
+    display: flex; /* Luôn là flex để flex-direction hoạt động */
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 70px; /* Ngay dưới navbar (điều chỉnh nếu chiều cao navbar thay đổi) */
+    left: 0;
+    width: 100%;
+    padding: 0 1rem 1rem 1rem; /* Chỉ padding ngang và dưới */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    gap: 0; /* Reset gap, dùng padding trên thẻ li a */
+    /* Trạng thái ẩn */
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden; /* Quan trọng để max-height hoạt động */
+  }
+
+  .nav-links.active {
+    /* --- THAY ĐỔI: Trạng thái hiện cho mobile --- */
+    max-height: 300px; /* Đủ lớn để chứa các mục menu */
+    opacity: 1;
+    visibility: visible;
+    padding-top: 1rem; /* Thêm padding top khi mở ra */
+  }
+
+  .nav-links li {
+     border-bottom: 1px solid #eee; /* Ngăn cách các mục menu */
+  }
+   .nav-links li:last-child {
+     border-bottom: none;
+  }
+
+
+  .hamburger {
+    display: block; /* Hiện hamburger trên mobile */
+  }
+
+  /* Đẩy giỏ hàng sang phải khi có hamburger */
+  .nav-right {
+      margin-left: auto; /* Đẩy giỏ hàng sang hết cỡ bên phải */
+      padding-left: 1rem; /* Tạo khoảng cách với hamburger */
+  }
+
+  /* Đảm bảo logo và hamburger căn giữa theo chiều dọc */
+   .nav-logo, .hamburger {
+       align-self: center;
+   }
+}
+
+
+header {
+  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-light);
+  padding: 1rem;
+  position: relative;
+}
+
+header h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive font size */
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+header p {
+  font-size: clamp(1rem, 3vw, 1.1rem); /* Responsive font size */
+  max-width: 600px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.button {
+  margin-top: 1.5rem;
+  background: var(--main-color);
+  padding: 0.7rem 1.2rem;
+  color: var(--text-light);
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s; /* Thêm transition cho transform */
+  display: inline-block; /* Để transform hoạt động */
+  border: none; /* Bỏ border mặc định nếu có */
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #388E3C;
+  transform: translateY(-2px); /* Hiệu ứng nhấc lên khi hover */
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background: #fff;
+}
+
+.category {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #eee; /* Màu nền nhẹ khi ảnh chưa tải */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  display: block; /* Để thẻ a bao toàn bộ */
+}
+
+.category:hover {
+  transform: translateY(-5px) scale(1.02); /* Kết hợp nhấc lên và phóng to nhẹ */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.category img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block; /* Tránh khoảng trống dưới ảnh */
+  transition: transform 0.3s ease-out; /* Hiệu ứng zoom nhẹ ảnh */
+}
+
+ .category:hover img {
+   transform: scale(1.05); /* Zoom ảnh nhẹ khi hover category */
+ }
+
+
+.category h3 {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 0; /* Reset margin */
+  transition: background 0.3s;
+}
+
+ .category:hover h3 {
+    background: rgba(76, 175, 80, 0.8); /* Đổi màu nền chữ khi hover */
+ }
+
+
+footer {
+  background-color: #f4f4f9;
+  color: var(--text-dark);
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top: 3px solid var(--main-color);
+}
+
+.footer-content p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+.footer-content a {
+  color: var(--main-color);
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.footer-content a:hover {
+   color: #388E3C;
+}
+
+
+.footer-social {
+  margin-top: 1rem;
+}
+
+.social-link {
+  color: #333;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: color 0.3s, transform 0.3s;
+  display: inline-block; /* Cho phép transform */
+}
+
+.social-link:hover {
+  color: var(--main-color);
+  transform: translateY(-3px); /* Hiệu ứng nhấc lên */
+}
 
