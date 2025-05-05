@@ -1,4 +1,4 @@
-/* style.css - BỘ MÀU TỐI GIẢN & TINH TẾ */
+/* style.css - BỘ MÀU TỐI GIẢN & TINH TẾ (ĐÃ BỔ SUNG CÁC SECTION MỚI) */
 
 :root {
   --main-color: #488A99; /* MÀU CHỦ ĐẠO: Xanh Teal Trầm (Bộ màu 4) */
@@ -464,3 +464,102 @@ footer {
   transition: color 0.3s ease;
 }
 /* Footer Social Icons - Đoạn này có vẻ bị cắt */
+
+/* --- BẮT ĐẦU BỔ SUNG CSS CHO CÁC SECTION MỚI --- */
+
+/* Styles cho section Không Gian & Quy Trình (Gallery & Process) */
+.gallery-process-section {
+  padding: 3rem 1.5rem; /* Khoảng đệm trên dưới và hai bên */
+  background-color: var(--background); /* Nền section: Trắng Tinh Khiết (từ biến) */
+  text-align: center; /* Căn giữa tiêu đề */
+  transition: background-color 0.3s ease;
+}
+
+.gallery-process-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem); /* Kích thước chữ phù hợp */
+  margin-bottom: 2.5rem; /* Khoảng cách dưới tiêu đề */
+  color: var(--text-dark); /* Màu chữ: Xám Đậm (từ biến) */
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout lưới responsive, mỗi cột tối thiểu 280px */
+  gap: 1.5rem; /* Khoảng cách giữa các mục trong lưới */
+  max-width: 1200px; /* Giới hạn chiều rộng lưới */
+  margin: 0 auto; /* Căn giữa lưới */
+}
+
+.gallery-item {
+  background-color: #F8F8F8; /* Nền từng mục: Xám Rất Nhạt (Nền phụ từ bộ màu 4) */
+  border-radius: 8px; /* Góc bo tròn */
+  overflow: hidden; /* Đảm bảo ảnh không tràn ra ngoài */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Bóng nhẹ cho từng mục */
+  display: flex; /* Dùng flexbox để căn chỉnh nội dung bên trong */
+  flex-direction: column; /* Nội dung xếp dọc */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.gallery-item:hover {
+   transform: translateY(-5px); /* Hiệu ứng nhấc nhẹ khi hover */
+   box-shadow: 0 4px 15px rgba(0,0,0,0.12); /* Bóng đậm hơn khi hover */
+}
+
+.gallery-item img {
+  width: 100%; /* Ảnh đầy chiều rộng của mục */
+  height: 200px; /* Chiều cao cố định cho ảnh */
+  object-fit: cover; /* Cắt ảnh để vừa khung mà không bị méo */
+  display: block;
+}
+
+.gallery-item p {
+  padding: 1rem; /* Khoảng đệm cho chú thích */
+  margin-top: auto; /* Đẩy chú thích xuống cuối nếu dùng flex */
+  font-size: 0.95rem;
+  color: var(--text-dark); /* Màu chữ chú thích: Xám Đậm */
+  text-align: left; /* Căn lề trái cho chú thích */
+  background-color: transparent; /* Đảm bảo nền chú thích trong suốt (nền thật là của .gallery-item) */
+  box-shadow: none; /* Bỏ bóng cho paragraph nếu có */
+  border-radius: 0; /* Bỏ bo góc cho paragraph nếu có */
+}
+
+
+/* Styles cho section Kêu Gọi Hành Động Đặc Biệt (Call to Action) */
+.cta-section {
+    padding: 4rem 1.5rem; /* Khoảng đệm trên dưới lớn hơn */
+    background-color: #F8F8F8; /* Nền section: Xám Rất Nhạt (Nền phụ từ bộ màu 4) */
+    text-align: center; /* Căn giữa toàn bộ nội dung */
+    transition: background-color 0.3s ease;
+}
+
+.cta-section .container {
+    max-width: 800px; /* Giới hạn chiều rộng nội dung CTA */
+    margin: 0 auto; /* Căn giữa container */
+}
+
+.cta-section h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Kích thước chữ lớn */
+    margin-bottom: 1rem; /* Khoảng cách dưới tiêu đề */
+    color: var(--text-dark); /* Màu chữ: Xám Đậm */
+    line-height: 1.2;
+}
+
+.cta-section p {
+    font-size: clamp(1rem, 3vw, 1.1rem); /* Kích thước chữ phù hợp */
+    margin-bottom: 2rem; /* Khoảng cách dưới paragraph */
+    color: var(--text-dark); /* Màu chữ: Xám Đậm */
+    max-width: 600px; /* Giới hạn chiều rộng paragraph */
+    margin-left: auto; /* Căn giữa paragraph */
+    margin-right: auto; /* Căn giữa paragraph */
+     background-color: transparent; /* Đảm bảo nền paragraph trong suốt (nền thật là của .cta-section) */
+    box-shadow: none; /* Bỏ bóng cho paragraph nếu có */
+    border-radius: 0; /* Bỏ bo góc cho paragraph nếu có */
+    padding: 0; /* Bỏ padding nếu có */
+}
+
+/* Nút trong CTA sẽ tự động dùng style của class .button đã có */
+.cta-section .button {
+    margin-top: 1.5rem; /* Khoảng cách trên nút */
+    /* Màu nền và hover của nút đã được định nghĩa ở rule .button và .button:hover */
+}
+
+/* --- KẾT THÚC BỔ SUNG CSS CHO CÁC SECTION MỚI --- */
