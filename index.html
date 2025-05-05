@@ -1,311 +1,179 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>BrHut - Nhà Của Sự Đơn Giản</title>  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
-  <style>  
-    :root {
-      --main-color: #4CAF50;
-      --background: #f9f7f2;
-      --text-dark: #333;
-      --text-light: #fff;
-      --accent: #ff7e5f;
-      --accent-secondary: #feb47b;
-    }
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BrHut - Tự Nhiên & Thủ Công</title>
+  <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--background);
-      color: var(--text-dark);
+      font-family: 'Segoe UI', sans-serif;
       line-height: 1.6;
+      background: #fdfaf6;
+      color: #333;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #fff;
-      padding: 0.8rem 1.2rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    header {
+      background-color: #6c4c3c;
+      color: white;
+      padding: 20px;
+      text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    .nav-left {
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-logo img {
-      width: 55px;
-      border-radius: 8px;
-      margin-right: 1rem;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-    }
-
-    .nav-links li a {
-      font-weight: 500;
-      color: var(--text-dark);
-      transition: color 0.3s;
-    }
-
-    .nav-links li a:hover {
-      color: var(--main-color);
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-    }
-
-    .cart-icon {
-      font-size: 1.4rem;
-      position: relative;
-      color: var(--text-dark);
-      transition: color 0.3s;
-    }
-
-    .cart-icon:hover {
-      color: var(--main-color);
-    }
-
-    .cart-count {
-      position: absolute;
-      top: -8px;
-      right: -10px;
-      background: var(--main-color);
-      color: white;
-      font-size: 0.7rem;
-      padding: 2px 6px;
-      border-radius: 50%;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      margin-left: 1rem;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #fff;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        padding: 1rem;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-      }
-    }
-
-    header {
-      background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
-      height: 70vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: var(--text-light);
-      padding: 1rem;
-      position: relative;
-    }
-
     header h1 {
       font-size: 2rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
 
-    header p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    nav {
+      margin-top: 10px;
     }
 
-    .button {
-      margin-top: 1.5rem;
-      background: var(--main-color);
-      padding: 0.7rem 1.2rem;
-      color: var(--text-light);
-      border-radius: 5px;
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
       font-weight: bold;
-      transition: background 0.3s;
     }
 
-    .button:hover {
-      background: #388E3C;
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1523413651479-597eb2da0ad6');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
     }
 
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
-      background: #fff;
+    .hero h2 {
+      font-size: 3rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 12px;
     }
 
-    .category {
-      position: relative;
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .project {
+      flex: 1 1 calc(50% - 20px);
+      background: #fff7ef;
       border-radius: 10px;
-      overflow: hidden;
-      background: #ddd;
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
     }
 
-    .category:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    .category img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .category h3 {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      padding: 0.3rem 0.8rem;
-      border-radius: 5px;
+    .project img {
+      max-width: 100%;
+      border-radius: 8px;
     }
 
     footer {
-      background-color: #f4f4f9;
-      color: var(--text-dark);
-      padding: 2rem 1rem;
+      background-color: #6c4c3c;
+      color: white;
       text-align: center;
-      border-top: 3px solid var(--main-color);
-    }
-
-    .footer-content p {
+      padding: 20px;
       font-size: 0.9rem;
-      margin: 0.5rem 0;
-      line-height: 1.5;
     }
 
-    .footer-content a {
-      color: var(--main-color);
-      font-weight: bold;
-    }
-
-    .footer-social {
-      margin-top: 1rem;
-    }
-
-    .social-link {
-      color: #333;
-      margin: 0 10px;
-      font-size: 1.5rem;
-      transition: color 0.3s;
-    }
-
-    .social-link:hover {
-      color: var(--main-color);
+    @media (max-width: 768px) {
+      .project {
+        flex: 1 1 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-left">
-      <a href="index.html" class="nav-logo">
-        <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Trang chủ</a></li>
-        <li><a href="about.html">Giới thiệu</a></li>
-        <li><a href="dothucong.html">Thủ công</a></li>
-        <li><a href="vuonuomxanh.html">Vườn ươm</a></li>
-        <li><a href="goikynang.html">Kỹ năng</a></li>
-      </ul>
-      <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-    </div>
-    <div class="nav-right">
-      <a href="giohang.html" class="cart-icon">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count">2</span>
-      </a>
-    </div>
-  </nav>
 
-  <header>
-    <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
-    <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
-    <a href="about.html" class="button">Xem thêm</a>
+  <header class="fade-in">
+    <h1>BrHut</h1>
+    <nav>
+      <a href="#gioi-thieu">Giới thiệu</a>
+      <a href="#du-an">Dự án</a>
+      <a href="#lien-he">Liên hệ</a>
+    </nav>
   </header>
 
-  <section class="categories">
-    <a href="dothucong.html" class="category">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png" alt="Handmade">
-      <h3>Đồ Thủ Công</h3>
-    </a>
+  <div class="hero fade-in">
+    <h2>Sống cùng thiên nhiên – Tự làm & Tự do</h2>
+  </div>
 
-    <a href="vuonuomxanh.html" class="category">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745331932592854088223531181729.png" alt="Green Nursery">
-      <h3>Vườn Ươm Xanh</h3>
-    </a>
-
-    <a href="goikynang.html" class="category">
-      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458175842903752646802185968006.png" alt="Skill Pack">
-      <h3>Gói Kỹ Năng</h3>
-    </a>
+  <section id="gioi-thieu" class="fade-in">
+    <h2>Về BrHut</h2>
+    <p>BrHut là hành trình sống gần với thiên nhiên, nơi con người học cách tự tạo ra mái nhà, chiếc ghế, bữa ăn… từ chính những gì thiên nhiên ban tặng. Chúng tôi chia sẻ qua hình ảnh, âm thanh, không màu mè – chỉ đơn giản là tận hưởng cuộc sống mộc mạc.</p>
   </section>
 
-  <footer>
-    <div class="footer-content">
-      <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
-      <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
+  <section id="du-an" class="fade-in">
+    <h2>Dự án nổi bật</h2>
+    <div class="projects">
+      <div class="project fade-in">
+        <img src="https://images.unsplash.com/photo-1618220179428-9f4e3ec6a62f" alt="Làm nhà thiên nhiên">
+        <h3>Nhà từ mây, tre & lá</h3>
+        <p>Tự tay dựng nhà bằng vật liệu địa phương, thân thiện môi trường và bền vững với thời gian.</p>
+      </div>
+      <div class="project fade-in">
+        <img src="https://images.unsplash.com/photo-1606788075761-1f1625f4ac61" alt="Thủ công">
+        <h3>Đồ thủ công</h3>
+        <p>Làm ghế mây, đèn gáo dừa, muỗng tre… mọi thứ đều từ bàn tay và trái tim yêu thiên nhiên.</p>
+      </div>
     </div>
-    <div class="footer-social">
-      <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://youtube.com/@brhut" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
-    </div>
+  </section>
+
+  <section id="lien-he" class="fade-in">
+    <h2>Liên hệ</h2>
+    <p>Email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
+  </section>
+
+  <footer class="fade-in">
+    &copy; 2025 BrHut. Tận hưởng – Tự làm – Tự nhiên.
   </footer>
 
   <script>
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
-    }
+    // Hiệu ứng hiện mượt khi cuộn
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
+
 </body>
 </html>
-
