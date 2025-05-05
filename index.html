@@ -74,6 +74,7 @@
       list-style: none;
       display: flex;
       gap: 1rem;
+      /* Transition ban đầu - sẽ được ghi đè trong media query cho mobile */
       transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
     }
 
@@ -148,27 +149,39 @@
         position: absolute;
          /* --- THAY ĐỔI: Vị trí top dựa trên chiều cao thực của navbar --- */
          /* Cần tính toán hoặc đo chiều cao thực tế của navbar sau khi logo to ra */
-         /* Ví dụ ước lượng, bạn cần kiểm tra lại */
+         /* Ví dụ ước lượng, bạn cần kiểm tra lại trên trình duyệt */
         top: 120px; /* Điều chỉnh giá trị này cho phù hợp với chiều cao navbar mới */
         left: 0;
         width: 100%;
         padding: 0 1rem 1rem 1rem;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         gap: 0;
-        max-height: 0;
+        max-height: 0; /* Vẫn dùng max-height để giới hạn không gian */
         opacity: 0;
         visibility: hidden;
         overflow: hidden;
         /* Bo góc cho menu dropdown trên mobile */
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
+
+        /* --- THAY ĐỔI: Thêm Transform và Cập nhật Transition để mượt mà hơn --- */
+        transform: translateY(-10px); /* Bắt đầu từ phía trên một chút (hoặc +10px để bắt đầu từ dưới) */
+        /* Transition cho Opacity và Transform (0.4s), Visibility (ẩn sau 0.4s, hiện ngay lập tức) */
+        /* transition: property duration timing-function delay */
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s linear 0.4s;
       }
 
       .nav-links.active {
-        max-height: 300px;
+        max-height: 300px; /* Vẫn giữ, nhưng hiệu ứng chủ yếu từ opacity/transform */
         opacity: 1;
         visibility: visible;
         padding-top: 1rem;
+        /* --- THAY ĐỔI: Kết thúc Translate --- */
+        transform: translateY(0); /* Về vị trí bình thường */
+
+        /* --- THAY ĐỔI: Cập nhật Transition cho trạng thái active --- */
+        /* Transition cho Opacity và Transform (0.4s), Visibility (hiện ngay lập tức) */
+         transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s linear 0s;
       }
 
       .nav-links li {
@@ -340,21 +353,23 @@
       transform: translateY(-3px);
     }
 
+    /* --- Hiệu ứng Fade-in giống giao diện chính --- */
     .fade-in-element {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(30px); /* Bắt đầu từ dưới lên */
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
       will-change: opacity, transform;
     }
 
     .fade-in-element.is-visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0); /* Về vị trí ban đầu */
     }
 
   </style>
 </head>
-<body id="top"> <nav class="navbar">
+<body id="top">
+  <nav class="navbar">
     <div class="nav-left">
       <a href="#top" class="nav-logo">
         <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
@@ -436,15 +451,18 @@
     document.addEventListener('click', function(event) {
         const navLinksContainer = document.getElementById('navLinks');
         const hamburger = document.querySelector('.hamburger');
+        // Kiểm tra xem các phần tử tồn tại trước khi sử dụng contains
         if (navLinksContainer && hamburger) {
             const isClickInsideNav = navLinksContainer.contains(event.target);
             const isClickOnHamburger = hamburger.contains(event.target);
+            const isHamburgerIcon = hamburger.querySelector('i').contains(event.target); // Kiểm tra cả icon
 
-            if (!isClickInsideNav && !isClickOnHamburger && navLinksContainer.classList.contains('active') && window.innerWidth <= 768) {
+            if (!isClickInsideNav && !isClickOnHamburger && !isHamburgerIcon && navLinksContainer.classList.contains('active') && window.innerWidth <= 768) {
                  navLinksContainer.classList.remove('active');
             }
         }
     });
+
 
     // --- JavaScript cho hiệu ứng Fade-in on Scroll ---
     document.addEventListener("DOMContentLoaded", () => {
