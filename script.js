@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() { // Sửa 'Document' thành 'document'
 
     // --- Menu Toggle Logic ---
     const navLinks = document.getElementById('navLinks');
