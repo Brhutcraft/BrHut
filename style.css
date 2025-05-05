@@ -1,12 +1,12 @@
-/* style.css - PHIÊN BẢN ĐÃ ĐIỀU CHỈNH MÀU SẮC DỊU MẮT */
+/* style.css - PHIÊN BẢN ĐÃ ĐIỀU CHỈNH MÀU SẮC DỊU MẮT VÀ TRANSITION */
 
 :root {
-  --main-color: #548C2F; /* Xanh ô liu dịu */
-  --background: #ECEBE4; /* Xám be nhạt */
-  --text-dark: #4A4A4A; /* Xám trung tính */
-  --text-light: #fff;
-  --accent: #778DA9; /* Xanh xám thanh lịch */
-  --accent-secondary: #A9BCC9; /* Xanh xám nhạt hơn */
+  --main-color: #609966; /* Xanh lá cây dịu, hơi hướng tự nhiên */
+  --background: #F8F8F8; /* Xám nhạt, gần như trắng */
+  --text-dark: #333333; /* Xám đậm, dễ đọc */
+  --text-light: #FFFFFF;
+  --accent: #A2D2FF; /* Xanh da trời nhạt, tạo điểm nhấn nhẹ nhàng */
+  --accent-secondary: #BDBDBD; /* Xám trung tính, bổ trợ cho màu accent */
 }
 
 * {
@@ -16,7 +16,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Thêm hiệu ứng cuộn mượt */
 }
 
 body {
@@ -24,11 +24,13 @@ body {
   background-color: var(--background);
   color: var(--text-dark);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transition cho body */
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  transition: color 0.3s ease; /* Transition cho link */
 }
 
 /* Navbar */
@@ -42,7 +44,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease; /* Transition cho navbar */
 }
 
 .navbar.hidden {
@@ -72,7 +74,7 @@ a {
 .nav-links li a {
   font-weight: 500;
   color: var(--text-dark);
-  transition: color 0.3s;
+  transition: color 0.3s ease;
   display: block;
   padding: 0.5rem 0;
 }
@@ -90,7 +92,7 @@ a {
   font-size: 1.4rem;
   position: relative;
   color: var(--text-dark);
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 .cart-icon:hover {
@@ -202,14 +204,14 @@ header p {
   color: var(--text-light);
   border-radius: 5px;
   font-weight: bold;
-  transition: background 0.3s, transform 0.2s;
+  transition: background 0.3s ease, transform 0.2s ease;
   display: inline-block;
   border: none;
   cursor: pointer;
 }
 
 .button:hover {
-  background: #437A24; /* Tông xanh ô liu đậm hơn khi hover */
+  background: #4A8150; /* Tông xanh lá đậm hơn khi hover */
   transform: translateY(-2px);
 }
 
@@ -218,6 +220,7 @@ header p {
   padding: 3rem 0;
   background-color: var(--background);
   text-align: center;
+  transition: background-color 0.3s ease; /* Transition cho section */
 }
 
 .quotes-slider-section .container {
@@ -269,6 +272,7 @@ header p {
     height: 100%;
     justify-content: space-between;
     border-left: 5px solid var(--main-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transition cho blockquote */
 }
 
 /* CSS cho hiệu ứng hiện dần văn bản bên trong item */
@@ -329,13 +333,14 @@ header p {
   gap: 1.5rem;
   padding: 2rem;
   background: #fff;
+  transition: background-color 0.3s ease; /* Transition cho section */
 }
 
 .category {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  background: #D3D3D3; /* Xám nhạt hơn */
+  background: #E0E0E0; /* Xám nhạt hơn */
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
@@ -366,17 +371,18 @@ header p {
    border-radius: 5px;
    font-size: 1rem;
    margin: 0;
-   transition: background 0.3s;
+   transition: background 0.3s ease;
  }
 
   .category:hover h3 {
-     background: rgba(84, 140, 47, 0.8); /* Xanh ô liu trong suốt khi hover */
+     background: rgba(96, 153, 102, 0.8); /* Xanh lá cây trong suốt khi hover */
   }
 
 /* Styles cho phần nội dung chính trang Giới thiệu */
 .about-content {
   padding: 4rem 0;
   background-color: var(--background);
+  transition: background-color 0.3s ease; /* Transition cho section */
 }
 
 .about-content .container {
@@ -414,12 +420,11 @@ header p {
     line-height: 1.8;
     margin-bottom: 2rem;
     color: var(--text-dark);
-
-    /* Style để tạo khung */
     background-color: #F5F5F5; /* Xám rất nhạt cho khung */
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Bóng rất nhẹ */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transition cho p */
 }
 
 /* Khoảng trống phía trên tiêu đề H2 thứ hai (phần tiếng Anh) */
@@ -445,6 +450,7 @@ footer {
   padding: 2rem 1rem;
   text-align: center;
   border-top: 3px solid var(--main-color);
+  transition: background-color 0.3s ease; /* Transition cho footer */
 }
 
 .footer-content p {
@@ -456,10 +462,10 @@ footer {
 .footer-content a {
   color: var(--main-color);
   font-weight: bold;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 .footer-content a:hover {
-   color: #437A24; /* Xanh ô liu đậm hơn khi hover */
+   color: #4A8150; /* Xanh lá đậm hơn khi hover */
 }
 
 .footer-social {
@@ -470,7 +476,7 @@ footer {
   color: #777; /* Xám nhạt cho icon */
   margin: 0 10px;
   font-size: 1.5rem;
-  transition: color 0.3s, transform 0.3s;
+  transition: color 0.3s ease, transform 0.3s ease;
   display: inline-block;
 }
 
