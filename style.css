@@ -227,6 +227,103 @@ header p {
   transform: translateY(-2px); /* Hiệu ứng nhấc lên khi hover */
 }
 
+/* THÊM: Styles cho phần Slider Trích dẫn mới */
+.quotes-slider-section {
+  padding: 3rem 0; /* Padding trên dưới, ngang = 0 vì container hoặc wrapper sẽ có padding */
+  background-color: var(--background); /* Nền cho toàn bộ section */
+  text-align: center; /* Căn giữa tiêu đề */
+}
+
+.quotes-slider-section .container {
+  max-width: 900px; /* Chiều rộng tối đa cho phần slider */
+  margin: 0 auto; /* Căn giữa container */
+  /* Không cần padding ngang ở đây, sẽ handle ở wrapper */
+}
+
+.quotes-slider-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem); /* Kích thước chữ tiêu đề */
+  margin-bottom: 2rem; /* Khoảng cách dưới tiêu đề */
+  color: var(--text-dark);
+}
+
+.quotes-slider-wrapper {
+  display: flex; /* Sử dụng Flexbox để các item nằm ngang */
+  overflow-x: auto; /* Cho phép cuộn theo chiều ngang khi nội dung tràn */
+  scroll-snap-type: x mandatory; /* Bật tính năng snap: cuộn sẽ dừng lại ở các điểm xác định */
+  gap: 1.5rem; /* Khoảng cách giữa các item trích dẫn */
+  padding: 0 1rem 1.5rem 1rem; /* Padding ngang (để item đầu/cuối không dính mép), padding dưới cho scrollbar */
+
+  /* Ẩn thanh cuộn mặc định */
+  scrollbar-width: none;  /* For Firefox */
+  -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
+
+/* Ẩn thanh cuộn cho Chrome, Safari và Opera */
+.quotes-slider-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+
+.quotes-slider-wrapper .quote-item {
+  flex: 0 0 auto; /* Quan trọng: Ngăn item co lại hoặc giãn ra, kích thước dựa vào width */
+  width: 90%; /* Chiều rộng của mỗi item trích dẫn (ví dụ 90% chiều rộng wrapper) */
+  max-width: 500px; /* Chiều rộng tối đa cho mỗi trích dẫn trên màn hình lớn */
+  scroll-snap-align: start; /* Căn chỉnh điểm bắt đầu của item với điểm snap */
+  /* padding đã được thêm vào blockquote bên trong */
+}
+
+.quote-item blockquote {
+    background-color: #fff; /* Nền trắng cho khối trích dẫn */
+    padding: 1.5rem; /* Padding bên trong khối trích dẫn */
+    border-radius: 8px; /* Bo góc */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Đổ bóng nhẹ */
+    margin: 0; /* Xóa margin mặc định của blockquote */
+    text-align: left; /* Đảm bảo text trích dẫn căn trái */
+    display: flex; /* Dùng flex để căn chỉnh p và footer nếu cần */
+    flex-direction: column; /* Xếp p và footer theo cột */
+    height: 100%; /* Đảm bảo blockquote lấp đầy quote-item */
+    justify-content: space-between; /* Đẩy footer xuống cuối */
+}
+
+.quote-item blockquote p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem; /* Khoảng cách dưới đoạn trích dẫn */
+    font-style: italic; /* Làm nghiêng chữ trích dẫn */
+    color: var(--text-dark);
+    flex-grow: 1; /* Cho phép đoạn văn giãn ra chiếm hết không gian còn trống */
+}
+
+.quote-item blockquote footer {
+    font-size: 0.9rem;
+    color: #555; /* Màu xám cho nguồn/tác giả */
+    text-align: right; /* Căn phải tên nguồn/tác giả */
+}
+
+/* Responsive cho item trích dẫn */
+@media (min-width: 769px) { /* Trên desktop */
+    .quotes-slider-wrapper .quote-item {
+        width: calc(50% - 1rem); /* Hiện 2 item cùng lúc trên màn hình lớn hơn (50% trừ đi 1 nửa khoảng cách gap) */
+        /* Hoặc dùng fixed width: width: 400px; */
+    }
+     .quotes-slider-wrapper {
+        padding: 0 2rem 1.5rem 2rem; /* Tăng padding ngang trên desktop */
+     }
+}
+
+@media (min-width: 1024px) { /* Trên màn hình rất lớn, có thể hiện 3 item */
+     .quotes-slider-wrapper .quote-item {
+        width: calc(33.33% - 1rem); /* Hiện 3 item cùng lúc */
+     }
+      .quotes-slider-wrapper {
+         padding: 0 3rem 1.5rem 3rem; /* Tăng padding ngang thêm */
+      }
+}
+
+
+/* ... (Các style hiện có của bạn, ví dụ như .categories, footer) ... */
+
+
 .categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -235,50 +332,7 @@ header p {
   background: #fff;
 }
 
-.category {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #eee; /* Màu nền nhẹ khi ảnh chưa tải */
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-  display: block; /* Để thẻ a bao toàn bộ */
-}
-
-.category:hover {
-  transform: translateY(-5px) scale(1.02); /* Kết hợp nhấc lên và phóng to nhẹ */
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
-.category img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block; /* Tránh khoảng trống dưới ảnh */
-  transition: transform 0.3s ease-out; /* Hiệu ứng zoom nhẹ ảnh */
-}
-
- .category:hover img {
-   transform: scale(1.05); /* Zoom ảnh nhẹ khi hover category */
- }
-
-
-.category h3 {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 0.3rem 0.8rem;
-  border-radius: 5px;
-  font-size: 1rem;
-  margin: 0; /* Reset margin */
-  transition: background 0.3s;
-}
-
- .category:hover h3 {
-    background: rgba(76, 175, 80, 0.8); /* Đổi màu nền chữ khi hover */
- }
-
+/* ... (Phần footer và social links) ... */
 
 footer {
   background-color: #f4f4f9;
@@ -320,4 +374,3 @@ footer {
   color: var(--main-color);
   transform: translateY(-3px); /* Hiệu ứng nhấc lên */
 }
-
