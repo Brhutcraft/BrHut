@@ -21,7 +21,6 @@
       box-sizing: border-box;
     }
 
-    /* --- THÊM: Bật hiệu ứng cuộn mượt --- */
     html {
       scroll-behavior: smooth;
     }
@@ -31,6 +30,7 @@
       background-color: var(--background);
       color: var(--text-dark);
       line-height: 1.6;
+      overflow-x: hidden; /* Ngăn cuộn ngang do hiệu ứng */
     }
 
     a {
@@ -57,18 +57,18 @@
     }
 
     .nav-logo img {
-      width: 55px;
-      height: auto; /* Giữ tỷ lệ */
+      /* --- THAY ĐỔI: Tăng kích thước logo --- */
+      width: 65px; /* Tăng từ 55px lên 65px (hoặc tùy chỉnh) */
+      height: auto;
       border-radius: 8px;
       margin-right: 1rem;
-      display: block; /* Tránh khoảng trống dưới ảnh */
+      display: block;
     }
 
     .nav-links {
       list-style: none;
       display: flex;
       gap: 1rem;
-      /* --- THAY ĐỔI/THÊM: Chuẩn bị cho transition trên mobile --- */
       transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
     }
 
@@ -76,8 +76,8 @@
       font-weight: 500;
       color: var(--text-dark);
       transition: color 0.3s;
-      display: block; /* Để padding hoạt động tốt hơn trên mobile */
-      padding: 0.5rem 0; /* Thêm padding cho dễ bấm trên mobile */
+      display: block;
+      padding: 0.5rem 0;
     }
 
     .nav-links li a:hover {
@@ -90,10 +90,18 @@
     }
 
     .cart-icon {
-      font-size: 1.4rem;
-      position: relative;
-      color: var(--text-dark);
-      transition: color 0.3s;
+       /* --- THAY ĐỔI: Styling cho icon giỏ hàng mới (SVG) --- */
+       position: relative;
+       display: flex; /* Giúp căn chỉnh số lượng dễ hơn */
+       align-items: center;
+       color: var(--text-dark);
+       transition: color 0.3s;
+    }
+
+    .cart-icon svg { /* Style cho SVG */
+        width: 24px; /* Kích thước icon */
+        height: 24px;
+        fill: currentColor; /* SVG sẽ lấy màu từ thẻ cha (.cart-icon) */
     }
 
     .cart-icon:hover {
@@ -102,63 +110,60 @@
 
     .cart-count {
       position: absolute;
-      top: -8px;
-      right: -10px;
+      /* Điều chỉnh vị trí cho phù hợp với icon SVG mới */
+      top: -6px;
+      right: -8px;
       background: var(--main-color);
       color: white;
       font-size: 0.7rem;
-      padding: 2px 6px;
+      padding: 2px 5px; /* Điều chỉnh padding */
       border-radius: 50%;
+      line-height: 1; /* Đảm bảo số nằm giữa */
     }
 
     .hamburger {
-      display: none; /* Mặc định ẩn trên desktop */
+      display: none;
       font-size: 1.5rem;
       cursor: pointer;
       margin-left: 1rem;
       color: var(--text-dark);
-      padding: 5px; /* Tăng vùng bấm */
+      padding: 5px;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
       .nav-left {
-        /* Cho phép hamburger icon xuống dòng nếu cần */
         flex-wrap: wrap;
-        /* Giữ logo và menu trên cùng hàng */
         width: 100%;
         justify-content: space-between;
       }
 
       .nav-links {
-        /* --- THAY ĐỔI: Styling và trạng thái ẩn ban đầu cho mobile --- */
-        display: flex; /* Luôn là flex để flex-direction hoạt động */
+        display: flex;
         flex-direction: column;
         background-color: #fff;
         position: absolute;
-        top: 70px; /* Ngay dưới navbar (điều chỉnh nếu chiều cao navbar thay đổi) */
+        top: 70px; /* Kiểm tra lại giá trị này nếu chiều cao navbar thay đổi */
         left: 0;
         width: 100%;
-        padding: 0 1rem 1rem 1rem; /* Chỉ padding ngang và dưới */
+        padding: 0 1rem 1rem 1rem;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        gap: 0; /* Reset gap, dùng padding trên thẻ li a */
-        /* Trạng thái ẩn */
+        gap: 0;
         max-height: 0;
         opacity: 0;
         visibility: hidden;
-        overflow: hidden; /* Quan trọng để max-height hoạt động */
+        overflow: hidden;
       }
 
       .nav-links.active {
-        /* --- THAY ĐỔI: Trạng thái hiện cho mobile --- */
-        max-height: 300px; /* Đủ lớn để chứa các mục menu */
+        max-height: 300px;
         opacity: 1;
         visibility: visible;
-        padding-top: 1rem; /* Thêm padding top khi mở ra */
+        padding-top: 1rem;
       }
 
       .nav-links li {
-         border-bottom: 1px solid #eee; /* Ngăn cách các mục menu */
+         border-bottom: 1px solid #eee;
       }
        .nav-links li:last-child {
          border-bottom: none;
@@ -166,18 +171,20 @@
 
 
       .hamburger {
-        display: block; /* Hiện hamburger trên mobile */
+        display: block;
       }
 
-      /* Đẩy giỏ hàng sang phải khi có hamburger */
       .nav-right {
-          margin-left: auto; /* Đẩy giỏ hàng sang hết cỡ bên phải */
-          padding-left: 1rem; /* Tạo khoảng cách với hamburger */
+          margin-left: auto;
+          padding-left: 1rem;
       }
 
-      /* Đảm bảo logo và hamburger căn giữa theo chiều dọc */
        .nav-logo, .hamburger {
            align-self: center;
+       }
+       /* Đảm bảo navbar đủ cao khi logo to hơn */
+       .navbar {
+            min-height: 70px; /* Hoặc giá trị phù hợp với logo mới */
        }
     }
 
@@ -193,16 +200,18 @@
       color: var(--text-light);
       padding: 1rem;
       position: relative;
+      /* --- THÊM: Chuẩn bị cho hiệu ứng fade-in --- */
+      /* opacity: 0; Thẻ header sẽ có hiệu ứng riêng, không cần fade-in chung */
     }
 
     header h1 {
-      font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive font size */
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
       margin-bottom: 0.5rem;
       text-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
 
     header p {
-      font-size: clamp(1rem, 3vw, 1.1rem); /* Responsive font size */
+      font-size: clamp(1rem, 3vw, 1.1rem);
       max-width: 600px;
       text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
@@ -214,15 +223,15 @@
       color: var(--text-light);
       border-radius: 5px;
       font-weight: bold;
-      transition: background 0.3s, transform 0.2s; /* Thêm transition cho transform */
-      display: inline-block; /* Để transform hoạt động */
-      border: none; /* Bỏ border mặc định nếu có */
+      transition: background 0.3s, transform 0.2s;
+      display: inline-block;
+      border: none;
       cursor: pointer;
     }
 
     .button:hover {
       background: #388E3C;
-      transform: translateY(-2px); /* Hiệu ứng nhấc lên khi hover */
+      transform: translateY(-2px);
     }
 
     .categories {
@@ -231,19 +240,27 @@
       gap: 1.5rem;
       padding: 2rem;
       background: #fff;
+       /* --- THÊM: Chuẩn bị cho hiệu ứng fade-in (container) --- */
+       /* Các item con sẽ có hiệu ứng */
     }
 
     .category {
       position: relative;
       border-radius: 10px;
       overflow: hidden;
-      background: #eee; /* Màu nền nhẹ khi ảnh chưa tải */
+      background: #eee;
       transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-      display: block; /* Để thẻ a bao toàn bộ */
+      display: block;
+      /* --- THÊM: Chuẩn bị cho hiệu ứng fade-in (item) --- */
+      /* opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0.6s;
+      visibility: hidden; */
+       /* ^^^ Sẽ được quản lý bằng class .fade-in-element & .is-visible */
     }
 
     .category:hover {
-      transform: translateY(-5px) scale(1.02); /* Kết hợp nhấc lên và phóng to nhẹ */
+      transform: translateY(-5px) scale(1.02);
       box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
 
@@ -251,12 +268,12 @@
       width: 100%;
       height: 200px;
       object-fit: cover;
-      display: block; /* Tránh khoảng trống dưới ảnh */
-      transition: transform 0.3s ease-out; /* Hiệu ứng zoom nhẹ ảnh */
+      display: block;
+      transition: transform 0.3s ease-out;
     }
 
      .category:hover img {
-       transform: scale(1.05); /* Zoom ảnh nhẹ khi hover category */
+       transform: scale(1.05);
      }
 
 
@@ -269,12 +286,12 @@
       padding: 0.3rem 0.8rem;
       border-radius: 5px;
       font-size: 1rem;
-      margin: 0; /* Reset margin */
+      margin: 0;
       transition: background 0.3s;
     }
 
      .category:hover h3 {
-        background: rgba(76, 175, 80, 0.8); /* Đổi màu nền chữ khi hover */
+        background: rgba(76, 175, 80, 0.8);
      }
 
 
@@ -284,6 +301,8 @@
       padding: 2rem 1rem;
       text-align: center;
       border-top: 3px solid var(--main-color);
+      /* --- THÊM: Chuẩn bị cho hiệu ứng fade-in --- */
+      /* opacity: 0; */
     }
 
     .footer-content p {
@@ -311,13 +330,27 @@
       margin: 0 10px;
       font-size: 1.5rem;
       transition: color 0.3s, transform 0.3s;
-      display: inline-block; /* Cho phép transform */
+      display: inline-block;
     }
 
     .social-link:hover {
       color: var(--main-color);
-      transform: translateY(-3px); /* Hiệu ứng nhấc lên */
+      transform: translateY(-3px);
     }
+
+    /* --- THÊM: CSS cho hiệu ứng Fade-in on Scroll --- */
+    .fade-in-element {
+      opacity: 0;
+      transform: translateY(30px); /* Bắt đầu từ vị trí thấp hơn một chút */
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      will-change: opacity, transform; /* Tối ưu hóa hiệu suất animation */
+    }
+
+    .fade-in-element.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
 
   </style>
 </head>
@@ -339,32 +372,36 @@
     </div>
     <div class="nav-right">
       <a href="giohang.html" class="cart-icon">
-        <i class="fas fa-shopping-cart"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.763.746-1.858 1.705l-1.29 11.996A1.875 1.875 0 0 0 4.24 22.5h15.52a1.875 1.875 0 0 0 1.875-1.948l-1.29-11.996A1.875 1.875 0 0 0 18.488 6.75H16.5V6a4.5 4.5 0 0 0-9 0ZM15 6.75V6a3 3 0 1 0-6 0v.75h6Z" clip-rule="evenodd" />
+        </svg>
         <span class="cart-count">2</span>
       </a>
     </div>
   </nav>
 
-  <header id="top"> <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
+  <header id="top" class="fade-in-element">
+    <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
     <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
     <a href="about.html" class="button">Xem thêm</a>
   </header>
 
-  <section class="categories" id="categories-section"> <a href="dothucong.html" class="category">
+  <section class="categories" id="categories">
+    <a href="dothucong.html" class="category fade-in-element">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png" alt="Handmade">
       <h3>Đồ Thủ Công</h3>
     </a>
-    <a href="vuonuomxanh.html" class="category">
+    <a href="vuonuomxanh.html" class="category fade-in-element">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745331932592854088223531181729.png" alt="Green Nursery">
       <h3>Vườn Ươm Xanh</h3>
     </a>
-    <a href="goikynang.html" class="category">
+    <a href="goikynang.html" class="category fade-in-element">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458175842903752646802185968006.png" alt="Skill Pack">
       <h3>Gói Kỹ Năng</h3>
     </a>
   </section>
 
-  <footer>
+  <footer class="fade-in-element">
     <div class="footer-content">
       <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
       <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
@@ -378,33 +415,61 @@
   </footer>
 
   <script>
+    // --- Hàm cho menu mobile ---
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
       navLinks.classList.toggle('active');
     }
 
-    // Tùy chọn: Đóng menu khi click vào một link trên mobile
+    // Đóng menu khi click link trên mobile
     const navLinksMobile = document.querySelectorAll('.nav-links a');
     navLinksMobile.forEach(link => {
         link.addEventListener('click', () => {
             const navLinksContainer = document.getElementById('navLinks');
-            // Chỉ đóng nếu menu đang mở (kiểm tra class active và màn hình nhỏ)
             if (navLinksContainer.classList.contains('active') && window.innerWidth <= 768) {
                 navLinksContainer.classList.remove('active');
             }
         });
     });
 
-     // Tùy chọn: Đóng menu khi click ra ngoài (trên mobile)
+     // Đóng menu khi click ra ngoài trên mobile
     document.addEventListener('click', function(event) {
         const navLinksContainer = document.getElementById('navLinks');
         const hamburger = document.querySelector('.hamburger');
-        const isClickInsideNav = navLinksContainer.contains(event.target);
-        const isClickOnHamburger = hamburger.contains(event.target);
+        // Kiểm tra xem navLinksContainer có tồn tại không trước khi truy cập contains
+        if (navLinksContainer && hamburger) {
+            const isClickInsideNav = navLinksContainer.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
 
-        if (!isClickInsideNav && !isClickOnHamburger && navLinksContainer.classList.contains('active') && window.innerWidth <= 768) {
-             navLinksContainer.classList.remove('active');
+            if (!isClickInsideNav && !isClickOnHamburger && navLinksContainer.classList.contains('active') && window.innerWidth <= 768) {
+                 navLinksContainer.classList.remove('active');
+            }
         }
+    });
+
+    // --- THÊM: JavaScript cho hiệu ứng Fade-in on Scroll ---
+    document.addEventListener("DOMContentLoaded", () => {
+      const observerOptions = {
+        root: null, // Quan sát so với viewport
+        rootMargin: '0px',
+        threshold: 0.1 // Kích hoạt khi 10% phần tử hiển thị
+      };
+
+      const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); // Ngừng quan sát sau khi đã hiển thị
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      const elementsToFadeIn = document.querySelectorAll('.fade-in-element');
+      elementsToFadeIn.forEach(el => {
+        observer.observe(el);
+      });
     });
 
   </script>
