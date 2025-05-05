@@ -1,12 +1,12 @@
-/* style.css - BỘ MÀU TỐI GIẢN & TINH TẾ */
+/* style.css - BỘ MÀU THANH THOÁT CÁT & TRỜI */
 
 :root {
-  --main-color: #488A99; /* MÀU CHỦ ĐẠO: Xanh Teal Trầm (Bộ màu 4) */
-  --background: #FFFFFF; /* MÀU NỀN CHÍNH: Trắng Tinh Khiết (Bộ màu 4) */
-  --text-dark: #333333; /* MÀU CHỮ: Xám Đậm (Bộ màu 4) */
+  --main-color: #77A1D3; /* MÀU CHỦ ĐẠO: Xanh Da Trời Nhạt Dịu (Bộ màu 3) */
+  --background: #FBFBFA; /* MÀU NỀN CHÍNH: Trắng Gần Như Tinh Khiết (Bộ màu 3) */
+  --text-dark: #191970; /* MÀU CHỮ: Xanh Navy (Bộ màu 3) */
   --text-light: #FFFFFF; /* Giữ nguyên: Trắng */
-  --accent: #77A1D3; /* Xanh da trời đậm hơn - Nếu có dùng */
-  --accent-secondary: #9E9E9E; /* Xám đậm hơn một chút - Nếu có dùng */
+  --accent: #C2B280; /* MÀU PHỤ/ĐIỂM NHẤN NHẸ: Vàng Cát (Bộ màu 3 - có thể dùng thêm) */
+  --accent-secondary: #9E9E9E; /* Xám đậm hơn một chút - Giữ lại nếu cần */
 }
 
 * {
@@ -21,8 +21,8 @@ html {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--background); /* Nền body: Trắng Tinh Khiết */
-  color: var(--text-dark); /* Chữ: Xám Đậm */
+  background-color: var(--background); /* Nền body: Trắng Gần Như Tinh Khiết */
+  color: var(--text-dark); /* Chữ: Xanh Navy */
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -38,7 +38,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(169, 169, 169, 0.5); /* Giữ nguyên: Ghi Xám với opacity 0.5 */
+  /* MÀU NỀN NAVBAR: Xanh Dương Nhạt với độ trong suốt 0.5 */
+  background-color: rgba(119, 161, 211, 0.5); /* Màu Xanh Dương Nhạt với opacity 0.5 */
   padding: 0.8rem 1.2rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   position: sticky;
@@ -73,12 +74,12 @@ a {
 
 .nav-links li a {
   font-weight: 500;
-  color: var(--text-dark); /* Chữ link: Xám Đậm */
+  color: var(--text-dark); /* Chữ link: Xanh Navy */
   transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  color: var(--main-color); /* Hover link: Xanh Teal Trầm */
+  color: var(--main-color); /* Hover link: Xanh Da Trời Nhạt Dịu */
 }
 
 .nav-right {
@@ -89,19 +90,19 @@ a {
 .cart-icon {
   font-size: 1.4rem;
   position: relative;
-  color: var(--text-dark); /* Icon giỏ hàng: Xám Đậm */
+  color: var(--text-dark); /* Icon giỏ hàng: Xanh Navy */
   transition: color 0.3s ease;
 }
 
 .cart-icon:hover {
-  color: var(--main-color); /* Hover icon giỏ hàng: Xanh Teal Trầm */
+  color: var(--main-color); /* Hover icon giỏ hàng: Xanh Da Trời Nhạt Dịu */
 }
 
 .cart-count {
   position: absolute;
   top: -8px;
   right: -10px;
-  background: var(--main-color); /* Nền số lượng giỏ hàng: Xanh Teal Trầm */
+  background: var(--main-color); /* Nền số lượng giỏ hàng: Xanh Da Trời Nhạt Dịu */
   color: white;
   font-size: 0.7rem;
   padding: 2px 6px;
@@ -113,7 +114,7 @@ a {
   font-size: 1.5rem;
   cursor: pointer;
   margin-left: 1rem;
-  color: var(--text-dark); /* Icon hamburger: Xám Đậm */
+  color: var(--text-dark); /* Icon hamburger: Xanh Navy */
   padding: 5px;
 }
 
@@ -127,7 +128,7 @@ a {
 
   .nav-links {
     flex-direction: column;
-    background-color: var(--background); /* Nền menu mobile: Trắng Tinh Khiết */
+    background-color: var(--background); /* Nền menu mobile: Trắng Gần Như Tinh Khiết */
     position: absolute;
     top: 70px;
     left: 0;
@@ -197,7 +198,8 @@ header p {
 
 .button {
   margin-top: 1.5rem;
-  background: rgba(169, 169, 169, 0.7); /* Giữ nguyên: Nút Ghi Xám với opacity 0.7 */
+  /* MÀU NỀN NÚT XEM THÊM: Xanh Da Trời Nhạt Dịu */
+  background: var(--main-color); /* Màu Xanh Da Trời Nhạt Dịu */
   padding: 0.7rem 1.2rem;
   color: var(--text-light); /* Giữ màu chữ trắng */
   border-radius: 5px;
@@ -209,14 +211,15 @@ header p {
 }
 
 .button:hover {
-  background: #808080; /* Giữ nguyên: Ghi Xám Đặc hơn khi hover */
+  /* MÀU NỀN NÚT XEM THÊM KHI HOVER: Xanh Dương Đậm Hơn */
+  background: #5586C3; /* Màu Xanh Dương Đậm Hơn khi hover */
   transform: translateY(-2px);
 }
 
-/* Styles cho phần Slider Trích dẫn - Nền trắng tuyết */
+/* Styles cho phần Slider Trích dẫn - Nền trắng gần như tinh khiết */
 .quotes-slider-section {
   padding: 3rem 0;
-  background-color: var(--background); /* Nền section: Trắng Tinh Khiết */
+  background-color: var(--background); /* Nền section: Trắng Gần Như Tinh Khiết */
   text-align: center;
   transition: background-color 0.3s ease;
 }
@@ -229,7 +232,7 @@ header p {
 .quotes-slider-section h2 {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 2rem;
-  color: var(--text-dark); /* Chữ tiêu đề: Xám Đậm */
+  color: var(--text-dark); /* Chữ tiêu đề: Xanh Navy */
 }
 
 .quotes-slider-wrapper {
@@ -259,7 +262,7 @@ header p {
 
 /* Cải thiện giao diện Blockquote bên trong item - Nền xám rất nhạt */
 .quote-item blockquote {
-    background-color: #F8F8F8; /* Nền quote item: Xám Rất Nhạt (Nền phụ) */
+    background-color: #F0F0F0; /* Nền quote item: XÁM RẤT NHẠT (Nền phụ) */
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
@@ -269,7 +272,7 @@ header p {
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
-    border-left: 5px solid var(--main-color); /* Đường viền trái: Xanh Teal Trầm */
+    border-left: 5px solid var(--main-color); /* Đường viền trái: Xanh Da Trời Nhạt Dịu */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -324,13 +327,13 @@ header p {
       }
 }
 
-/* Categories Section - Nền trắng tinh khiết */
+/* Categories Section - Nền trắng gần như tinh khiết */
 .categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
-  background: var(--background); /* Nền section: Trắng Tinh Khiết */
+  background: var(--background); /* Nền section: Trắng Gần Như Tinh Khiết */
   transition: background-color 0.3s ease;
 }
 
@@ -338,7 +341,7 @@ header p {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  background: var(--background); /* Nền từng mục category: Trắng Tinh Khiết */
+  background: var(--background); /* Nền từng mục category: Trắng Gần Như Tinh Khiết */
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
    box-shadow: 0 4px 8px rgba(0,0,0,0.08); /* Thêm bóng nhẹ cho từng mục */
 }
@@ -374,13 +377,13 @@ header p {
  }
 
   .category:hover h3 {
-     background: rgba(72, 138, 153, 0.7); /* Nền hover h3: Xanh Teal Trầm trong suốt */
+     background: rgba(119, 161, 211, 0.7); /* Nền hover h3: Xanh Da Trời Nhạt Dịu trong suốt */
   }
 
-/* Styles cho phần nội dung chính trang Giới thiệu - Nền trắng tinh khiết */
+/* Styles cho phần nội dung chính trang Giới thiệu - Nền trắng gần như tinh khiết */
 .about-content {
   padding: 4rem 0;
-  background-color: var(--background); /* Nền section: Trắng Tinh Khiết */
+  background-color: var(--background); /* Nền section: Trắng Gần Như Tinh Khiết */
   transition: background-color 0.3s ease;
 }
 
@@ -394,7 +397,7 @@ header p {
 .about-content h2 {
     font-size: clamp(2rem, 5vw, 2.8rem);
     margin-bottom: 2rem;
-    color: var(--text-dark); /* Chữ tiêu đề: Xám Đậm */
+    color: var(--text-dark); /* Chữ tiêu đề: Xanh Navy */
     line-height: 1.2;
     text-align: center;
 }
@@ -418,8 +421,8 @@ header p {
     font-size: 1rem;
     line-height: 1.8;
     margin-bottom: 2rem;
-    color: var(--text-dark); /* Chữ paragraph: Xám Đậm */
-    background-color: #F8F8F8; /* Nền khung paragraph: XÁM RẤT NHẠT (Nền phụ) */
+    color: var(--text-dark); /* Chữ paragraph: Xanh Navy */
+    background-color: #F0F0F0; /* Nền khung paragraph: XÁM RẤT NHẠT (Nền phụ) */
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
@@ -442,13 +445,13 @@ header p {
     margin-bottom: 0;
 }
 
-/* Footer - Nền ghi xám nhạt */
+/* Footer - Nền xám xanh nhạt */
 footer {
-  background-color: #D3D3D3; /* Nền footer: XÁM NHẠT (Từ bộ màu 4) */
-  color: var(--text-dark); /* Màu chữ: Xám Đậm */
+  background-color: #B0C4DE; /* Nền footer: XÁM XANH NHẠT (Bộ màu 3) */
+  color: var(--text-dark); /* Màu chữ: Xanh Navy */
   padding: 2rem 1rem;
   text-align: center;
-  border-top: 3px solid var(--main-color); /* Đường viền trên: Xanh Teal Trầm */
+  border-top: 3px solid var(--main-color); /* Đường viền trên: Xanh Da Trời Nhạt Dịu */
   transition: background-color 0.3s ease;
 }
 
@@ -459,7 +462,7 @@ footer {
 }
 
 .footer-content a {
-  color: var(--main-color); /* Màu link footer: Xanh Teal Trầm */
+  color: var(--main-color); /* Màu link footer: Xanh Da Trời Nhạt Dịu */
   font-weight: bold;
   transition: color 0.3s ease;
 }
