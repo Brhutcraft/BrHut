@@ -1,4 +1,4 @@
-/* style.css - PHIÊN BẢN ĐÃ CHỈNH SỬA MÀU NỀN CÁC PHẦN */
+/* style.css - PHIÊN BẢN CHỈNH SỬA CUỐI CÙNG CÁC MÀU NỀN */
 
 :root {
   --main-color: #437A24; /* Xanh lá cây đậm hơn - Dùng cho các điểm nhấn khác */
@@ -38,7 +38,6 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* MÀU NỀN NAVBAR: Ghi Xám với độ trong suốt 0.5 */
   background-color: rgba(169, 169, 169, 0.5); /* Màu Ghi Xám với opacity 0.5 */
   padding: 0.8rem 1.2rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -262,9 +261,9 @@ header p {
   scroll-snap-align: start;
 }
 
-/* Cải thiện giao diện Blockquote bên trong item */
+/* Cải thiện giao diện Blockquote bên trong item - Nền trắng */
 .quote-item blockquote {
-    background-color: var(--background); /* Nền quote item: TRẮNG SỮA/KEM */
+    background-color: #FFFFFF; /* Nền quote item: TRẮNG TINH KHIẾT */
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
@@ -418,13 +417,13 @@ header p {
      border-radius: 0;
 }
 
-/* Style cho các đoạn văn bản chính - làm chúng trông như các khung */
+/* Style cho các đoạn văn bản chính - làm chúng trông như các khung - Nền trắng */
 .about-content p {
     font-size: 1rem;
     line-height: 1.8;
     margin-bottom: 2rem;
     color: var(--text-dark);
-    background-color: var(--background); /* Nền khung paragraph: trắng sữa/kem */
+    background-color: #FFFFFF; /* Nền khung paragraph: TRẮNG TINH KHIẾT */
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
@@ -447,9 +446,9 @@ header p {
     margin-bottom: 0;
 }
 
-/* Footer - Nền ghi xám */
+/* Footer - Nền ghi xám hiện đại */
 footer {
-  background-color: #A9A9A9; /* Nền footer: GHI XÁM */
+  background-color: #E0E0E0; /* Nền footer: GHI XÁM HIỆN ĐẠI */
   color: var(--text-dark); /* Màu chữ vẫn là text-dark */
   padding: 2rem 1rem;
   text-align: center;
