@@ -34,7 +34,9 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  /* Sửa màu nền thành màu trắng trong suốt nhẹ */
+  background-color: rgba(255, 255, 255, 0.95); /* Màu trắng với độ trong suốt 95% */
+
   padding: 0.8rem 1.2rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   position: sticky;
@@ -235,11 +237,14 @@ header p {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 1.5rem;
-  padding: 0 1.5rem 1.5rem 1.5rem; /* Padding ngang bằng gap */
+  padding: 0 1.5rem 1.5rem 1.5rem;
 
   /* Ẩn thanh cuộn mặc định */
   scrollbar-width: none;
   -ms-overflow-style: none;
+
+  /* Làm mượt thao tác cuộn/snap */
+  scroll-behavior: smooth;
 }
 
 .quotes-slider-wrapper::-webkit-scrollbar {
@@ -248,7 +253,7 @@ header p {
 
 .quotes-slider-wrapper .quote-item {
   flex: 0 0 auto;
-  overflow: hidden; /* Đảm bảo nội dung trượt vào không hiện ra ngoài item */
+  overflow: hidden;
   scroll-snap-align: start;
 }
 
@@ -270,26 +275,24 @@ header p {
 /* CSS cho hiệu ứng hiện dần văn bản bên trong item */
 .quote-item blockquote p,
 .quote-item blockquote footer {
-    opacity: 0; /* Ban đầu ẩn */
-    transform: translateY(10px); /* Ban đầu dịch chuyển xuống 10px */
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Hiệu ứng chuyển động mượt mà */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .quote-item blockquote footer {
-    transition-delay: 0.1s; /* Footer hiện chậm hơn p 0.1 giây */
+    transition-delay: 0.1s;
 }
 
 /* Khi item có class 'is-in-view' (do JS thêm vào), văn bản sẽ hiện ra */
 .quote-item.is-in-view blockquote p,
 .quote-item.is-in-view blockquote footer {
-    opacity: 1; /* Hiện ra */
-    transform: translateY(0); /* Trở về vị trí ban đầu */
-    /* transition-delay đã được định nghĩa ở trên */
+    opacity: 1;
+    transform: translateY(0);
 }
 
-
 /* Responsive cho item trích dẫn - Tính toán width dựa trên gap */
-@media (max-width: 768px) { /* Mobile nhỏ */
+@media (max-width: 768px) {
     .quotes-slider-wrapper .quote-item {
          width: calc(100% - (2 * 1.5rem));
          max-width: 400px;
@@ -300,7 +303,7 @@ header p {
      }
 }
 
-@media (min-width: 769px) { /* Trên desktop */
+@media (min-width: 769px) {
     .quotes-slider-wrapper .quote-item {
         width: calc( (100% - 1.5rem) / 2 );
         max-width: none;
@@ -311,7 +314,7 @@ header p {
      }
 }
 
-@media (min-width: 1024px) { /* Trên màn hình rất lớn */
+@media (min-width: 1024px) {
      .quotes-slider-wrapper .quote-item {
         width: calc( (100% - 3rem) / 3 );
      }
@@ -319,7 +322,6 @@ header p {
          padding: 0 1.5rem 1.5rem 1.5rem;
       }
 }
-
 
 /* Categories Section */
 .categories {
