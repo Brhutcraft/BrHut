@@ -84,6 +84,41 @@
       background: #388E3C;
     }
 
+    /* Menu */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      background-color: #333;
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .menu-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .menu-links a {
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .menu-links a:hover {
+      color: var(--main-color);
+    }
+
+    .cart-icon {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
     .categories {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -220,20 +255,44 @@
       .logo img {
         width: 80px;
       }
+
+      .menu-links {
+        display: none;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <a href="index.html" class="logo">
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
-    </a>
+    </div>
+    <div class="menu-links">
+      <a href="#home">Trang Chủ</a>
+      <a href="#categories">Danh Mục</a>
+      <a href="#explore">Khám Phá</a>
+      <a href="#contact">Liên Hệ</a>
+    </div>
+    <div class="cart-icon">
+      <i class="fas fa-shopping-cart"></i>
+    </div>
+  </nav>
+
+  <header id="home">
     <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
     <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
     <a href="about.html" class="button">Xem thêm</a>
   </header>
-  <section class="categories">
+
+  <section class="categories" id="categories">
     <a href="dothucong.html" class="category">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png" alt="Handmade">
       <h3>Đồ Thủ Công</h3>
