@@ -21,6 +21,7 @@
       box-sizing: border-box;
     }
 
+    /* --- THÊM: Bật hiệu ứng cuộn mượt --- */
     html {
       scroll-behavior: smooth;
     }
@@ -30,7 +31,6 @@
       background-color: var(--background);
       color: var(--text-dark);
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     a {
@@ -46,14 +46,9 @@
       background-color: #fff;
       padding: 0.8rem 1.2rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      /* --- THAY ĐỔI: Bỏ sticky và bo góc dưới --- */
-      /* position: sticky; */ /* Đã xóa */
-      /* top: 0; */ /* Đã xóa */
-      /* z-index: 1000; */ /* Đã xóa */
-      border-bottom-left-radius: 15px; /* Bo góc dưới trái */
-      border-bottom-right-radius: 15px; /* Bo góc dưới phải */
-      /* Thêm margin bottom nếu muốn khoảng cách rõ hơn với phần tử dưới */
-      /* margin-bottom: 1rem; */
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     .nav-left {
@@ -62,28 +57,27 @@
     }
 
     .nav-logo img {
-      /* --- THAY ĐỔI: Kích thước logo theo yêu cầu trước --- */
-      width: 80px; /* Giữ kích thước 100px như bạn đã chỉnh */
-      height: auto;
+      width: 55px;
+      height: auto; /* Giữ tỷ lệ */
       border-radius: 8px;
       margin-right: 1rem;
-      display: block;
+      display: block; /* Tránh khoảng trống dưới ảnh */
     }
 
     .nav-links {
       list-style: none;
       display: flex;
       gap: 1rem;
-      /* Transition ban đầu cho desktop - sẽ được ghi đè trong media query cho mobile */
-      transition: opacity 0.4s ease-in-out; /* Transition đơn giản cho desktop hover */
+      /* --- THAY ĐỔI/THÊM: Chuẩn bị cho transition trên mobile --- */
+      transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
     }
 
     .nav-links li a {
       font-weight: 500;
       color: var(--text-dark);
       transition: color 0.3s;
-      display: block;
-      padding: 0.5rem 0;
+      display: block; /* Để padding hoạt động tốt hơn trên mobile */
+      padding: 0.5rem 0; /* Thêm padding cho dễ bấm trên mobile */
     }
 
     .nav-links li a:hover {
@@ -96,17 +90,10 @@
     }
 
     .cart-icon {
-       position: relative;
-       display: flex;
-       align-items: center;
-       color: var(--text-dark);
-       transition: color 0.3s;
-    }
-
-    .cart-icon svg {
-        width: 24px;
-        height: 24px;
-        fill: currentColor;
+      font-size: 1.4rem;
+      position: relative;
+      color: var(--text-dark);
+      transition: color 0.3s;
     }
 
     .cart-icon:hover {
@@ -115,78 +102,63 @@
 
     .cart-count {
       position: absolute;
-      top: -6px;
-      right: -8px;
+      top: -8px;
+      right: -10px;
       background: var(--main-color);
       color: white;
       font-size: 0.7rem;
-      padding: 2px 5px;
+      padding: 2px 6px;
       border-radius: 50%;
-      line-height: 1;
     }
 
     .hamburger {
-      display: none;
+      display: none; /* Mặc định ẩn trên desktop */
       font-size: 1.5rem;
       cursor: pointer;
       margin-left: 1rem;
       color: var(--text-dark);
-      padding: 5px;
+      padding: 5px; /* Tăng vùng bấm */
     }
 
     /* Responsive */
     @media (max-width: 768px) {
       .nav-left {
+        /* Cho phép hamburger icon xuống dòng nếu cần */
         flex-wrap: wrap;
+        /* Giữ logo và menu trên cùng hàng */
         width: 100%;
         justify-content: space-between;
       }
 
       .nav-links {
-        display: flex;
+        /* --- THAY ĐỔI: Styling và trạng thái ẩn ban đầu cho mobile --- */
+        display: flex; /* Luôn là flex để flex-direction hoạt động */
         flex-direction: column;
         background-color: #fff;
         position: absolute;
-         /* --- THAY ĐỔI: Vị trí top dựa trên chiều cao thực của navbar --- */
-         /* Vẫn giữ giá trị cũ, bạn có thể cần kiểm tra lại trên trình duyệt */
-        top: 120px;
+        top: 70px; /* Ngay dưới navbar (điều chỉnh nếu chiều cao navbar thay đổi) */
         left: 0;
         width: 100%;
-        padding: 0 1rem 1rem 1rem;
+        padding: 0 1rem 1rem 1rem; /* Chỉ padding ngang và dưới */
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        gap: 0;
-
-        /* --- THAY ĐỔI LỚN: Cập nhật trạng thái ẩn và Transition --- */
-        max-height: 0; /* Bắt đầu với max-height 0 để ẩn nội dung */
-        overflow: hidden; /* Ẩn nội dung vượt quá */
-        opacity: 0; /* Bắt đầu với opacity 0 */
-        visibility: hidden; /* Bắt đầu với visibility hidden */
-        transform: translateY(-10px); /* Bắt đầu hơi dịch lên */
-
-        /* --- Transition mới: Chỉ áp dụng cho Opacity, Transform, Visibility --- */
-        /* Khi ẩn: Opacity và Transform chuyển động trong 0.4s, Visibility ẩn sau 0.4s */
-        transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s linear 0.4s;
-
-        /* Bo góc cho menu dropdown trên mobile */
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
+        gap: 0; /* Reset gap, dùng padding trên thẻ li a */
+        /* Trạng thái ẩn */
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden; /* Quan trọng để max-height hoạt động */
       }
 
       .nav-links.active {
-        /* --- THAY ĐỔI LỚN: Cập nhật trạng thái hiện và Transition --- */
-        max-height: 300px; /* Đặt max-height đủ lớn để hiển thị nội dung (thay đổi tức thời) */
-        opacity: 1; /* Kết thúc với opacity 1 */
-        visibility: visible; /* Kết thúc với visibility visible */
-        transform: translateY(0); /* Kết thúc ở vị trí bình thường */
-        padding-top: 1rem;
-
-        /* --- Transition mới: Chỉ áp dụng cho Opacity, Transform, Visibility --- */
-        /* Khi hiện: Opacity và Transform chuyển động trong 0.4s, Visibility hiện ngay lập tức */
-        transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s linear 0s;
+        /* --- THAY ĐỔI: Trạng thái hiện cho mobile --- */
+        max-height: 300px; /* Đủ lớn để chứa các mục menu */
+        opacity: 1;
+        visibility: visible;
+        padding-top: 1rem; /* Thêm padding top khi mở ra */
       }
 
       .nav-links li {
-         border-bottom: 1px solid #eee;
+         border-bottom: 1px solid #eee; /* Ngăn cách các mục menu */
       }
        .nav-links li:last-child {
          border-bottom: none;
@@ -194,31 +166,24 @@
 
 
       .hamburger {
-        display: block;
+        display: block; /* Hiện hamburger trên mobile */
       }
 
+      /* Đẩy giỏ hàng sang phải khi có hamburger */
       .nav-right {
-          margin-left: auto;
-          padding-left: 1rem;
+          margin-left: auto; /* Đẩy giỏ hàng sang hết cỡ bên phải */
+          padding-left: 1rem; /* Tạo khoảng cách với hamburger */
       }
 
+      /* Đảm bảo logo và hamburger căn giữa theo chiều dọc */
        .nav-logo, .hamburger {
            align-self: center;
-       }
-       /* Điều chỉnh padding navbar trên mobile nếu cần */
-       .navbar {
-           padding: 0.5rem 1rem; /* Giảm padding dọc một chút */
-           /* Bỏ bo góc riêng cho mobile nếu muốn giữ vuông hoặc đồng bộ */
-           /* border-bottom-left-radius: 0;
-           border-bottom-right-radius: 0; */
        }
     }
 
 
     header {
       background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
-      /* --- THAY ĐỔI: Thêm margin-top nếu muốn khoảng cách với navbar --- */
-      /* margin-top: 1rem; */ /* Tùy chọn, nếu navbar không còn sticky */
       height: 70vh;
       display: flex;
       flex-direction: column;
@@ -231,13 +196,13 @@
     }
 
     header h1 {
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive font size */
       margin-bottom: 0.5rem;
       text-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
 
     header p {
-      font-size: clamp(1rem, 3vw, 1.1rem);
+      font-size: clamp(1rem, 3vw, 1.1rem); /* Responsive font size */
       max-width: 600px;
       text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
@@ -249,15 +214,15 @@
       color: var(--text-light);
       border-radius: 5px;
       font-weight: bold;
-      transition: background 0.3s, transform 0.2s;
-      display: inline-block;
-      border: none;
+      transition: background 0.3s, transform 0.2s; /* Thêm transition cho transform */
+      display: inline-block; /* Để transform hoạt động */
+      border: none; /* Bỏ border mặc định nếu có */
       cursor: pointer;
     }
 
     .button:hover {
       background: #388E3C;
-      transform: translateY(-2px);
+      transform: translateY(-2px); /* Hiệu ứng nhấc lên khi hover */
     }
 
     .categories {
@@ -272,13 +237,13 @@
       position: relative;
       border-radius: 10px;
       overflow: hidden;
-      background: #eee;
+      background: #eee; /* Màu nền nhẹ khi ảnh chưa tải */
       transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-      display: block;
+      display: block; /* Để thẻ a bao toàn bộ */
     }
 
     .category:hover {
-      transform: translateY(-5px) scale(1.02);
+      transform: translateY(-5px) scale(1.02); /* Kết hợp nhấc lên và phóng to nhẹ */
       box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
 
@@ -286,12 +251,12 @@
       width: 100%;
       height: 200px;
       object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease-out;
+      display: block; /* Tránh khoảng trống dưới ảnh */
+      transition: transform 0.3s ease-out; /* Hiệu ứng zoom nhẹ ảnh */
     }
 
      .category:hover img {
-       transform: scale(1.05);
+       transform: scale(1.05); /* Zoom ảnh nhẹ khi hover category */
      }
 
 
@@ -304,12 +269,12 @@
       padding: 0.3rem 0.8rem;
       border-radius: 5px;
       font-size: 1rem;
-      margin: 0;
+      margin: 0; /* Reset margin */
       transition: background 0.3s;
     }
 
      .category:hover h3 {
-        background: rgba(76, 175, 80, 0.8);
+        background: rgba(76, 175, 80, 0.8); /* Đổi màu nền chữ khi hover */
      }
 
 
@@ -346,34 +311,20 @@
       margin: 0 10px;
       font-size: 1.5rem;
       transition: color 0.3s, transform 0.3s;
-      display: inline-block;
+      display: inline-block; /* Cho phép transform */
     }
 
     .social-link:hover {
       color: var(--main-color);
-      transform: translateY(-3px);
-    }
-
-    /* --- Hiệu ứng Fade-in giống giao diện chính --- */
-    .fade-in-element {
-      opacity: 0;
-      transform: translateY(30px); /* Bắt đầu từ dưới lên */
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      will-change: opacity, transform;
-    }
-
-    .fade-in-element.is-visible {
-      opacity: 1;
-      transform: translateY(0); /* Về vị trí ban đầu */
+      transform: translateY(-3px); /* Hiệu ứng nhấc lên */
     }
 
   </style>
 </head>
-<body id="top">
+<body>
   <nav class="navbar">
     <div class="nav-left">
-      <a href="#top" class="nav-logo">
-        <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
+      <a href="#top" class="nav-logo"> <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Trang chủ</a></li>
@@ -388,36 +339,32 @@
     </div>
     <div class="nav-right">
       <a href="giohang.html" class="cart-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.763.746-1.858 1.705l-1.29 11.996A1.875 1.875 0 0 0 4.24 22.5h15.52a1.875 1.875 0 0 0 1.875-1.948l-1.29-11.996A1.875 1.875 0 0 0 18.488 6.75H16.5V6a4.5 4.5 0 0 0-9 0ZM15 6.75V6a3 3 0 1 0-6 0v.75h6Z" clip-rule="evenodd" />
-        </svg>
+        <i class="fas fa-shopping-cart"></i>
         <span class="cart-count">2</span>
       </a>
     </div>
   </nav>
 
-  <header class="fade-in-element">
-    <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
+  <header id="top"> <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
     <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
     <a href="about.html" class="button">Xem thêm</a>
   </header>
 
-  <section class="categories" id="categories">
-    <a href="dothucong.html" class="category fade-in-element">
+  <section class="categories" id="categories-section"> <a href="dothucong.html" class="category">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png" alt="Handmade">
       <h3>Đồ Thủ Công</h3>
     </a>
-    <a href="vuonuomxanh.html" class="category fade-in-element">
+    <a href="vuonuomxanh.html" class="category">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745331932592854088223531181729.png" alt="Green Nursery">
       <h3>Vườn Ươm Xanh</h3>
     </a>
-    <a href="goikynang.html" class="category fade-in-element">
+    <a href="goikynang.html" class="category">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458175842903752646802185968006.png" alt="Skill Pack">
       <h3>Gói Kỹ Năng</h3>
     </a>
   </section>
 
-  <footer class="fade-in-element">
+  <footer>
     <div class="footer-content">
       <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
       <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
@@ -431,65 +378,33 @@
   </footer>
 
   <script>
-    // --- Hàm cho menu mobile ---
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
       navLinks.classList.toggle('active');
-      // console.log("Hamburger clicked! Toggled active class:", navLinks.classList.contains('active')); // Log để kiểm tra
     }
 
-    // Đóng menu khi click link trên mobile
+    // Tùy chọn: Đóng menu khi click vào một link trên mobile
     const navLinksMobile = document.querySelectorAll('.nav-links a');
     navLinksMobile.forEach(link => {
         link.addEventListener('click', () => {
             const navLinksContainer = document.getElementById('navLinks');
+            // Chỉ đóng nếu menu đang mở (kiểm tra class active và màn hình nhỏ)
             if (navLinksContainer.classList.contains('active') && window.innerWidth <= 768) {
                 navLinksContainer.classList.remove('active');
             }
         });
     });
 
-     // Đóng menu khi click ra ngoài trên mobile
+     // Tùy chọn: Đóng menu khi click ra ngoài (trên mobile)
     document.addEventListener('click', function(event) {
         const navLinksContainer = document.getElementById('navLinks');
         const hamburger = document.querySelector('.hamburger');
-        // Kiểm tra xem các phần tử tồn tại trước khi sử dụng contains
-        if (navLinksContainer && hamburger) {
-            const isClickInsideNav = navLinksContainer.contains(event.target);
-            const isClickOnHamburger = hamburger.contains(event.target);
-            const isHamburgerIcon = hamburger.querySelector('i') ? hamburger.querySelector('i').contains(event.target) : false; // Kiểm tra cả icon, an toàn hơn
+        const isClickInsideNav = navLinksContainer.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
 
-            // Nếu click không phải trên menu, không phải trên hamburger, và menu đang active trên mobile
-            if (!isClickInsideNav && !isClickOnHamburger && !isHamburgerIcon && navLinksContainer.classList.contains('active') && window.innerWidth <= 768) {
-                 navLinksContainer.classList.remove('active');
-            }
+        if (!isClickInsideNav && !isClickOnHamburger && navLinksContainer.classList.contains('active') && window.innerWidth <= 768) {
+             navLinksContainer.classList.remove('active');
         }
-    });
-
-
-    // --- JavaScript cho hiệu ứng Fade-in on Scroll ---
-    document.addEventListener("DOMContentLoaded", () => {
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      };
-
-      const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      };
-
-      const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-      const elementsToFadeIn = document.querySelectorAll('.fade-in-element');
-      elementsToFadeIn.forEach(el => {
-        observer.observe(el);
-      });
     });
 
   </script>
