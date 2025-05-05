@@ -1,10 +1,10 @@
-/* style.css - PHIÊN BẢN CUỐI CÙNG CÁC MÀU NỀN */
+/* style.css - BỘ MÀU TỐI GIẢN & TINH TẾ */
 
 :root {
-  --main-color: #437A24; /* Xanh lá cây đậm hơn - Dùng cho các điểm nhấn khác */
-  --background: #A8A7A7; /* MÀU NỀN XI MĂNG cho Body và các Section dùng biến này */
-  --text-dark: #222222; /* Đen hơn */
-  --text-light: #FFFFFF; /* Trắng */
+  --main-color: #488A99; /* MÀU CHỦ ĐẠO: Xanh Teal Trầm (Bộ màu 4) */
+  --background: #FFFFFF; /* MÀU NỀN CHÍNH: Trắng Tinh Khiết (Bộ màu 4) */
+  --text-dark: #333333; /* MÀU CHỮ: Xám Đậm (Bộ màu 4) */
+  --text-light: #FFFFFF; /* Giữ nguyên: Trắng */
   --accent: #77A1D3; /* Xanh da trời đậm hơn - Nếu có dùng */
   --accent-secondary: #9E9E9E; /* Xám đậm hơn một chút - Nếu có dùng */
 }
@@ -21,8 +21,8 @@ html {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--background); /* Nền body: xi măng */
-  color: var(--text-dark);
+  background-color: var(--background); /* Nền body: Trắng Tinh Khiết */
+  color: var(--text-dark); /* Chữ: Xám Đậm */
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -38,7 +38,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(169, 169, 169, 0.8); /* Giữ nguyên: Ghi Xám với opacity 0.8 */
+  background-color: rgba(169, 169, 169, 0.5); /* Giữ nguyên: Ghi Xám với opacity 0.5 */
   padding: 0.8rem 1.2rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   position: sticky;
@@ -73,12 +73,12 @@ a {
 
 .nav-links li a {
   font-weight: 500;
-  color: var(--text-dark);
+  color: var(--text-dark); /* Chữ link: Xám Đậm */
   transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  color: var(--main-color);
+  color: var(--main-color); /* Hover link: Xanh Teal Trầm */
 }
 
 .nav-right {
@@ -89,19 +89,19 @@ a {
 .cart-icon {
   font-size: 1.4rem;
   position: relative;
-  color: var(--text-dark);
+  color: var(--text-dark); /* Icon giỏ hàng: Xám Đậm */
   transition: color 0.3s ease;
 }
 
 .cart-icon:hover {
-  color: var(--main-color);
+  color: var(--main-color); /* Hover icon giỏ hàng: Xanh Teal Trầm */
 }
 
 .cart-count {
   position: absolute;
   top: -8px;
   right: -10px;
-  background: var(--main-color);
+  background: var(--main-color); /* Nền số lượng giỏ hàng: Xanh Teal Trầm */
   color: white;
   font-size: 0.7rem;
   padding: 2px 6px;
@@ -113,7 +113,7 @@ a {
   font-size: 1.5rem;
   cursor: pointer;
   margin-left: 1rem;
-  color: var(--text-dark);
+  color: var(--text-dark); /* Icon hamburger: Xám Đậm */
   padding: 5px;
 }
 
@@ -127,7 +127,7 @@ a {
 
   .nav-links {
     flex-direction: column;
-    background-color: var(--background); /* Nền menu mobile: xi măng */
+    background-color: var(--background); /* Nền menu mobile: Trắng Tinh Khiết */
     position: absolute;
     top: 70px;
     left: 0;
@@ -178,7 +178,7 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: var(--text-light);
+  color: var(--text-light); /* Chữ trên banner: Trắng */
   padding: 1rem;
   position: relative;
 }
@@ -197,7 +197,7 @@ header p {
 
 .button {
   margin-top: 1.5rem;
-  background: rgba(169, 169, 169, 0.7); /* Giữ nguyên: Ghi Xám với opacity 0.7 */
+  background: rgba(169, 169, 169, 0.7); /* Giữ nguyên: Nút Ghi Xám với opacity 0.7 */
   padding: 0.7rem 1.2rem;
   color: var(--text-light); /* Giữ màu chữ trắng */
   border-radius: 5px;
@@ -216,7 +216,7 @@ header p {
 /* Styles cho phần Slider Trích dẫn - Nền trắng tuyết */
 .quotes-slider-section {
   padding: 3rem 0;
-  background-color: #FFFFFF; /* Giữ nguyên: Nền section: TRẮNG TUYẾT */
+  background-color: var(--background); /* Nền section: Trắng Tinh Khiết */
   text-align: center;
   transition: background-color 0.3s ease;
 }
@@ -229,7 +229,7 @@ header p {
 .quotes-slider-section h2 {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 2rem;
-  color: var(--text-dark);
+  color: var(--text-dark); /* Chữ tiêu đề: Xám Đậm */
 }
 
 .quotes-slider-wrapper {
@@ -257,9 +257,9 @@ header p {
   scroll-snap-align: start;
 }
 
-/* Cải thiện giao diện Blockquote bên trong item - Nền trắng */
+/* Cải thiện giao diện Blockquote bên trong item - Nền xám rất nhạt */
 .quote-item blockquote {
-    background-color: #FFFFFF; /* Giữ nguyên: Nền quote item: TRẮNG TINH KHIẾT */
+    background-color: #F8F8F8; /* Nền quote item: Xám Rất Nhạt (Nền phụ) */
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
@@ -269,7 +269,7 @@ header p {
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
-    border-left: 5px solid var(--main-color); /* Giữ đường viền xanh lá */
+    border-left: 5px solid var(--main-color); /* Đường viền trái: Xanh Teal Trầm */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -324,13 +324,13 @@ header p {
       }
 }
 
-/* Categories Section - Nền xi măng */
+/* Categories Section - Nền trắng tinh khiết */
 .categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
-  background: var(--background); /* Nền section: xi măng */
+  background: var(--background); /* Nền section: Trắng Tinh Khiết */
   transition: background-color 0.3s ease;
 }
 
@@ -338,7 +338,7 @@ header p {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  background: var(--background); /* Nền từng mục category: xi măng */
+  background: var(--background); /* Nền từng mục category: Trắng Tinh Khiết */
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
    box-shadow: 0 4px 8px rgba(0,0,0,0.08); /* Thêm bóng nhẹ cho từng mục */
 }
@@ -374,13 +374,13 @@ header p {
  }
 
   .category:hover h3 {
-     background: rgba(67, 122, 36, 0.7); /* Xanh lá đậm hơn trong suốt khi hover */
+     background: rgba(72, 138, 153, 0.7); /* Nền hover h3: Xanh Teal Trầm trong suốt */
   }
 
-/* Styles cho phần nội dung chính trang Giới thiệu - Nền xi măng */
+/* Styles cho phần nội dung chính trang Giới thiệu - Nền trắng tinh khiết */
 .about-content {
   padding: 4rem 0;
-  background-color: var(--background); /* Nền section: xi măng */
+  background-color: var(--background); /* Nền section: Trắng Tinh Khiết */
   transition: background-color 0.3s ease;
 }
 
@@ -394,7 +394,7 @@ header p {
 .about-content h2 {
     font-size: clamp(2rem, 5vw, 2.8rem);
     margin-bottom: 2rem;
-    color: var(--text-dark);
+    color: var(--text-dark); /* Chữ tiêu đề: Xám Đậm */
     line-height: 1.2;
     text-align: center;
 }
@@ -413,13 +413,13 @@ header p {
      border-radius: 0;
 }
 
-/* Style cho các đoạn văn bản chính - làm chúng trông như các khung - Nền trắng */
+/* Style cho các đoạn văn bản chính - làm chúng trông như các khung - Nền xám rất nhạt */
 .about-content p {
     font-size: 1rem;
     line-height: 1.8;
     margin-bottom: 2rem;
-    color: var(--text-dark);
-    background-color: #FFFFFF; /* Giữ nguyên: Nền khung paragraph: TRẮNG TINH KHIẾT */
+    color: var(--text-dark); /* Chữ paragraph: Xám Đậm */
+    background-color: #F8F8F8; /* Nền khung paragraph: XÁM RẤT NHẠT (Nền phụ) */
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
@@ -442,13 +442,13 @@ header p {
     margin-bottom: 0;
 }
 
-/* Footer - Nền ghi xám hiện đại */
+/* Footer - Nền ghi xám nhạt */
 footer {
-  background-color: #E0E0E0; /* Giữ nguyên: Nền footer: GHI XÁM HIỆN ĐẠI */
-  color: var(--text-dark); /* Màu chữ vẫn là text-dark */
+  background-color: #D3D3D3; /* Nền footer: XÁM NHẠT (Từ bộ màu 4) */
+  color: var(--text-dark); /* Màu chữ: Xám Đậm */
   padding: 2rem 1rem;
   text-align: center;
-  border-top: 3px solid var(--main-color); /* Giữ đường viền trên màu xanh lá */
+  border-top: 3px solid var(--main-color); /* Đường viền trên: Xanh Teal Trầm */
   transition: background-color 0.3s ease;
 }
 
@@ -459,7 +459,7 @@ footer {
 }
 
 .footer-content a {
-  color: var(--main-color); /* Màu link vẫn là main-color (xanh lá) */
+  color: var(--main-color); /* Màu link footer: Xanh Teal Trầm */
   font-weight: bold;
   transition: color 0.3s ease;
 }
