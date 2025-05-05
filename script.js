@@ -66,6 +66,48 @@ document.addEventListener('DOMContentLoaded', function() {
          }
     });
 
+
+    // --- Horizontal Scroll Animation for Quotes Slider ---
+    // Lấy khung chứa slider và các item trích dẫn
+    const quotesSliderWrapper = document.querySelector('.quotes-slider-wrapper');
+    const quoteItems = document.querySelectorAll('.quotes-slider-wrapper .quote-item');
+
+    // Chỉ chạy code nếu tìm thấy khung slider và có item
+    if (quotesSliderWrapper && quoteItems.length > 0) {
+
+        // Tùy chọn cho Intersection Observer
+        const observerOptions = {
+            root: quotesSliderWrapper, // Thiết lập khung cuộn ngang làm "root" (khung nhìn)
+            rootMargin: '0px', // Không thêm margin cho root
+            threshold: 0.5 // Kích hoạt khi 50% của item nằm trong khung nhìn
+        };
+
+        // Hàm callback sẽ chạy khi một item giao nhau với root
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Nếu item nằm trong khung nhìn
+                    entry.target.classList.add('is-in-view'); // Thêm class để kích hoạt CSS animation
+                    // Nếu chỉ muốn animation chạy 1 lần duy nhất cho mỗi item, bỏ comment dòng dưới:
+                    // observer.unobserve(entry.target);
+                } else {
+                    // Nếu item đi ra khỏi khung nhìn
+                     entry.target.classList.remove('is-in-view'); // Xóa class để có thể re-animate khi cuộn lại
+                }
+            });
+        };
+
+        // Tạo Intersection Observer
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Bắt đầu theo dõi từng item trích dẫn
+        quoteItems.forEach(item => {
+            observer.observe(item);
+        });
+    }
+    // --- Kết thúc Horizontal Scroll Animation ---
+
+
     // --- AOS Initialization ---
     AOS.init({
       duration: 800,
