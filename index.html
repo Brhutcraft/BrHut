@@ -52,7 +52,17 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      /* THÊM: Transition cho hiệu ứng ẩn/hiện */
+      transition: transform 0.3s ease-in-out;
+      /* Đảm bảo navbar có height cố định hoặc có thể tính toán được */
+      /* height: 70px; /* Ví dụ, điều chỉnh nếu cần */ */
     }
+
+    /* THÊM: Class để ẩn navbar */
+    .navbar.hidden {
+      transform: translateY(-100%); /* Đẩy navbar lên trên bằng chính chiều cao của nó */
+    }
+
 
     .nav-left {
       display: flex;
@@ -412,6 +422,65 @@
              navLinksContainer.classList.remove('active');
         }
     });
+
+    // THÊM: JavaScript để ẩn/hiện Navbar khi cuộn (Chỉ trên Mobile)
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+    // Lấy chiều cao của navbar để xác định ngưỡng ẩn/hiện
+    // Có thể cần đảm bảo navbar có chiều cao cố định hoặc tính toán đúng sau khi render
+    // Dùng offsetHeight thường đủ cho trường hợp này
+    const navbarHeight = navbar.offsetHeight; // Đảm bảo lấy đúng chiều cao sau khi load
+
+    window.addEventListener('scroll', function() {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop; // Lấy vị trí cuộn hiện tại
+
+        // Chỉ áp dụng logic ẩn/hiện trên mobile (<= 768px, khớp với breakpoint của bạn)
+        if (window.innerWidth <= 768) {
+            // Cuộn xuống (current > last) VÀ đã cuộn qua khỏi phần đầu trang (ví dụ: qua khỏi chiều cao navbar)
+            if (currentScrollTop > lastScrollTop && currentScrollTop > navbarHeight) {
+                // Tránh ẩn nếu menu mobile đang mở
+                if (!document.getElementById('navLinks').classList.contains('active')) {
+                     navbar.classList.add('hidden'); // Ẩn navbar
+                }
+            }
+            // Cuộn lên (current < last) hoặc ở đầu trang
+            else if (currentScrollTop < lastScrollTop || currentScrollTop <= 0) {
+                navbar.classList.remove('hidden'); // Hiện navbar
+            }
+
+        } else {
+             // Trên desktop hoặc màn hình lớn hơn (> 768px), đảm bảo navbar luôn hiển thị
+             // Phòng trường hợp class 'hidden' còn sót lại khi resize
+             if (navbar.classList.contains('hidden')) {
+                navbar.classList.remove('hidden');
+             }
+        }
+
+        // Cập nhật vị trí cuộn cuối cùng cho lần tiếp theo
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Đảm bảo không âm
+    });
+
+    // Cập nhật chiều cao navbar khi resize để đảm bảo ngưỡng ẩn đúng
+    let navHeightOnResize = navbar.offsetHeight;
+    window.addEventListener('resize', () => {
+        navHeightOnResize = navbar.offsetHeight;
+        // Sau khi resize, kiểm tra lại trạng thái hiển thị nếu đang ở mobile
+        if (window.innerWidth <= 768) {
+             // Nếu đang cuộn xuống và qua khỏi chiều cao mới, ẩn đi
+             const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+             if (currentScrollTop > navHeightOnResize && lastScrollTop > navHeightOnResize) {
+                 // Tránh ẩn nếu menu mobile đang mở
+                 if (!document.getElementById('navLinks').classList.contains('active')) {
+                     navbar.classList.add('hidden');
+                 }
+             } else { // Ngược lại, đảm bảo nó hiện
+                 navbar.classList.remove('hidden');
+             }
+        } else { // Trên desktop, luôn hiện
+             navbar.classList.remove('hidden');
+        }
+    });
+
 
   </script>
 
