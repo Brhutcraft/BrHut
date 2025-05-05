@@ -1,12 +1,12 @@
-/* style.css - BỘ MÀU TƯƠI MÁT RỪNG XANH */
+/* style.css - BỘ MÀU ẤM ÁP CỦA ĐẤT VÀ GỖ */
 
 :root {
-  --main-color: #386641; /* MÀU CHỦ ĐẠO: Xanh Lá Cây Rừng Sâu (Bộ màu 2) */
-  --background: #C8D6C7; /* MÀU NỀN CHÍNH: Xanh Lá Sage Nhạt (Bộ màu 2) */
-  --text-dark: #2F4F4F; /* MÀU CHỮ: Xanh Lá Đậm Sâu (Bộ màu 2) */
+  --main-color: #8A9A5B; /* MÀU CHỦ ĐẠO: Xanh Rêu Ấm (Bộ màu 1) */
+  --background: #F5F5DC; /* MÀU NỀN CHÍNH: Trắng Kem Nhạt (Bộ màu 1) */
+  --text-dark: #4A3B33; /* MÀU CHỮ: Nâu Đậm Sâu (Bộ màu 1) */
   --text-light: #FFFFFF; /* Giữ nguyên: Trắng */
-  --accent: #A0522D; /* MÀU PHỤ/ĐIỂM NHẤN NHẸ: Nâu Gỗ (Bộ màu 2 - có thể dùng thêm) */
-  --accent-secondary: #708090; /* MÀU PHỤ/ĐIỂM NHẤN NHẸ: Xám Đá (Bộ màu 2 - dùng cho Footer) */
+  --accent: #A35347; /* MÀU PHỤ/ĐIỂM NHẤN NHẸ: Cam Đất (Bộ màu 1 - có thể dùng thêm) */
+  --accent-secondary: #C1A369; /* MÀU PHỤ/ĐIỂM NHẤN NHẸ: Vàng Đất (Bộ màu 1 - có thể dùng thêm) */
 }
 
 * {
@@ -21,8 +21,8 @@ html {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--background); /* Nền body: Xanh Lá Sage Nhạt */
-  color: var(--text-dark); /* Chữ: Xanh Lá Đậm Sâu */
+  background-color: var(--background); /* Nền body: Trắng Kem Nhạt */
+  color: var(--text-dark); /* Chữ: Nâu Đậm Sâu */
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -38,8 +38,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* MÀU NỀN NAVBAR: Xanh Sage Nhạt với độ trong suốt 0.8 */
-  background-color: rgba(200, 214, 199, 0.8); /* Màu Xanh Sage Nhạt với opacity 0.8 */
+  /* MÀU NỀN NAVBAR: Trắng Kem Nhạt với độ trong suốt 0.9 */
+  background-color: rgba(245, 245, 220, 0.9); /* Màu Trắng Kem Nhạt với opacity 0.9 */
   padding: 0.8rem 1.2rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   position: sticky;
@@ -74,12 +74,12 @@ a {
 
 .nav-links li a {
   font-weight: 500;
-  color: var(--text-dark); /* Chữ link: Xanh Lá Đậm Sâu */
+  color: var(--text-dark); /* Chữ link: Nâu Đậm Sâu */
   transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  color: var(--main-color); /* Hover link: Xanh Lá Cây Rừng Sâu */
+  color: var(--main-color); /* Hover link: Xanh Rêu Ấm */
 }
 
 .nav-right {
@@ -90,19 +90,19 @@ a {
 .cart-icon {
   font-size: 1.4rem;
   position: relative;
-  color: var(--text-dark); /* Icon giỏ hàng: Xanh Lá Đậm Sâu */
+  color: var(--text-dark); /* Icon giỏ hàng: Nâu Đậm Sâu */
   transition: color 0.3s ease;
 }
 
 .cart-icon:hover {
-  color: var(--main-color); /* Hover icon giỏ hàng: Xanh Lá Cây Rừng Sâu */
+  color: var(--main-color); /* Hover icon giỏ hàng: Xanh Rêu Ấm */
 }
 
 .cart-count {
   position: absolute;
   top: -8px;
   right: -10px;
-  background: var(--main-color); /* Nền số lượng giỏ hàng: Xanh Lá Cây Rừng Sâu */
+  background: var(--main-color); /* Nền số lượng giỏ hàng: Xanh Rêu Ấm */
   color: white; /* Giữ màu chữ trắng */
   font-size: 0.7rem;
   padding: 2px 6px;
@@ -114,7 +114,7 @@ a {
   font-size: 1.5rem;
   cursor: pointer;
   margin-left: 1rem;
-  color: var(--text-dark); /* Icon hamburger: Xanh Lá Đậm Sâu */
+  color: var(--text-dark); /* Icon hamburger: Nâu Đậm Sâu */
   padding: 5px;
 }
 
@@ -128,7 +128,7 @@ a {
 
   .nav-links {
     flex-direction: column;
-    background-color: var(--background); /* Nền menu mobile: Xanh Lá Sage Nhạt */
+    background-color: var(--background); /* Nền menu mobile: Trắng Kem Nhạt */
     position: absolute;
     top: 70px;
     left: 0;
@@ -198,8 +198,8 @@ header p {
 
 .button {
   margin-top: 1.5rem;
-  /* MÀU NỀN NÚT XEM THÊM: Xanh Lá Cây Rừng Sâu */
-  background: var(--main-color); /* Màu Xanh Lá Cây Rừng Sâu */
+  /* MÀU NỀN NÚT XEM THÊM: Xanh Rêu Ấm */
+  background: var(--main-color); /* Màu Xanh Rêu Ấm */
   padding: 0.7rem 1.2rem;
   color: var(--text-light); /* Giữ màu chữ trắng */
   border-radius: 5px;
@@ -211,15 +211,15 @@ header p {
 }
 
 .button:hover {
-  /* MÀU NỀN NÚT XEM THÊM KHI HOVER: Xanh Lá Đậm Hơn */
-  background: #2A4D33; /* Màu Xanh Lá Đậm Hơn khi hover */
+  /* MÀU NỀN NÚT XEM THÊM KHI HOVER: Xanh Rêu Đậm Hơn */
+  background: #6B7D4D; /* Màu Xanh Rêu Đậm Hơn khi hover */
   transform: translateY(-2px);
 }
 
-/* Styles cho phần Slider Trích dẫn - Nền xanh sage nhạt */
+/* Styles cho phần Slider Trích dẫn - Nền trắng kem nhạt */
 .quotes-slider-section {
   padding: 3rem 0;
-  background-color: var(--background); /* Nền section: Xanh Lá Sage Nhạt */
+  background-color: var(--background); /* Nền section: Trắng Kem Nhạt */
   text-align: center;
   transition: background-color 0.3s ease;
 }
@@ -232,7 +232,7 @@ header p {
 .quotes-slider-section h2 {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 2rem;
-  color: var(--text-dark); /* Chữ tiêu đề: Xanh Lá Đậm Sâu */
+  color: var(--text-dark); /* Chữ tiêu đề: Nâu Đậm Sâu */
 }
 
 .quotes-slider-wrapper {
@@ -260,9 +260,9 @@ header p {
   scroll-snap-align: start;
 }
 
-/* Cải thiện giao diện Blockquote bên trong item - Nền trắng rất nhạt */
+/* Cải thiện giao diện Blockquote bên trong item - Nền nâu be nhạt */
 .quote-item blockquote {
-    background-color: #F8F8F8; /* Nền quote item: TRẮNG RẤT NHẠT (Nền phụ) */
+    background-color: #F0E6DA; /* Nền quote item: NÂU BE NHẠT (Nền phụ) */
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
@@ -272,7 +272,7 @@ header p {
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
-    border-left: 5px solid var(--main-color); /* Đường viền trái: Xanh Lá Cây Rừng Sâu */
+    border-left: 5px solid var(--main-color); /* Đường viền trái: Xanh Rêu Ấm */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -327,13 +327,13 @@ header p {
       }
 }
 
-/* Categories Section - Nền xanh sage nhạt */
+/* Categories Section - Nền trắng kem nhạt */
 .categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
-  background: var(--background); /* Nền section: Xanh Lá Sage Nhạt */
+  background: var(--background); /* Nền section: Trắng Kem Nhạt */
   transition: background-color 0.3s ease;
 }
 
@@ -341,7 +341,7 @@ header p {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  background: var(--background); /* Nền từng mục category: Xanh Lá Sage Nhạt */
+  background: var(--background); /* Nền từng mục category: Trắng Kem Nhạt */
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
    box-shadow: 0 4px 8px rgba(0,0,0,0.08); /* Thêm bóng nhẹ cho từng mục */
 }
@@ -377,13 +377,13 @@ header p {
  }
 
   .category:hover h3 {
-     background: rgba(56, 102, 65, 0.7); /* Nền hover h3: Xanh Lá Cây Rừng Sâu trong suốt */
+     background: rgba(138, 154, 91, 0.7); /* Nền hover h3: Xanh Rêu Ấm trong suốt */
   }
 
-/* Styles cho phần nội dung chính trang Giới thiệu - Nền xanh sage nhạt */
+/* Styles cho phần nội dung chính trang Giới thiệu - Nền trắng kem nhạt */
 .about-content {
   padding: 4rem 0;
-  background-color: var(--background); /* Nền section: Xanh Lá Sage Nhạt */
+  background-color: var(--background); /* Nền section: Trắng Kem Nhạt */
   transition: background-color 0.3s ease;
 }
 
@@ -397,7 +397,7 @@ header p {
 .about-content h2 {
     font-size: clamp(2rem, 5vw, 2.8rem);
     margin-bottom: 2rem;
-    color: var(--text-dark); /* Chữ tiêu đề: Xanh Lá Đậm Sâu */
+    color: var(--text-dark); /* Chữ tiêu đề: Nâu Đậm Sâu */
     line-height: 1.2;
     text-align: center;
 }
@@ -416,13 +416,13 @@ header p {
      border-radius: 0;
 }
 
-/* Style cho các đoạn văn bản chính - làm chúng trông như các khung - Nền trắng rất nhạt */
+/* Style cho các đoạn văn bản chính - làm chúng trông như các khung - Nền nâu be nhạt */
 .about-content p {
     font-size: 1rem;
     line-height: 1.8;
     margin-bottom: 2rem;
-    color: var(--text-dark); /* Chữ paragraph: Xanh Lá Đậm Sâu */
-    background-color: #F8F8F8; /* Nền khung paragraph: TRẮNG RẤT NHẠT (Nền phụ) */
+    color: var(--text-dark); /* Chữ paragraph: Nâu Đậm Sâu */
+    background-color: #F0E6DA; /* Nền khung paragraph: NÂU BE NHẠT (Nền phụ) */
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
@@ -445,13 +445,13 @@ header p {
     margin-bottom: 0;
 }
 
-/* Footer - Nền xám đá */
+/* Footer - Nền be mềm */
 footer {
-  background-color: #708090; /* Nền footer: XÁM ĐÁ (Bộ màu 2) */
-  color: var(--text-light); /* MÀU CHỮ TRẮNG để nổi trên nền xám đậm */
+  background-color: #D4B499; /* Nền footer: BE MỀM (Bộ màu 1) */
+  color: var(--text-dark); /* MÀU CHỮ: Nâu Đậm Sâu */
   padding: 2rem 1rem;
   text-align: center;
-  border-top: 3px solid var(--main-color); /* Đường viền trên: Xanh Lá Cây Rừng Sâu */
+  border-top: 3px solid var(--main-color); /* Đường viền trên: Xanh Rêu Ấm */
   transition: background-color 0.3s ease;
 }
 
@@ -459,23 +459,23 @@ footer {
   font-size: 0.9rem;
   margin: 0.5rem 0;
   line-height: 1.5;
-  color: var(--text-light); /* Đảm bảo chữ trong p cũng trắng */
+  color: var(--text-dark); /* Đảm bảo chữ trong p cũng nâu đậm */
 }
 
 .footer-content a {
-  color: var(--text-light); /* MÀU LINK TRẮNG để nổi trên nền xám đậm */
+  color: var(--text-dark); /* MÀU LINK: Nâu Đậm Sâu */
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
-/* Đảm bảo icon social trong footer cũng có màu trắng */
+/* Đảm bảo icon social trong footer cũng có màu nâu đậm */
 .footer-social a i {
-    color: var(--text-light); /* Icon social: TRẮNG */
+    color: var(--text-dark); /* Icon social: Nâu Đậm Sâu */
     transition: color 0.3s ease;
 }
 
 .footer-social a:hover i {
-    color: var(--main-color); /* Hover icon social: Xanh Lá Cây Rừng Sâu */
+    color: var(--main-color); /* Hover icon social: Xanh Rêu Ấm */
 }
 
 /* Footer Social Icons - Đoạn này có vẻ bị cắt */
