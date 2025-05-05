@@ -1,10 +1,11 @@
-<!DOCTYPE html><html lang="vi">
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>BrHut - Nhà Của Sự Đơn Giản</title>  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  
-  <style>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrHut - Nhà Của Sự Đơn Giản</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
     :root {
       --main-color: #4CAF50;
       --background: #f9f7f2;
@@ -12,237 +13,318 @@
       --text-light: #fff;
       --accent: #ff7e5f;
       --accent-secondary: #feb47b;
-    }* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--background);
-  color: var(--text-dark);
-  line-height: 1.6;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+    /* --- THÊM: Bật hiệu ứng cuộn mượt --- */
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  padding: 0.8rem 1.2rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--background);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
 
-.nav-left {
-  display: flex;
-  align-items: center;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-.nav-logo img {
-  width: 55px;
-  border-radius: 8px;
-  margin-right: 1rem;
-}
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 0.8rem 1.2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
 
-.nav-links li a {
-  font-weight: 500;
-  color: var(--text-dark);
-  transition: color 0.3s;
-}
+    .nav-logo img {
+      width: 55px;
+      height: auto; /* Giữ tỷ lệ */
+      border-radius: 8px;
+      margin-right: 1rem;
+      display: block; /* Tránh khoảng trống dưới ảnh */
+    }
 
-.nav-links li a:hover {
-  color: var(--main-color);
-}
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      /* --- THAY ĐỔI/THÊM: Chuẩn bị cho transition trên mobile --- */
+      transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+    }
 
-.nav-right {
-  display: flex;
-  align-items: center;
-}
+    .nav-links li a {
+      font-weight: 500;
+      color: var(--text-dark);
+      transition: color 0.3s;
+      display: block; /* Để padding hoạt động tốt hơn trên mobile */
+      padding: 0.5rem 0; /* Thêm padding cho dễ bấm trên mobile */
+    }
 
-.cart-icon {
-  font-size: 1.4rem;
-  position: relative;
-  color: var(--text-dark);
-  transition: color 0.3s;
-}
+    .nav-links li a:hover {
+      color: var(--main-color);
+    }
 
-.cart-icon:hover {
-  color: var(--main-color);
-}
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
 
-.cart-count {
-  position: absolute;
-  top: -8px;
-  right: -10px;
-  background: var(--main-color);
-  color: white;
-  font-size: 0.7rem;
-  padding: 2px 6px;
-  border-radius: 50%;
-}
+    .cart-icon {
+      font-size: 1.4rem;
+      position: relative;
+      color: var(--text-dark);
+      transition: color 0.3s;
+    }
 
-.hamburger {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  margin-left: 1rem;
-}
+    .cart-icon:hover {
+      color: var(--main-color);
+    }
 
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #fff;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: var(--main-color);
+      color: white;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 50%;
+    }
 
-  .nav-links.active {
-    display: flex;
-  }
+    .hamburger {
+      display: none; /* Mặc định ẩn trên desktop */
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin-left: 1rem;
+      color: var(--text-dark);
+      padding: 5px; /* Tăng vùng bấm */
+    }
 
-  .hamburger {
-    display: block;
-  }
-}
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-left {
+        /* Cho phép hamburger icon xuống dòng nếu cần */
+        flex-wrap: wrap;
+        /* Giữ logo và menu trên cùng hàng */
+        width: 100%;
+        justify-content: space-between;
+      }
 
-header {
-  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: var(--text-light);
-  padding: 1rem;
-  position: relative;
-}
+      .nav-links {
+        /* --- THAY ĐỔI: Styling và trạng thái ẩn ban đầu cho mobile --- */
+        display: flex; /* Luôn là flex để flex-direction hoạt động */
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 70px; /* Ngay dưới navbar (điều chỉnh nếu chiều cao navbar thay đổi) */
+        left: 0;
+        width: 100%;
+        padding: 0 1rem 1rem 1rem; /* Chỉ padding ngang và dưới */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        gap: 0; /* Reset gap, dùng padding trên thẻ li a */
+        /* Trạng thái ẩn */
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden; /* Quan trọng để max-height hoạt động */
+      }
 
-header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
+      .nav-links.active {
+        /* --- THAY ĐỔI: Trạng thái hiện cho mobile --- */
+        max-height: 300px; /* Đủ lớn để chứa các mục menu */
+        opacity: 1;
+        visibility: visible;
+        padding-top: 1rem; /* Thêm padding top khi mở ra */
+      }
 
-header p {
-  font-size: 1.1rem;
-  max-width: 600px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
+      .nav-links li {
+         border-bottom: 1px solid #eee; /* Ngăn cách các mục menu */
+      }
+       .nav-links li:last-child {
+         border-bottom: none;
+      }
 
-.button {
-  margin-top: 1.5rem;
-  background: var(--main-color);
-  padding: 0.7rem 1.2rem;
-  color: var(--text-light);
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
 
-.button:hover {
-  background: #388E3C;
-}
+      .hamburger {
+        display: block; /* Hiện hamburger trên mobile */
+      }
 
-.categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
-  background: #fff;
-}
+      /* Đẩy giỏ hàng sang phải khi có hamburger */
+      .nav-right {
+          margin-left: auto; /* Đẩy giỏ hàng sang hết cỡ bên phải */
+          padding-left: 1rem; /* Tạo khoảng cách với hamburger */
+      }
 
-.category {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #ddd;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
+      /* Đảm bảo logo và hamburger căn giữa theo chiều dọc */
+       .nav-logo, .hamburger {
+           align-self: center;
+       }
+    }
 
-.category:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
 
-.category img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
+    header {
+      background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
+      height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--text-light);
+      padding: 1rem;
+      position: relative;
+    }
 
-.category h3 {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 0.3rem 0.8rem;
-  border-radius: 5px;
-}
+    header h1 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive font size */
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
 
-footer {
-  background-color: #f4f4f9;
-  color: var(--text-dark);
-  padding: 2rem 1rem;
-  text-align: center;
-  border-top: 3px solid var(--main-color);
-}
+    header p {
+      font-size: clamp(1rem, 3vw, 1.1rem); /* Responsive font size */
+      max-width: 600px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
 
-.footer-content p {
-  font-size: 0.9rem;
-  margin: 0.5rem 0;
-  line-height: 1.5;
-}
+    .button {
+      margin-top: 1.5rem;
+      background: var(--main-color);
+      padding: 0.7rem 1.2rem;
+      color: var(--text-light);
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s; /* Thêm transition cho transform */
+      display: inline-block; /* Để transform hoạt động */
+      border: none; /* Bỏ border mặc định nếu có */
+      cursor: pointer;
+    }
 
-.footer-content a {
-  color: var(--main-color);
-  font-weight: bold;
-}
+    .button:hover {
+      background: #388E3C;
+      transform: translateY(-2px); /* Hiệu ứng nhấc lên khi hover */
+    }
 
-.footer-social {
-  margin-top: 1rem;
-}
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      background: #fff;
+    }
 
-.social-link {
-  color: #333;
-  margin: 0 10px;
-  font-size: 1.5rem;
-  transition: color 0.3s;
-}
+    .category {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #eee; /* Màu nền nhẹ khi ảnh chưa tải */
+      transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+      display: block; /* Để thẻ a bao toàn bộ */
+    }
 
-.social-link:hover {
-  color: var(--main-color);
-}
+    .category:hover {
+      transform: translateY(-5px) scale(1.02); /* Kết hợp nhấc lên và phóng to nhẹ */
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .category img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block; /* Tránh khoảng trống dưới ảnh */
+      transition: transform 0.3s ease-out; /* Hiệu ứng zoom nhẹ ảnh */
+    }
+
+     .category:hover img {
+       transform: scale(1.05); /* Zoom ảnh nhẹ khi hover category */
+     }
+
+
+    .category h3 {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 1rem;
+      margin: 0; /* Reset margin */
+      transition: background 0.3s;
+    }
+
+     .category:hover h3 {
+        background: rgba(76, 175, 80, 0.8); /* Đổi màu nền chữ khi hover */
+     }
+
+
+    footer {
+      background-color: #f4f4f9;
+      color: var(--text-dark);
+      padding: 2rem 1rem;
+      text-align: center;
+      border-top: 3px solid var(--main-color);
+    }
+
+    .footer-content p {
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
+      line-height: 1.5;
+    }
+
+    .footer-content a {
+      color: var(--main-color);
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .footer-content a:hover {
+       color: #388E3C;
+    }
+
+
+    .footer-social {
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      color: #333;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s, transform 0.3s;
+      display: inline-block; /* Cho phép transform */
+    }
+
+    .social-link:hover {
+      color: var(--main-color);
+      transform: translateY(-3px); /* Hiệu ứng nhấc lên */
+    }
 
   </style>
 </head>
 <body>
   <nav class="navbar">
     <div class="nav-left">
-      <a href="index.html" class="nav-logo">
-        <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
+      <a href="#top" class="nav-logo"> <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Trang chủ</a></li>
@@ -250,8 +332,10 @@ footer {
         <li><a href="dothucong.html">Thủ công</a></li>
         <li><a href="vuonuomxanh.html">Vườn ươm</a></li>
         <li><a href="goikynang.html">Kỹ năng</a></li>
-      </ul>
-      <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+      </div>
     </div>
     <div class="nav-right">
       <a href="giohang.html" class="cart-icon">
@@ -259,25 +343,28 @@ footer {
         <span class="cart-count">2</span>
       </a>
     </div>
-  </nav>  <header>
-    <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
+  </nav>
+
+  <header id="top"> <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
     <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
     <a href="about.html" class="button">Xem thêm</a>
-  </header>  <section class="categories">
-    <a href="dothucong.html" class="category">
+  </header>
+
+  <section class="categories" id="categories-section"> <a href="dothucong.html" class="category">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png" alt="Handmade">
       <h3>Đồ Thủ Công</h3>
-    </a><a href="vuonuomxanh.html" class="category">
-  <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745331932592854088223531181729.png" alt="Green Nursery">
-  <h3>Vườn Ươm Xanh</h3>
-</a>
+    </a>
+    <a href="vuonuomxanh.html" class="category">
+      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745331932592854088223531181729.png" alt="Green Nursery">
+      <h3>Vườn Ươm Xanh</h3>
+    </a>
+    <a href="goikynang.html" class="category">
+      <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458175842903752646802185968006.png" alt="Skill Pack">
+      <h3>Gói Kỹ Năng</h3>
+    </a>
+  </section>
 
-<a href="goikynang.html" class="category">
-  <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458175842903752646802185968006.png" alt="Skill Pack">
-  <h3>Gói Kỹ Năng</h3>
-</a>
-
-  </section>  <footer>
+  <footer>
     <div class="footer-content">
       <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
       <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
@@ -288,10 +375,38 @@ footer {
       <a href="https://youtube.com/@brhut" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
       <a href="https://www.tiktok.com/@brhutcraft" class="social-link" target="_blank"><i class="fab fa-tiktok"></i></a>
     </div>
-  </footer>  <script>
+  </footer>
+
+  <script>
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
       navLinks.classList.toggle('active');
     }
-  </script></body>
+
+    // Tùy chọn: Đóng menu khi click vào một link trên mobile
+    const navLinksMobile = document.querySelectorAll('.nav-links a');
+    navLinksMobile.forEach(link => {
+        link.addEventListener('click', () => {
+            const navLinksContainer = document.getElementById('navLinks');
+            // Chỉ đóng nếu menu đang mở (kiểm tra class active và màn hình nhỏ)
+            if (navLinksContainer.classList.contains('active') && window.innerWidth <= 768) {
+                navLinksContainer.classList.remove('active');
+            }
+        });
+    });
+
+     // Tùy chọn: Đóng menu khi click ra ngoài (trên mobile)
+    document.addEventListener('click', function(event) {
+        const navLinksContainer = document.getElementById('navLinks');
+        const hamburger = document.querySelector('.hamburger');
+        const isClickInsideNav = navLinksContainer.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+
+        if (!isClickInsideNav && !isClickOnHamburger && navLinksContainer.classList.contains('active') && window.innerWidth <= 768) {
+             navLinksContainer.classList.remove('active');
+        }
+    });
+
+  </script>
+</body>
 </html>
