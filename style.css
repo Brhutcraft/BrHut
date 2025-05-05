@@ -1,4 +1,4 @@
-/* style.css - PHIÊN BẢN ĐÃ ĐIỀU CHỈNH MÀU SẮC VÀ ĐỘ TRONG SUỐT CỦA NAVBAR */
+/* style.css - PHIÊN BẢN ĐÃ ĐIỀU CHỈNH MÀU NỀN NAVBAR VÀ NÚT XEM THÊM SANG GHI XÁM */
 
 :root {
   --main-color: #437A24; /* Xanh lá cây đậm hơn */
@@ -38,8 +38,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* MÀU NỀN ĐÃ ĐƯỢC THAY ĐỔI TẠI ĐÂY SANG MÀU XANH DƯƠNG (#3F51B5) VỚI ĐỘ TRONG SUỐT 0.5 */
-  background-color: rgba(63, 81, 181, 0.5); /* Màu xanh dương #3F51B5 với opacity 0.5 */
+  background-color: rgba(169, 169, 169, 0.5); /* Màu Ghi Xám với opacity 0.5 */
   padding: 0.8rem 1.2rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   position: sticky;
@@ -200,9 +199,10 @@ header p {
 
 .button {
   margin-top: 1.5rem;
-  background: var(--main-color);
+  /* MÀU NỀN NÚT XEM THÊM ĐÃ ĐƯỢC ĐỔI SANG GHI XÁM */
+  background: #A9A9A9; /* Màu Ghi Xám */
   padding: 0.7rem 1.2rem;
-  color: var(--text-light);
+  color: var(--text-light); /* Giữ màu chữ trắng */
   border-radius: 5px;
   font-weight: bold;
   transition: background 0.3s ease, transform 0.2s ease;
@@ -212,7 +212,8 @@ header p {
 }
 
 .button:hover {
-  background: #38611E; /* Xanh lá đậm hơn khi hover */
+  /* MÀU NỀN NÚT XEM THÊM KHI HOVER ĐÃ ĐƯỢC ĐỔI SANG GHI XÁM ĐẬM HƠN */
+  background: #808080; /* Màu Ghi Xám Đậm Hơn khi hover */
   transform: translateY(-2px);
 }
 
