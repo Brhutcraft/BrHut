@@ -13,7 +13,7 @@
   box-sizing: border-box;
 }
 
-/* --- THÊM: Bật hiệu ứng cuộn mượt --- */
+/* --- Bật hiệu ứng cuộn mượt --- */
 html {
   scroll-behavior: smooth;
 }
@@ -41,13 +41,13 @@ a {
   position: sticky;
   top: 0;
   z-index: 1000;
-  /* THÊM: Transition cho hiệu ứng ẩn/hiện */
+  /* Transition cho hiệu ứng ẩn/hiện */
   transition: transform 0.3s ease-in-out;
   /* Đảm bảo navbar có height cố định hoặc có thể tính toán được */
   /* height: 70px; /* Ví dụ, điều chỉnh nếu cần */ */
 }
 
-/* THÊM: Class để ẩn navbar */
+/* Class để ẩn navbar */
 .navbar.hidden {
   transform: translateY(-100%); /* Đẩy navbar lên trên bằng chính chiều cao của nó */
 }
@@ -70,7 +70,7 @@ a {
   list-style: none;
   display: flex;
   gap: 1rem;
-  /* --- THAY ĐỔI/THÊM: Chuẩn bị cho transition trên mobile --- */
+  /* Chuẩn bị cho transition trên mobile */
   transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
 }
 
@@ -125,16 +125,12 @@ a {
 /* Responsive */
 @media (max-width: 768px) {
   .nav-left {
-    /* Cho phép hamburger icon xuống dòng nếu cần */
     flex-wrap: wrap;
-    /* Giữ logo và menu trên cùng hàng */
     width: 100%;
     justify-content: space-between;
   }
 
   .nav-links {
-    /* --- THAY ĐỔI: Styling và trạng thái ẩn ban đầu cho mobile --- */
-    display: flex; /* Luôn là flex để flex-direction hoạt động */
     flex-direction: column;
     background-color: #fff;
     position: absolute;
@@ -149,10 +145,10 @@ a {
     opacity: 0;
     visibility: hidden;
     overflow: hidden; /* Quan trọng để max-height hoạt động */
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s; /* Đảm bảo transition vẫn ở đây */
   }
 
   .nav-links.active {
-    /* --- THAY ĐỔI: Trạng thái hiện cho mobile --- */
     max-height: 300px; /* Đủ lớn để chứa các mục menu */
     opacity: 1;
     visibility: visible;
@@ -166,18 +162,15 @@ a {
      border-bottom: none;
   }
 
-
   .hamburger {
     display: block; /* Hiện hamburger trên mobile */
   }
 
-  /* Đẩy giỏ hàng sang phải khi có hamburger */
   .nav-right {
       margin-left: auto; /* Đẩy giỏ hàng sang hết cỡ bên phải */
       padding-left: 1rem; /* Tạo khoảng cách với hamburger */
   }
 
-  /* Đảm bảo logo và hamburger căn giữa theo chiều dọc */
    .nav-logo, .hamburger {
        align-self: center;
    }
@@ -227,7 +220,7 @@ header p {
   transform: translateY(-2px); /* Hiệu ứng nhấc lên khi hover */
 }
 
-/* THÊM: Styles cho phần Slider Trích dẫn mới */
+/* THÊM: Styles cho phần Slider Trích dẫn */
 .quotes-slider-section {
   padding: 3rem 0; /* Padding trên dưới, ngang = 0 vì container hoặc wrapper sẽ có padding */
   background-color: var(--background); /* Nền cho toàn bộ section */
@@ -321,9 +314,7 @@ header p {
 }
 
 
-/* ... (Các style hiện có của bạn, ví dụ như .categories, footer) ... */
-
-
+/* Categories Section */
 .categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -332,8 +323,52 @@ header p {
   background: #fff;
 }
 
-/* ... (Phần footer và social links) ... */
+.category {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #eee; /* Màu nền nhẹ khi ảnh chưa tải */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  display: block; /* Để thẻ a bao toàn bộ */
+}
 
+.category:hover {
+  transform: translateY(-5px) scale(1.02); /* Kết hợp nhấc lên và phóng to nhẹ */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.category img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block; /* Tránh khoảng trống dưới ảnh */
+  transition: transform 0.3s ease-out; /* Hiệu ứng zoom nhẹ ảnh */
+}
+
+ .category:hover img {
+   transform: scale(1.05); /* Zoom ảnh nhẹ khi hover category */
+ }
+
+
+.category h3 {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 0; /* Reset margin */
+  transition: background 0.3s;
+}
+
+ .category:hover h3 {
+    background: rgba(76, 175, 80, 0.8); /* Đổi màu nền chữ khi hover */
+ }
+
+
+/* Footer */
 footer {
   background-color: #f4f4f9;
   color: var(--text-dark);
