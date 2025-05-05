@@ -38,7 +38,8 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.95); /* Trắng gần như giữ nguyên */
+  /* MÀU NỀN ĐÃ ĐƯỢC THAY ĐỔI TẠI ĐÂY */
+  background-color: #c8d6c7; /* Màu Xanh Nhạt / Xanh Khói - Gợi ý số 3 */
   padding: 0.8rem 1.2rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   position: sticky;
@@ -129,6 +130,7 @@ a {
 
   .nav-links {
     flex-direction: column;
+    /* Lưu ý: Khi menu mở ra trên mobile, nền vẫn là #fff theo CSS ở đây */
     background-color: #fff;
     position: absolute;
     top: 70px;
@@ -173,7 +175,7 @@ a {
 }
 
 header {
-  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
+  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b3817c38173713251750086403988.jpg') center/cover no-repeat;
   height: 70vh;
   display: flex;
   flex-direction: column;
@@ -464,4 +466,4 @@ footer {
   font-weight: bold;
   transition: color 0.3s ease;
 }
-.footer-
+/* Footer Social Icons - Đoạn này có vẻ bị cắt */
