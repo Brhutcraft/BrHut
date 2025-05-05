@@ -234,7 +234,7 @@ header p {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  gap: 1.5rem; /* Khoảng cách giữa các item */
+  gap: 1.5rem;
   padding: 0 1.5rem 1.5rem 1.5rem; /* Padding ngang bằng gap */
 
   /* Ẩn thanh cuộn mặc định */
@@ -248,76 +248,75 @@ header p {
 
 .quotes-slider-wrapper .quote-item {
   flex: 0 0 auto;
-  /* width sẽ được tính toán trong media query để responsive */
-  scroll-snap-align: start; /* Căn chỉnh điểm bắt đầu khi snap */
+  overflow: hidden; /* Đảm bảo nội dung trượt vào không hiện ra ngoài item */
+  scroll-snap-align: start;
 }
 
 /* Cải thiện giao diện Blockquote bên trong item */
 .quote-item blockquote {
     background-color: #fff;
-    padding: 2rem; /* Tăng padding */
-    border-radius: 10px; /* Bo góc mềm mại */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Đổ bóng mềm mại hơn */
-    margin: 0; /* Đảm bảo không có margin mặc định */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 0;
     text-align: left;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Chiều cao 100% để lấp đầy item */
-    justify-content: space-between; /* Đẩy footer xuống dưới */
-    border-left: 5px solid var(--main-color); /* Thêm đường viền màu bên trái */
+    height: 100%;
+    justify-content: space-between;
+    border-left: 5px solid var(--main-color);
 }
 
-.quote-item blockquote p {
-    font-size: 1.1rem; /* Tăng kích thước chữ */
-    line-height: 1.7;
-    margin-bottom: 1.5rem; /* Tăng khoảng cách dưới đoạn văn */
-    font-style: italic;
-    color: var(--text-dark);
-    flex-grow: 1; /* Cho phép đoạn văn chiếm không gian còn trống */
+/* CSS cho hiệu ứng hiện dần văn bản bên trong item */
+.quote-item blockquote p,
+.quote-item blockquote footer {
+    opacity: 0; /* Ban đầu ẩn */
+    transform: translateY(10px); /* Ban đầu dịch chuyển xuống 10px */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Hiệu ứng chuyển động mượt mà */
 }
 
 .quote-item blockquote footer {
-    font-size: 0.95rem; /* Kích thước chữ nguồn/tác giả */
-    color: #666; /* Màu xám đậm hơn */
-    text-align: right;
-    font-weight: bold; /* In đậm tên nguồn */
+    transition-delay: 0.1s; /* Footer hiện chậm hơn p 0.1 giây */
 }
+
+/* Khi item có class 'is-in-view' (do JS thêm vào), văn bản sẽ hiện ra */
+.quote-item.is-in-view blockquote p,
+.quote-item.is-in-view blockquote footer {
+    opacity: 1; /* Hiện ra */
+    transform: translateY(0); /* Trở về vị trí ban đầu */
+    /* transition-delay đã được định nghĩa ở trên */
+}
+
 
 /* Responsive cho item trích dẫn - Tính toán width dựa trên gap */
 @media (max-width: 768px) { /* Mobile nhỏ */
     .quotes-slider-wrapper .quote-item {
-        /* Trên mobile nhỏ hơn hoặc bằng 768px, hiện 1 item mỗi lần */
-        /* width = toàn bộ chiều rộng wrapper trừ padding ngang của wrapper */
-         width: calc(100% - (2 * 1.5rem)); /* 100% - (padding trái + padding phải) */
-         max-width: 400px; /* Giới hạn chiều rộng tối đa ngay cả trên mobile rất rộng */
-         margin: 0 auto; /* Căn giữa item nếu width < 100% */
-         /* scroll-snap-align: center; /* Có thể thử center để nó snap vào giữa màn hình */ */
+         width: calc(100% - (2 * 1.5rem));
+         max-width: 400px;
+         margin: 0 auto;
     }
      .quotes-slider-wrapper {
-        padding: 0 1.5rem 1.5rem 1.5rem; /* Giữ padding ngang = gap */
+        padding: 0 1.5rem 1.5rem 1.5rem;
      }
 }
 
-
 @media (min-width: 769px) { /* Trên desktop */
     .quotes-slider-wrapper .quote-item {
-        /* N=2 item, gap=1.5rem. Tổng gap = 1.5rem. Width = (100% - 1.5rem) / 2 */
         width: calc( (100% - 1.5rem) / 2 );
-        max-width: none; /* Bỏ giới hạn max-width của mobile */
-        margin: 0; /* Bỏ margin auto của mobile */
+        max-width: none;
+        margin: 0;
     }
      .quotes-slider-wrapper {
-        padding: 0 1.5rem 1.5rem 1.5rem; /* Giữ padding ngang = gap */
+        padding: 0 1.5rem 1.5rem 1.5rem;
      }
 }
 
 @media (min-width: 1024px) { /* Trên màn hình rất lớn */
      .quotes-slider-wrapper .quote-item {
-        /* N=3 item, gap=1.5rem. Tổng gap = 2 * 1.5rem = 3rem. Width = (100% - 3rem) / 3 */
         width: calc( (100% - 3rem) / 3 );
      }
       .quotes-slider-wrapper {
-         padding: 0 1.5rem 1.5rem 1.5rem; /* Giữ padding ngang = gap */
+         padding: 0 1.5rem 1.5rem 1.5rem;
       }
 }
 
