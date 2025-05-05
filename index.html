@@ -74,8 +74,8 @@
       list-style: none;
       display: flex;
       gap: 1rem;
-      /* Transition ban đầu - sẽ được ghi đè trong media query cho mobile */
-      transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+      /* Transition ban đầu cho desktop - sẽ được ghi đè trong media query cho mobile */
+      transition: opacity 0.4s ease-in-out; /* Transition đơn giản cho desktop hover */
     }
 
     .nav-links li a {
@@ -148,40 +148,41 @@
         background-color: #fff;
         position: absolute;
          /* --- THAY ĐỔI: Vị trí top dựa trên chiều cao thực của navbar --- */
-         /* Cần tính toán hoặc đo chiều cao thực tế của navbar sau khi logo to ra */
-         /* Ví dụ ước lượng, bạn cần kiểm tra lại trên trình duyệt */
-        top: 120px; /* Điều chỉnh giá trị này cho phù hợp với chiều cao navbar mới */
+         /* Vẫn giữ giá trị cũ, bạn có thể cần kiểm tra lại trên trình duyệt */
+        top: 120px;
         left: 0;
         width: 100%;
         padding: 0 1rem 1rem 1rem;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         gap: 0;
-        max-height: 0; /* Vẫn dùng max-height để giới hạn không gian */
-        opacity: 0;
-        visibility: hidden;
-        overflow: hidden;
+
+        /* --- THAY ĐỔI LỚN: Cập nhật trạng thái ẩn và Transition --- */
+        max-height: 0; /* Bắt đầu với max-height 0 để ẩn nội dung */
+        overflow: hidden; /* Ẩn nội dung vượt quá */
+        opacity: 0; /* Bắt đầu với opacity 0 */
+        visibility: hidden; /* Bắt đầu với visibility hidden */
+        transform: translateY(-10px); /* Bắt đầu hơi dịch lên */
+
+        /* --- Transition mới: Chỉ áp dụng cho Opacity, Transform, Visibility --- */
+        /* Khi ẩn: Opacity và Transform chuyển động trong 0.4s, Visibility ẩn sau 0.4s */
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s linear 0.4s;
+
         /* Bo góc cho menu dropdown trên mobile */
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
-
-        /* --- THAY ĐỔI: Thêm Transform và Cập nhật Transition để mượt mà hơn --- */
-        transform: translateY(-10px); /* Bắt đầu từ phía trên một chút (hoặc +10px để bắt đầu từ dưới) */
-        /* Transition cho Opacity và Transform (0.4s), Visibility (ẩn sau 0.4s, hiện ngay lập tức) */
-        /* transition: property duration timing-function delay */
-        transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s linear 0.4s;
       }
 
       .nav-links.active {
-        max-height: 300px; /* Vẫn giữ, nhưng hiệu ứng chủ yếu từ opacity/transform */
-        opacity: 1;
-        visibility: visible;
+        /* --- THAY ĐỔI LỚN: Cập nhật trạng thái hiện và Transition --- */
+        max-height: 300px; /* Đặt max-height đủ lớn để hiển thị nội dung (thay đổi tức thời) */
+        opacity: 1; /* Kết thúc với opacity 1 */
+        visibility: visible; /* Kết thúc với visibility visible */
+        transform: translateY(0); /* Kết thúc ở vị trí bình thường */
         padding-top: 1rem;
-        /* --- THAY ĐỔI: Kết thúc Translate --- */
-        transform: translateY(0); /* Về vị trí bình thường */
 
-        /* --- THAY ĐỔI: Cập nhật Transition cho trạng thái active --- */
-        /* Transition cho Opacity và Transform (0.4s), Visibility (hiện ngay lập tức) */
-         transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s linear 0s;
+        /* --- Transition mới: Chỉ áp dụng cho Opacity, Transform, Visibility --- */
+        /* Khi hiện: Opacity và Transform chuyển động trong 0.4s, Visibility hiện ngay lập tức */
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0s linear 0s;
       }
 
       .nav-links li {
@@ -434,6 +435,7 @@
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
       navLinks.classList.toggle('active');
+      // console.log("Hamburger clicked! Toggled active class:", navLinks.classList.contains('active')); // Log để kiểm tra
     }
 
     // Đóng menu khi click link trên mobile
@@ -455,8 +457,9 @@
         if (navLinksContainer && hamburger) {
             const isClickInsideNav = navLinksContainer.contains(event.target);
             const isClickOnHamburger = hamburger.contains(event.target);
-            const isHamburgerIcon = hamburger.querySelector('i').contains(event.target); // Kiểm tra cả icon
+            const isHamburgerIcon = hamburger.querySelector('i') ? hamburger.querySelector('i').contains(event.target) : false; // Kiểm tra cả icon, an toàn hơn
 
+            // Nếu click không phải trên menu, không phải trên hamburger, và menu đang active trên mobile
             if (!isClickInsideNav && !isClickOnHamburger && !isHamburgerIcon && navLinksContainer.classList.contains('active') && window.innerWidth <= 768) {
                  navLinksContainer.classList.remove('active');
             }
