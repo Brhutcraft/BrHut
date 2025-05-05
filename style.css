@@ -13,7 +13,6 @@
   box-sizing: border-box;
 }
 
-/* --- Bật hiệu ứng cuộn mượt --- */
 html {
   scroll-behavior: smooth;
 }
@@ -41,17 +40,12 @@ a {
   position: sticky;
   top: 0;
   z-index: 1000;
-  /* Transition cho hiệu ứng ẩn/hiện */
   transition: transform 0.3s ease-in-out;
-  /* Đảm bảo navbar có height cố định hoặc có thể tính toán được */
-  /* height: 70px; /* Ví dụ, điều chỉnh nếu cần */ */
 }
 
-/* Class để ẩn navbar */
 .navbar.hidden {
-  transform: translateY(-100%); /* Đẩy navbar lên trên bằng chính chiều cao của nó */
+  transform: translateY(-100%);
 }
-
 
 .nav-left {
   display: flex;
@@ -60,17 +54,16 @@ a {
 
 .nav-logo img {
   width: 90px;
-  height: auto; /* Giữ tỷ lệ */
+  height: auto;
   border-radius: 8px;
   margin-right: 1rem;
-  display: block; /* Tránh khoảng trống dưới ảnh */
+  display: block;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 1rem;
-  /* Chuẩn bị cho transition trên mobile */
   transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
 }
 
@@ -78,8 +71,8 @@ a {
   font-weight: 500;
   color: var(--text-dark);
   transition: color 0.3s;
-  display: block; /* Để padding hoạt động tốt hơn trên mobile */
-  padding: 0.5rem 0; /* Thêm padding cho dễ bấm trên mobile */
+  display: block;
+  padding: 0.5rem 0;
 }
 
 .nav-links li a:hover {
@@ -114,12 +107,12 @@ a {
 }
 
 .hamburger {
-  display: none; /* Mặc định ẩn trên desktop */
+  display: none;
   font-size: 1.5rem;
   cursor: pointer;
   margin-left: 1rem;
   color: var(--text-dark);
-  padding: 5px; /* Tăng vùng bấm */
+  padding: 5px;
 }
 
 /* Responsive */
@@ -134,41 +127,40 @@ a {
     flex-direction: column;
     background-color: #fff;
     position: absolute;
-    top: 70px; /* Ngay dưới navbar (điều chỉnh nếu chiều cao navbar thay đổi) */
+    top: 70px;
     left: 0;
     width: 100%;
-    padding: 0 1rem 1rem 1rem; /* Chỉ padding ngang và dưới */
+    padding: 0 1rem 1rem 1rem;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    gap: 0; /* Reset gap, dùng padding trên thẻ li a */
-    /* Trạng thái ẩn */
+    gap: 0;
     max-height: 0;
     opacity: 0;
     visibility: hidden;
-    overflow: hidden; /* Quan trọng để max-height hoạt động */
-    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s; /* Đảm bảo transition vẫn ở đây */
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
   }
 
   .nav-links.active {
-    max-height: 300px; /* Đủ lớn để chứa các mục menu */
+    max-height: 300px;
     opacity: 1;
     visibility: visible;
-    padding-top: 1rem; /* Thêm padding top khi mở ra */
+    padding-top: 1rem;
   }
 
   .nav-links li {
-     border-bottom: 1px solid #eee; /* Ngăn cách các mục menu */
+     border-bottom: 1px solid #eee;
   }
    .nav-links li:last-child {
      border-bottom: none;
   }
 
   .hamburger {
-    display: block; /* Hiện hamburger trên mobile */
+    display: block;
   }
 
   .nav-right {
-      margin-left: auto; /* Đẩy giỏ hàng sang hết cỡ bên phải */
-      padding-left: 1rem; /* Tạo khoảng cách với hamburger */
+      margin-left: auto;
+      padding-left: 1rem;
   }
 
    .nav-logo, .hamburger {
@@ -191,13 +183,13 @@ header {
 }
 
 header h1 {
-  font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive font size */
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
   margin-bottom: 0.5rem;
   text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
 header p {
-  font-size: clamp(1rem, 3vw, 1.1rem); /* Responsive font size */
+  font-size: clamp(1rem, 3vw, 1.1rem);
   max-width: 600px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
@@ -209,107 +201,123 @@ header p {
   color: var(--text-light);
   border-radius: 5px;
   font-weight: bold;
-  transition: background 0.3s, transform 0.2s; /* Thêm transition cho transform */
-  display: inline-block; /* Để transform hoạt động */
-  border: none; /* Bỏ border mặc định nếu có */
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
+  border: none;
   cursor: pointer;
 }
 
 .button:hover {
   background: #388E3C;
-  transform: translateY(-2px); /* Hiệu ứng nhấc lên khi hover */
+  transform: translateY(-2px);
 }
 
-/* THÊM: Styles cho phần Slider Trích dẫn */
+/* Styles cho phần Slider Trích dẫn */
 .quotes-slider-section {
-  padding: 3rem 0; /* Padding trên dưới, ngang = 0 vì container hoặc wrapper sẽ có padding */
-  background-color: var(--background); /* Nền cho toàn bộ section */
-  text-align: center; /* Căn giữa tiêu đề */
+  padding: 3rem 0;
+  background-color: var(--background);
+  text-align: center;
 }
 
 .quotes-slider-section .container {
-  max-width: 900px; /* Chiều rộng tối đa cho phần slider */
-  margin: 0 auto; /* Căn giữa container */
-  /* Không cần padding ngang ở đây, sẽ handle ở wrapper */
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .quotes-slider-section h2 {
-  font-size: clamp(1.5rem, 4vw, 2rem); /* Kích thước chữ tiêu đề */
-  margin-bottom: 2rem; /* Khoảng cách dưới tiêu đề */
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 2rem;
   color: var(--text-dark);
 }
 
 .quotes-slider-wrapper {
-  display: flex; /* Sử dụng Flexbox để các item nằm ngang */
-  overflow-x: auto; /* Cho phép cuộn theo chiều ngang khi nội dung tràn */
-  scroll-snap-type: x mandatory; /* Bật tính năng snap: cuộn sẽ dừng lại ở các điểm xác định */
-  gap: 1.5rem; /* Khoảng cách giữa các item trích dẫn */
-  padding: 0 1rem 1.5rem 1rem; /* Padding ngang (để item đầu/cuối không dính mép), padding dưới cho scrollbar */
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1.5rem; /* Khoảng cách giữa các item */
+  padding: 0 1.5rem 1.5rem 1.5rem; /* Padding ngang bằng gap */
 
   /* Ẩn thanh cuộn mặc định */
-  scrollbar-width: none;  /* For Firefox */
-  -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-/* Ẩn thanh cuộn cho Chrome, Safari và Opera */
 .quotes-slider-wrapper::-webkit-scrollbar {
     display: none;
 }
 
-
 .quotes-slider-wrapper .quote-item {
-  flex: 0 0 auto; /* Quan trọng: Ngăn item co lại hoặc giãn ra, kích thước dựa vào width */
-  width: 90%; /* Chiều rộng của mỗi item trích dẫn (ví dụ 90% chiều rộng wrapper) */
-  max-width: 500px; /* Chiều rộng tối đa cho mỗi trích dẫn trên màn hình lớn */
-  scroll-snap-align: start; /* Căn chỉnh điểm bắt đầu của item với điểm snap */
-  /* padding đã được thêm vào blockquote bên trong */
+  flex: 0 0 auto;
+  /* width sẽ được tính toán trong media query để responsive */
+  scroll-snap-align: start; /* Căn chỉnh điểm bắt đầu khi snap */
 }
 
+/* Cải thiện giao diện Blockquote bên trong item */
 .quote-item blockquote {
-    background-color: #fff; /* Nền trắng cho khối trích dẫn */
-    padding: 1.5rem; /* Padding bên trong khối trích dẫn */
-    border-radius: 8px; /* Bo góc */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Đổ bóng nhẹ */
-    margin: 0; /* Xóa margin mặc định của blockquote */
-    text-align: left; /* Đảm bảo text trích dẫn căn trái */
-    display: flex; /* Dùng flex để căn chỉnh p và footer nếu cần */
-    flex-direction: column; /* Xếp p và footer theo cột */
-    height: 100%; /* Đảm bảo blockquote lấp đầy quote-item */
-    justify-content: space-between; /* Đẩy footer xuống cuối */
+    background-color: #fff;
+    padding: 2rem; /* Tăng padding */
+    border-radius: 10px; /* Bo góc mềm mại */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Đổ bóng mềm mại hơn */
+    margin: 0; /* Đảm bảo không có margin mặc định */
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Chiều cao 100% để lấp đầy item */
+    justify-content: space-between; /* Đẩy footer xuống dưới */
+    border-left: 5px solid var(--main-color); /* Thêm đường viền màu bên trái */
 }
 
 .quote-item blockquote p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem; /* Khoảng cách dưới đoạn trích dẫn */
-    font-style: italic; /* Làm nghiêng chữ trích dẫn */
+    font-size: 1.1rem; /* Tăng kích thước chữ */
+    line-height: 1.7;
+    margin-bottom: 1.5rem; /* Tăng khoảng cách dưới đoạn văn */
+    font-style: italic;
     color: var(--text-dark);
-    flex-grow: 1; /* Cho phép đoạn văn giãn ra chiếm hết không gian còn trống */
+    flex-grow: 1; /* Cho phép đoạn văn chiếm không gian còn trống */
 }
 
 .quote-item blockquote footer {
-    font-size: 0.9rem;
-    color: #555; /* Màu xám cho nguồn/tác giả */
-    text-align: right; /* Căn phải tên nguồn/tác giả */
+    font-size: 0.95rem; /* Kích thước chữ nguồn/tác giả */
+    color: #666; /* Màu xám đậm hơn */
+    text-align: right;
+    font-weight: bold; /* In đậm tên nguồn */
 }
 
-/* Responsive cho item trích dẫn */
-@media (min-width: 769px) { /* Trên desktop */
+/* Responsive cho item trích dẫn - Tính toán width dựa trên gap */
+@media (max-width: 768px) { /* Mobile nhỏ */
     .quotes-slider-wrapper .quote-item {
-        width: calc(50% - 1rem); /* Hiện 2 item cùng lúc trên màn hình lớn hơn (50% trừ đi 1 nửa khoảng cách gap) */
-        /* Hoặc dùng fixed width: width: 400px; */
+        /* Trên mobile nhỏ hơn hoặc bằng 768px, hiện 1 item mỗi lần */
+        /* width = toàn bộ chiều rộng wrapper trừ padding ngang của wrapper */
+         width: calc(100% - (2 * 1.5rem)); /* 100% - (padding trái + padding phải) */
+         max-width: 400px; /* Giới hạn chiều rộng tối đa ngay cả trên mobile rất rộng */
+         margin: 0 auto; /* Căn giữa item nếu width < 100% */
+         /* scroll-snap-align: center; /* Có thể thử center để nó snap vào giữa màn hình */ */
     }
      .quotes-slider-wrapper {
-        padding: 0 2rem 1.5rem 2rem; /* Tăng padding ngang trên desktop */
+        padding: 0 1.5rem 1.5rem 1.5rem; /* Giữ padding ngang = gap */
      }
 }
 
-@media (min-width: 1024px) { /* Trên màn hình rất lớn, có thể hiện 3 item */
+
+@media (min-width: 769px) { /* Trên desktop */
+    .quotes-slider-wrapper .quote-item {
+        /* N=2 item, gap=1.5rem. Tổng gap = 1.5rem. Width = (100% - 1.5rem) / 2 */
+        width: calc( (100% - 1.5rem) / 2 );
+        max-width: none; /* Bỏ giới hạn max-width của mobile */
+        margin: 0; /* Bỏ margin auto của mobile */
+    }
+     .quotes-slider-wrapper {
+        padding: 0 1.5rem 1.5rem 1.5rem; /* Giữ padding ngang = gap */
+     }
+}
+
+@media (min-width: 1024px) { /* Trên màn hình rất lớn */
      .quotes-slider-wrapper .quote-item {
-        width: calc(33.33% - 1rem); /* Hiện 3 item cùng lúc */
+        /* N=3 item, gap=1.5rem. Tổng gap = 2 * 1.5rem = 3rem. Width = (100% - 3rem) / 3 */
+        width: calc( (100% - 3rem) / 3 );
      }
       .quotes-slider-wrapper {
-         padding: 0 3rem 1.5rem 3rem; /* Tăng padding ngang thêm */
+         padding: 0 1.5rem 1.5rem 1.5rem; /* Giữ padding ngang = gap */
       }
 }
 
@@ -327,13 +335,13 @@ header p {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  background: #eee; /* Màu nền nhẹ khi ảnh chưa tải */
+  background: #eee;
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-  display: block; /* Để thẻ a bao toàn bộ */
+  display: block;
 }
 
 .category:hover {
-  transform: translateY(-5px) scale(1.02); /* Kết hợp nhấc lên và phóng to nhẹ */
+  transform: translateY(-5px) scale(1.02);
   box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
@@ -341,14 +349,13 @@ header p {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  display: block; /* Tránh khoảng trống dưới ảnh */
-  transition: transform 0.3s ease-out; /* Hiệu ứng zoom nhẹ ảnh */
+  display: block;
+  transition: transform 0.3s ease-out;
 }
 
  .category:hover img {
-   transform: scale(1.05); /* Zoom ảnh nhẹ khi hover category */
+   transform: scale(1.05);
  }
-
 
 .category h3 {
   position: absolute;
@@ -359,14 +366,13 @@ header p {
   padding: 0.3rem 0.8rem;
   border-radius: 5px;
   font-size: 1rem;
-  margin: 0; /* Reset margin */
+  margin: 0;
   transition: background 0.3s;
 }
 
  .category:hover h3 {
-    background: rgba(76, 175, 80, 0.8); /* Đổi màu nền chữ khi hover */
+    background: rgba(76, 175, 80, 0.8);
  }
-
 
 /* Footer */
 footer {
@@ -392,7 +398,6 @@ footer {
    color: #388E3C;
 }
 
-
 .footer-social {
   margin-top: 1rem;
 }
@@ -402,10 +407,10 @@ footer {
   margin: 0 10px;
   font-size: 1.5rem;
   transition: color 0.3s, transform 0.3s;
-  display: inline-block; /* Cho phép transform */
+  display: inline-block;
 }
 
 .social-link:hover {
   color: var(--main-color);
-  transform: translateY(-3px); /* Hiệu ứng nhấc lên */
+  transform: translateY(-3px);
 }
