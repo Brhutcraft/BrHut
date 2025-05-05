@@ -30,7 +30,7 @@
       background-color: var(--background);
       color: var(--text-dark);
       line-height: 1.6;
-      overflow-x: hidden; /* Ngăn cuộn ngang do hiệu ứng */
+      overflow-x: hidden;
     }
 
     a {
@@ -46,9 +46,14 @@
       background-color: #fff;
       padding: 0.8rem 1.2rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      /* --- THAY ĐỔI: Bỏ sticky và bo góc dưới --- */
+      /* position: sticky; */ /* Đã xóa */
+      /* top: 0; */ /* Đã xóa */
+      /* z-index: 1000; */ /* Đã xóa */
+      border-bottom-left-radius: 15px; /* Bo góc dưới trái */
+      border-bottom-right-radius: 15px; /* Bo góc dưới phải */
+      /* Thêm margin bottom nếu muốn khoảng cách rõ hơn với phần tử dưới */
+      /* margin-bottom: 1rem; */
     }
 
     .nav-left {
@@ -57,8 +62,8 @@
     }
 
     .nav-logo img {
-      /* --- THAY ĐỔI: Tăng kích thước logo --- */
-      width: 100px; /* Tăng từ 55px lên 100px (hoặc tùy chỉnh) */
+      /* --- THAY ĐỔI: Kích thước logo theo yêu cầu trước --- */
+      width: 100px; /* Giữ kích thước 100px như bạn đã chỉnh */
       height: auto;
       border-radius: 8px;
       margin-right: 1rem;
@@ -90,18 +95,17 @@
     }
 
     .cart-icon {
-       /* --- THAY ĐỔI: Styling cho icon giỏ hàng mới (SVG) --- */
        position: relative;
-       display: flex; /* Giúp căn chỉnh số lượng dễ hơn */
+       display: flex;
        align-items: center;
        color: var(--text-dark);
        transition: color 0.3s;
     }
 
-    .cart-icon svg { /* Style cho SVG */
-        width: 24px; /* Kích thước icon */
+    .cart-icon svg {
+        width: 24px;
         height: 24px;
-        fill: currentColor; /* SVG sẽ lấy màu từ thẻ cha (.cart-icon) */
+        fill: currentColor;
     }
 
     .cart-icon:hover {
@@ -110,15 +114,14 @@
 
     .cart-count {
       position: absolute;
-      /* Điều chỉnh vị trí cho phù hợp với icon SVG mới */
       top: -6px;
       right: -8px;
       background: var(--main-color);
       color: white;
       font-size: 0.7rem;
-      padding: 2px 5px; /* Điều chỉnh padding */
+      padding: 2px 5px;
       border-radius: 50%;
-      line-height: 1; /* Đảm bảo số nằm giữa */
+      line-height: 1;
     }
 
     .hamburger {
@@ -143,7 +146,10 @@
         flex-direction: column;
         background-color: #fff;
         position: absolute;
-        top: 70px; /* Kiểm tra lại giá trị này nếu chiều cao navbar thay đổi */
+         /* --- THAY ĐỔI: Vị trí top dựa trên chiều cao thực của navbar --- */
+         /* Cần tính toán hoặc đo chiều cao thực tế của navbar sau khi logo to ra */
+         /* Ví dụ ước lượng, bạn cần kiểm tra lại */
+        top: 120px; /* Điều chỉnh giá trị này cho phù hợp với chiều cao navbar mới */
         left: 0;
         width: 100%;
         padding: 0 1rem 1rem 1rem;
@@ -153,6 +159,9 @@
         opacity: 0;
         visibility: hidden;
         overflow: hidden;
+        /* Bo góc cho menu dropdown trên mobile */
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
       }
 
       .nav-links.active {
@@ -182,15 +191,20 @@
        .nav-logo, .hamburger {
            align-self: center;
        }
-       /* Đảm bảo navbar đủ cao khi logo to hơn */
+       /* Điều chỉnh padding navbar trên mobile nếu cần */
        .navbar {
-            min-height: 70px; /* Hoặc giá trị phù hợp với logo mới */
+           padding: 0.5rem 1rem; /* Giảm padding dọc một chút */
+           /* Bỏ bo góc riêng cho mobile nếu muốn giữ vuông hoặc đồng bộ */
+           /* border-bottom-left-radius: 0;
+           border-bottom-right-radius: 0; */
        }
     }
 
 
     header {
       background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
+      /* --- THAY ĐỔI: Thêm margin-top nếu muốn khoảng cách với navbar --- */
+      /* margin-top: 1rem; */ /* Tùy chọn, nếu navbar không còn sticky */
       height: 70vh;
       display: flex;
       flex-direction: column;
@@ -200,8 +214,6 @@
       color: var(--text-light);
       padding: 1rem;
       position: relative;
-      /* --- THÊM: Chuẩn bị cho hiệu ứng fade-in --- */
-      /* opacity: 0; Thẻ header sẽ có hiệu ứng riêng, không cần fade-in chung */
     }
 
     header h1 {
@@ -240,8 +252,6 @@
       gap: 1.5rem;
       padding: 2rem;
       background: #fff;
-       /* --- THÊM: Chuẩn bị cho hiệu ứng fade-in (container) --- */
-       /* Các item con sẽ có hiệu ứng */
     }
 
     .category {
@@ -251,12 +261,6 @@
       background: #eee;
       transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
       display: block;
-      /* --- THÊM: Chuẩn bị cho hiệu ứng fade-in (item) --- */
-      /* opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0.6s;
-      visibility: hidden; */
-       /* ^^^ Sẽ được quản lý bằng class .fade-in-element & .is-visible */
     }
 
     .category:hover {
@@ -301,8 +305,6 @@
       padding: 2rem 1rem;
       text-align: center;
       border-top: 3px solid var(--main-color);
-      /* --- THÊM: Chuẩn bị cho hiệu ứng fade-in --- */
-      /* opacity: 0; */
     }
 
     .footer-content p {
@@ -338,12 +340,11 @@
       transform: translateY(-3px);
     }
 
-    /* --- THÊM: CSS cho hiệu ứng Fade-in on Scroll --- */
     .fade-in-element {
       opacity: 0;
-      transform: translateY(30px); /* Bắt đầu từ vị trí thấp hơn một chút */
+      transform: translateY(30px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      will-change: opacity, transform; /* Tối ưu hóa hiệu suất animation */
+      will-change: opacity, transform;
     }
 
     .fade-in-element.is-visible {
@@ -351,13 +352,12 @@
       transform: translateY(0);
     }
 
-
   </style>
 </head>
-<body>
-  <nav class="navbar">
+<body id="top"> <nav class="navbar">
     <div class="nav-left">
-      <a href="#top" class="nav-logo"> <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
+      <a href="#top" class="nav-logo">
+        <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Trang chủ</a></li>
@@ -380,7 +380,7 @@
     </div>
   </nav>
 
-  <header id="top" class="fade-in-element">
+  <header class="fade-in-element">
     <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
     <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
     <a href="about.html" class="button">Xem thêm</a>
@@ -436,7 +436,6 @@
     document.addEventListener('click', function(event) {
         const navLinksContainer = document.getElementById('navLinks');
         const hamburger = document.querySelector('.hamburger');
-        // Kiểm tra xem navLinksContainer có tồn tại không trước khi truy cập contains
         if (navLinksContainer && hamburger) {
             const isClickInsideNav = navLinksContainer.contains(event.target);
             const isClickOnHamburger = hamburger.contains(event.target);
@@ -447,19 +446,19 @@
         }
     });
 
-    // --- THÊM: JavaScript cho hiệu ứng Fade-in on Scroll ---
+    // --- JavaScript cho hiệu ứng Fade-in on Scroll ---
     document.addEventListener("DOMContentLoaded", () => {
       const observerOptions = {
-        root: null, // Quan sát so với viewport
+        root: null,
         rootMargin: '0px',
-        threshold: 0.1 // Kích hoạt khi 10% phần tử hiển thị
+        threshold: 0.1
       };
 
       const observerCallback = (entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); // Ngừng quan sát sau khi đã hiển thị
+            observer.unobserve(entry.target);
           }
         });
       };
