@@ -1,439 +1,467 @@
-/*
-    -----------------------------------
-    CSS Hoàn Chỉnh - BrHut - Nhà Của Sự Đơn Giản
-    -----------------------------------
-*/
+/* style.css - PHIÊN BẢN ĐÃ ĐIỀU CHỈNH MÀU SẮC ĐẬM HƠN */
 
-/*-------------------------------------
-        1. CSS Variables
---------------------------------------*/
 :root {
-    --primary-color: #28a745; /* Xanh lá cây chủ đạo */
-    --secondary-color: #6c757d; /* Xám trung tính */
-    --accent-color: #007bff; /* Xanh dương nhấn mạnh */
-
-    --text-dark: #343a40;
-    --text-light: #f8f9fa;
-    --text-muted: #6c757d;
-
-    --body-bg: #f8f9fa;
-    --surface-bg: #ffffff;
-
-    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
-
-    --border-radius-sm: 0.25rem;
-    --border-radius-md: 0.5rem;
-
-    --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    --box-shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-
-    --transition-base: all 0.3s ease-in-out;
+  --main-color: #437A24; /* Xanh lá cây đậm hơn */
+  --background: #F0F0F0; /* Xám nhạt hơn một chút */
+  --text-dark: #222222; /* Đen hơn */
+  --text-light: #FFFFFF;
+  --accent: #77A1D3; /* Xanh da trời đậm hơn */
+  --accent-secondary: #9E9E9E; /* Xám đậm hơn một chút */
 }
 
-/*-------------------------------------
-        2. Reset & General Styles
---------------------------------------*/
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 16px;
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: var(--font-primary);
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--body-bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
 }
 
-a:hover {
-    color: var(--primary-color);
-}
-
-ul,
-ol {
-    list-style: none;
-}
-
-button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: inherit;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-h1, h2, h3 {
-    color: var(--text-dark);
-    line-height: 1.3;
-    margin-bottom: var(--spacing-md);
-}
-
-h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-p {
-    color: var(--text-muted);
-    line-height: 1.8;
-    margin-bottom: var(--spacing-md);
-}
-
-/*-------------------------------------
-        3. Navigation Bar
---------------------------------------*/
+/* Navbar */
 .navbar {
-    background-color: var(--surface-bg);
-    padding: var(--spacing-sm) var(--spacing-lg);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: var(--box-shadow-sm);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.95); /* Trắng gần như giữ nguyên */
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
 }
 
 .nav-left {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .nav-logo img {
-    height: 50px;
+  width: 90px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 1rem;
+  display: block;
 }
 
 .nav-links {
-    display: flex;
-    margin-left: var(--spacing-lg);
-}
-
-.nav-links li {
-    margin-right: var(--spacing-md);
-}
-
-.nav-links li:last-child {
-    margin-right: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
 }
 
 .nav-links li a {
-    color: var(--text-dark);
-    font-weight: 500;
-    padding: var(--spacing-sm);
-    display: block;
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
+  display: block;
+  padding: 0.5rem 0;
 }
 
-.nav-links li a:hover,
-.nav-links li a.active {
-    color: var(--primary-color);
+.nav-links li a:hover {
+  color: var(--main-color);
 }
 
 .nav-right {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .cart-icon {
-    position: relative;
-    font-size: 1.5rem;
-    color: var(--text-dark);
+  font-size: 1.4rem;
+  position: relative;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
 }
 
 .cart-icon:hover {
-    color: var(--primary-color);
+  color: var(--main-color);
 }
 
 .cart-count {
-    position: absolute;
-    top: -0.5rem;
-    right: -0.5rem;
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    font-size: 0.8rem;
-    border-radius: 50%;
-    padding: 0.2rem 0.4rem;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: var(--main-color);
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
 }
 
 .hamburger {
-    display: none;
-    font-size: 1.5rem;
-    color: var(--text-dark);
-    cursor: pointer;
-    margin-left: var(--spacing-md);
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  color: var(--text-dark);
+  padding: 5px;
 }
 
-/*-------------------------------------
-        4. Header
---------------------------------------*/
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-left {
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 0 1rem 1rem 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    gap: 0;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+  }
+
+  .nav-links.active {
+    max-height: 300px;
+    opacity: 1;
+    visibility: visible;
+    padding-top: 1rem;
+  }
+
+  .nav-links li {
+     border-bottom: 1px solid #eee;
+  }
+   .nav-links li:last-child {
+     border-bottom: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-right {
+      margin-left: auto;
+      padding-left: 1rem;
+  }
+
+   .nav-logo, .hamburger {
+       align-self: center;
+   }
+}
+
 header {
-    background-color: #e9ecef; /* Light background for header */
-    padding: 5rem var(--spacing-lg);
-    text-align: center;
+  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-light);
+  padding: 1rem;
+  position: relative;
 }
 
 header h1 {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-lg);
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
 header p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto var(--spacing-xl);
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  max-width: 600px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
 
-header .button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    padding: var(--spacing-md) var(--spacing-xl);
-    border-radius: var(--border-radius-sm);
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+.button {
+  margin-top: 1.5rem;
+  background: var(--main-color);
+  padding: 0.7rem 1.2rem;
+  color: var(--text-light);
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
 }
 
-header .button:hover {
-    background-color: #1e7e34;
+.button:hover {
+  background: #38611E; /* Xanh lá đậm hơn khi hover */
+  transform: translateY(-2px);
 }
 
-/*-------------------------------------
-        5. Quotes Slider Section
---------------------------------------*/
+/* Styles cho phần Slider Trích dẫn */
 .quotes-slider-section {
-    padding: 3rem var(--spacing-lg);
-    background-color: var(--surface-bg);
-    text-align: center;
+  padding: 3rem 0;
+  background-color: var(--background);
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.quotes-slider-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.quotes-slider-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 2rem;
+  color: var(--text-dark);
 }
 
 .quotes-slider-wrapper {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+
+  /* Ẩn thanh cuộn mặc định */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  /* Làm mượt thao tác cuộn/snap */
+  scroll-behavior: smooth;
 }
 
-.quote-item {
-    flex: 0 0 80%; /* Adjust width as needed */
-    scroll-snap-align: center;
-    padding: var(--spacing-lg);
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius-md);
-    text-align: left;
-}
-
-.quote-item blockquote {
-    margin: 0;
-}
-
-.quote-item blockquote p {
-    font-style: italic;
-    font-size: 1.1rem;
-}
-
-.quote-item blockquote footer {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-top: var(--spacing-sm);
-}
-
-/* Hide scrollbar */
 .quotes-slider-wrapper::-webkit-scrollbar {
     display: none;
 }
 
-/*-------------------------------------
-        6. Categories Section
---------------------------------------*/
+.quotes-slider-wrapper .quote-item {
+  flex: 0 0 auto;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* Cải thiện giao diện Blockquote bên trong item */
+.quote-item blockquote {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    border-left: 5px solid var(--main-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* CSS cho hiệu ứng hiện dần văn bản bên trong item */
+.quote-item blockquote p,
+.quote-item blockquote footer {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.quote-item blockquote footer {
+    transition-delay: 0.1s;
+}
+
+/* Khi item có class 'is-in-view' (do JS thêm vào), văn bản sẽ hiện ra */
+.quote-item.is-in-view blockquote p,
+.quote-item.is-in-view blockquote footer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive cho item trích dẫn - Tính toán width dựa trên gap */
+@media (max-width: 768px) {
+    .quotes-slider-wrapper .quote-item {
+         width: calc(100% - (2 * 1.5rem));
+         max-width: 400px;
+         margin: 0 auto;
+    }
+     .quotes-slider-wrapper {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+     }
+}
+
+@media (min-width: 769px) {
+    .quotes-slider-wrapper .quote-item {
+        width: calc( (100% - 1.5rem) / 2 );
+        max-width: none;
+        margin: 0;
+    }
+     .quotes-slider-wrapper {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+     }
+}
+
+@media (min-width: 1024px) {
+     .quotes-slider-wrapper .quote-item {
+        width: calc( (100% - 3rem) / 3 );
+     }
+      .quotes-slider-wrapper {
+         padding: 0 1.5rem 1.5rem 1.5rem;
+      }
+}
+
+/* Categories Section */
 .categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
-    padding: 3rem var(--spacing-lg);
-    background-color: var(--body-bg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background: #fff;
+  transition: background-color 0.3s ease;
 }
 
 .category {
-    background-color: var(--surface-bg);
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    box-shadow: var(--box-shadow-sm);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #D3D3D3; /* Xám nhạt hơn */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
-.category:hover {
-    transform: translateY(-0.5rem);
-    box-shadow: var(--box-shadow-md);
+ .category:hover {
+   transform: translateY(-5px) scale(1.02);
+   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+ }
+
+ .category img {
+   width: 100%;
+   height: 200px;
+   object-fit: cover;
+   display: block;
+   transition: transform 0.3s ease-out;
+ }
+
+  .category:hover img {
+    transform: scale(1.05);
+  }
+
+ .category h3 {
+   position: absolute;
+   bottom: 10px;
+   left: 10px;
+   background: rgba(0,0,0,0.7); /* Đen trong suốt đậm hơn */
+   color: #fff;
+   padding: 0.3rem 0.8rem;
+   border-radius: 5px;
+   font-size: 1rem;
+   margin: 0;
+   transition: background 0.3s ease;
+ }
+
+  .category:hover h3 {
+     background: rgba(67, 122, 36, 0.8); /* Xanh lá đậm hơn trong suốt khi hover */
+  }
+
+/* Styles cho phần nội dung chính trang Giới thiệu */
+.about-content {
+  padding: 4rem 0;
+  background-color: var(--background);
+  transition: background-color 0.3s ease;
 }
 
-.category img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.about-content .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: left;
 }
 
-.category h3 {
-    padding: var(--spacing-md);
+.about-content h2 {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    line-height: 1.2;
     text-align: center;
+}
+
+/* Style cho đoạn văn ngay sau H2 (dịch nghĩa) */
+.about-content h2 + p {
+     font-size: 1.1rem;
+     font-style: italic;
+     color: #555; /* Xám đậm hơn */
+     margin-top: 0;
+     margin-bottom: 3rem;
+     text-align: center;
+     background-color: transparent;
+     padding: 0;
+     box-shadow: none;
+     border-radius: 0;
+}
+
+/* Style cho các đoạn văn bản chính - làm chúng trông như các khung */
+.about-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    background-color: #E8E8E8; /* Xám nhạt hơn cho khung */
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Bóng đậm hơn một chút */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Khoảng trống phía trên tiêu đề H2 thứ hai (phần tiếng Anh) */
+.about-content h2:nth-of-type(2) {
+    margin-top: 4rem;
+     margin-bottom: 2rem;
+}
+
+/* Đảm bảo tiêu đề H2 đầu tiên không có margin trên thừa */
+.about-content .container > h2:first-child {
+    margin-top: 0;
+}
+
+/* Loại bỏ margin dưới cho đoạn văn cuối cùng */
+.about-content p:last-child {
     margin-bottom: 0;
 }
 
-/*-------------------------------------
-        7. Footer
---------------------------------------*/
+/* Footer */
 footer {
-    background-color: var(--surface-bg);
-    padding: 2rem var(--spacing-lg);
-    text-align: center;
-    border-top: 1px solid #ddd;
+  background-color: #D3D3D3; /* Xám nhạt hơn cho footer */
+  color: var(--text-dark);
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top: 3px solid var(--main-color);
+  transition: background-color 0.3s ease;
 }
 
 .footer-content p {
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  line-height: 1.5;
 }
 
 .footer-content a {
-    color: var(--primary-color);
-    font-weight: bold;
+  color: var(--main-color);
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
-
-.footer-social {
-    margin-top: var(--spacing-md);
-}
-
-.footer-social a {
-    display: inline-block;
-    font-size: 1.5rem;
-    color: var(--text-dark);
-    margin: 0 var(--spacing-sm);
-}
-
-.footer-social a:hover {
-    color: var(--primary-color);
-}
-
-/*-------------------------------------
-        8. Responsive Design
---------------------------------------*/
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: var(--surface-bg);
-        width: 100%;
-        flex-direction: column;
-        box-shadow: var(--box-shadow-sm);
-        border-top: 1px solid #ddd;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        margin: 0;
-        border-bottom: 1px solid #eee;
-    }
-
-    .nav-links li:last-child {
-        border-bottom: none;
-    }
-
-    .nav-links li a {
-        padding: var(--spacing-md) var(--spacing-lg);
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    header {
-        padding: 3rem var(--spacing-md);
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    .quotes-slider-wrapper {
-        padding-left: var(--spacing-md);
-        padding-right: var(--spacing-md);
-    }
-
-    .quote-item {
-        flex: 0 0 90%;
-    }
-
-    .categories {
-        padding: 2rem var(--spacing-md);
-    }
-
-    footer {
-        padding: 2rem var(--spacing-md);
-    }
-}
-
-@media (max-width: 576px) {
-    .nav-logo img {
-        height: 40px;
-    }
-
-    header h1 {
-        font-size: 1.75rem;
-    }
-
-    header p {
-        font-size: 0.9rem;
-    }
-
-    .quote-item {
-        flex: 0 0 100%;
-    }
-
-    .categories {
-        grid-template-columns: 1fr;
-    }
-}
+.footer-
