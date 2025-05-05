@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BrHut - Nhà Của Sự Đơn Giản</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -11,6 +12,8 @@
       --background: #f9f7f2;
       --text-dark: #333;
       --text-light: #fff;
+      --accent: #ff7e5f;
+      --accent-secondary: #feb47b;
     }
 
     * {
@@ -21,10 +24,9 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--background);
+      background-color: var(--background);
       color: var(--text-dark);
       line-height: 1.6;
-      scroll-behavior: smooth;
     }
 
     a {
@@ -57,15 +59,15 @@
     }
 
     header h1 {
-      font-size: 2.2rem;
+      font-size: 2rem;
       margin-bottom: 0.5rem;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     }
 
     header p {
       font-size: 1.1rem;
       max-width: 600px;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     }
 
     .button {
@@ -86,7 +88,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
-      padding: 3rem 2rem;
+      padding: 2rem;
       background: #fff;
     }
 
@@ -96,14 +98,11 @@
       overflow: hidden;
       background: #ddd;
       transition: transform 0.3s, box-shadow 0.3s;
-      opacity: 0;
-      transform: translateY(40px);
     }
 
-    .category.visible {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.8s ease;
+    .category:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .category img {
@@ -116,10 +115,63 @@
       position: absolute;
       bottom: 10px;
       left: 10px;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
       color: #fff;
       padding: 0.3rem 0.8rem;
       border-radius: 5px;
+    }
+
+    .explore {
+      background-color: #f1f5f2;
+      padding: 3rem 1rem;
+    }
+
+    .explore-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .explore-text {
+      flex: 1;
+    }
+
+    .explore-text h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    .explore-text p {
+      font-size: 1.05rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .explore-image {
+      flex: 1;
+    }
+
+    .explore-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+    }
+
+    /* Scroll animation */
+    .scroll-fade {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .scroll-fade.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     footer {
@@ -157,14 +209,22 @@
     }
 
     @media (max-width: 768px) {
-      header h1 { font-size: 1.6rem; }
-      header p { font-size: 0.95rem; }
-      .logo img { width: 80px; }
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      header p {
+        font-size: 0.95rem;
+      }
+
+      .logo img {
+        width: 80px;
+      }
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <a href="index.html" class="logo">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/img_20250423_1239323936998109823871622.png" alt="Logo">
@@ -173,7 +233,6 @@
     <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
     <a href="about.html" class="button">Xem thêm</a>
   </header>
-
   <section class="categories">
     <a href="dothucong.html" class="category">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png" alt="Handmade">
@@ -184,11 +243,22 @@
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745331932592854088223531181729.png" alt="Green Nursery">
       <h3>Vườn Ươm Xanh</h3>
     </a>
-
     <a href="goikynang.html" class="category">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458175842903752646802185968006.png" alt="Skill Pack">
       <h3>Gói Kỹ Năng</h3>
     </a>
+  </section>
+
+  <section class="explore" id="explore">
+    <div class="explore-container">
+      <div class="explore-text scroll-fade">
+        <h2>Sống Chậm Giữa Thiên Nhiên</h2>
+        <p>BrHut không chỉ là một nơi, mà là một cảm giác. Cảm giác được chạm tay vào tự nhiên, sống chậm lại và kết nối với điều giản dị nhất.</p>
+      </div>
+      <div class="explore-image scroll-fade">
+        <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458055008666653925113204731049.png" alt="Nature Living">
+      </div>
+    </div>
   </section>
 
   <footer>
@@ -196,6 +266,7 @@
       <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
       <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
     </div>
+    <p> or </p>
     <div class="footer-social">
       <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
       <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -205,16 +276,16 @@
   </footer>
 
   <script>
-    // Hiệu ứng hiện khi cuộn xuống
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.scroll-fade').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('show');
         }
       });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.category').forEach(el => observer.observe(el));
+    });
   </script>
 </body>
+
 </html>
