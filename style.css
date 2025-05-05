@@ -1,8 +1,8 @@
-/* style.css - PHIÊN BẢN ĐÃ ĐIỀU CHỈNH MÀU NỀN TỔNG THỂ VÀ MÀU NỀN RIÊNG CHO NAVBAR & NÚT */
+/* style.css - PHIÊN BẢN ĐÃ CHỈNH SỬA MÀU NỀN CÁC PHẦN */
 
 :root {
   --main-color: #437A24; /* Xanh lá cây đậm hơn - Dùng cho các điểm nhấn khác */
-  --background: #FAF0E6; /* Màu Nền Trắng Sữa/Kem cho Body và các Section dùng biến này */
+  --background: #FAF0E6; /* Màu Nền TRẮNG SỮA/KEM cho Body và các Section dùng biến này */
   --text-dark: #222222; /* Đen hơn */
   --text-light: #FFFFFF; /* Trắng */
   --accent: #77A1D3; /* Xanh da trời đậm hơn - Nếu có dùng */
@@ -21,7 +21,7 @@ html {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--background); /* Sử dụng biến màu trắng sữa/kem */
+  background-color: var(--background); /* Nền body: trắng sữa/kem */
   color: var(--text-dark);
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -130,7 +130,7 @@ a {
 
   .nav-links {
     flex-direction: column;
-    background-color: var(--background); /* Nền menu mobile cũng dùng màu trắng sữa/kem */
+    background-color: var(--background); /* Nền menu mobile: trắng sữa/kem */
     position: absolute;
     top: 70px;
     left: 0;
@@ -218,10 +218,10 @@ header p {
   transform: translateY(-2px);
 }
 
-/* Styles cho phần Slider Trích dẫn */
+/* Styles cho phần Slider Trích dẫn - Nền trắng tuyết */
 .quotes-slider-section {
   padding: 3rem 0;
-  background-color: var(--background); /* Sử dụng biến màu trắng sữa/kem */
+  background-color: #FFFFFF; /* Nền section: TRẮNG TUYẾT */
   text-align: center;
   transition: background-color 0.3s ease;
 }
@@ -264,10 +264,10 @@ header p {
 
 /* Cải thiện giao diện Blockquote bên trong item */
 .quote-item blockquote {
-    background-color: var(--background); /* Màu nền quote item cũng dùng trắng sữa/kem */
+    background-color: var(--background); /* Nền quote item: TRẮNG SỮA/KEM */
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Bóng nhẹ hơn để phù hợp với nền sáng */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
     margin: 0;
     text-align: left;
     display: flex;
@@ -335,7 +335,7 @@ header p {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
-  background: var(--background); /* Sử dụng biến màu trắng sữa/kem */
+  background: var(--background); /* Nền section: trắng sữa/kem */
   transition: background-color 0.3s ease;
 }
 
@@ -343,7 +343,7 @@ header p {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  background: var(--background); /* Màu nền từng mục category cũng dùng trắng sữa/kem */
+  background: var(--background); /* Nền từng mục category: trắng sữa/kem */
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
    box-shadow: 0 4px 8px rgba(0,0,0,0.08); /* Thêm bóng nhẹ cho từng mục */
 }
@@ -369,7 +369,7 @@ header p {
    position: absolute;
    bottom: 10px;
    left: 10px;
-   background: rgba(0,0,0,0.6); /* Đen trong suốt nhạt hơn một chút để chữ nổi bật trên nền sáng */
+   background: rgba(0,0,0,0.6); /* Đen trong suốt nhạt hơn một chút */
    color: #fff;
    padding: 0.3rem 0.8rem;
    border-radius: 5px;
@@ -385,7 +385,7 @@ header p {
 /* Styles cho phần nội dung chính trang Giới thiệu */
 .about-content {
   padding: 4rem 0;
-  background-color: var(--background); /* Sử dụng biến màu trắng sữa/kem */
+  background-color: var(--background); /* Nền section: trắng sữa/kem */
   transition: background-color 0.3s ease;
 }
 
@@ -424,7 +424,7 @@ header p {
     line-height: 1.8;
     margin-bottom: 2rem;
     color: var(--text-dark);
-    background-color: var(--background); /* Màu nền khung paragraph cũng dùng trắng sữa/kem */
+    background-color: var(--background); /* Nền khung paragraph: trắng sữa/kem */
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
@@ -447,10 +447,10 @@ header p {
     margin-bottom: 0;
 }
 
-/* Footer */
+/* Footer - Nền ghi xám */
 footer {
-  background-color: var(--background); /* Sử dụng biến màu trắng sữa/kem */
-  color: var(--text-dark);
+  background-color: #A9A9A9; /* Nền footer: GHI XÁM */
+  color: var(--text-dark); /* Màu chữ vẫn là text-dark */
   padding: 2rem 1rem;
   text-align: center;
   border-top: 3px solid var(--main-color); /* Giữ đường viền trên màu xanh lá */
@@ -464,7 +464,7 @@ footer {
 }
 
 .footer-content a {
-  color: var(--main-color);
+  color: var(--main-color); /* Màu link vẫn là main-color (xanh lá) */
   font-weight: bold;
   transition: color 0.3s ease;
 }
