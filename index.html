@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BrHut - Nhà Của Sự Đơn Giản</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
     :root {
       --main-color: #4CAF50;
@@ -345,31 +348,33 @@
     </div>
   </nav>
 
-  <header id="top"> <h1>Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
-    <p>Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
-    <a href="about.html" class="button">Xem thêm</a>
+  <header id="top">
+    <h1 data-aos="fade-up">Nhà Của Sự Đơn Giản – Mộc Mạc.</h1>
+    <p data-aos="fade-up" data-aos-delay="100">Nơi mình chậm rãi dựng nên những điều đơn sơ: một mái lều, vài món đồ thủ công, và những khoảnh khắc yên bình.</p>
+    <a href="about.html" class="button" data-aos="fade-up" data-aos-delay="200">Xem thêm</a>
   </header>
 
-  <section class="categories" id="categories-section"> <a href="dothucong.html" class="category">
+  <section class="categories" id="categories-section">
+    <a href="dothucong.html" class="category" data-aos="fade-up">
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17453199661767419986561943264097.png" alt="Handmade">
       <h3>Đồ Thủ Công</h3>
     </a>
-    <a href="vuonuomxanh.html" class="category">
+    <a href="vuonuomxanh.html" class="category" data-aos="fade-up" data-aos-delay="100"> {/* Thêm độ trễ để tạo hiệu ứng lần lượt */}
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_1745331932592854088223531181729.png" alt="Green Nursery">
       <h3>Vườn Ươm Xanh</h3>
     </a>
-    <a href="goikynang.html" class="category">
+    <a href="goikynang.html" class="category" data-aos="fade-up" data-aos-delay="200"> {/* Thêm độ trễ để tạo hiệu ứng lần lượt */}
       <img src="https://brhut.wordpress.com/wp-content/uploads/2025/04/cover_17458175842903752646802185968006.png" alt="Skill Pack">
       <h3>Gói Kỹ Năng</h3>
     </a>
   </section>
 
-  <footer>
+  <footer data-aos="fade-in"> {/* Footer hiện dần */ }
     <div class="footer-content">
       <p>© 2025 BrHut - Tất cả các quyền được bảo vệ.</p>
       <p>Liên hệ qua email: <a href="mailto:BrHutCraft@gmail.com">BrHutCraft@gmail.com</a></p>
     </div>
-    <div class="footer-social">
+    <div class="footer-social" data-aos="fade-up" data-aos-delay="200"> {/* Social links hiện dần sau footer */}
       <a href="https://www.facebook.com/share/1BmdHDVenW/" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
       <a href="https://www.instagram.com/brhutcraft" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://youtube.com/@brhut" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
@@ -378,6 +383,7 @@
   </footer>
 
   <script>
+    // Mã JavaScript hiện tại của bạn cho menu responsive
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
       navLinks.classList.toggle('active');
@@ -408,5 +414,17 @@
     });
 
   </script>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      // Tùy chọn cấu hình AOS toàn cục
+      duration: 800, // Thời gian animation (miliseconds)
+      once: true,    // Chỉ chạy animation một lần khi scroll vào
+      mirror: false  // Không lặp lại animation khi scroll lên/xuống
+      // Các tùy chọn khác có thể xem trong tài liệu của AOS
+    });
+  </script>
+
 </body>
 </html>
