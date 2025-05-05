@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
 
     // --- Menu Toggle Logic ---
@@ -53,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                  // Cuộn lên (current < last) hoặc ở đầu trang
                  navbar.classList.remove('hidden'); // Hiện navbar
             }
+
         } else {
              // Trên desktop hoặc màn hình lớn hơn (> 768px), đảm bảo navbar luôn hiển thị
              // Phòng trường hợp class 'hidden' còn sót lại khi resize
@@ -74,15 +74,14 @@ document.addEventListener('DOMContentLoaded', function() {
              const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
              // Nếu đang cuộn xuống và qua khỏi chiều cao mới
              if (currentScrollTop > navbarHeight && lastScrollTop > navbarHeight) {
-                  // Tránh ẩn nếu menu mobile đang mở
-                  if (!navLinks.classList.contains('active')) {
+                  if (!navLinks.classList.contains('active')) { // Tránh ẩn nếu menu mobile đang mở
                     navbar.classList.add('hidden');
                  }
              } else { // Ngược lại, đảm bảo nó hiện
                  navbar.classList.remove('hidden');
              }
          } else {
-              // Trên desktop, đảm bảo visible sau khi resize
+              // On desktop, ensure visible sau khi resize
               navbar.classList.remove('hidden');
          }
     });
