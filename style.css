@@ -260,7 +260,7 @@ header p {
 /* Cải thiện giao diện Blockquote bên trong item - Nền xám rất nhạt */
 .quote-item blockquote {
     background-color: #F8F8F8; /* Nền quote item: Xám Rất Nhạt (Nền phụ) */
-    padding: 2rem;
+    padding: 1rem 2rem; /* <<-- ĐÃ SỬA: Giảm padding trên/dưới còn một nửa */
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
     margin: 0;
