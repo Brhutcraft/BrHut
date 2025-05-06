@@ -320,7 +320,7 @@ header h1 {
 header p {
   font-size: clamp(1rem, 3vw, 1.1rem);
   max-width: 600px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 3px rgba(0,1px,0,0.4); /* Adjusted text-shadow slightly */
 }
 
 .button {
@@ -341,7 +341,7 @@ header p {
   transform: translateY(-2px);
 }
 
-/* Styles cho phần Slider Trích dẫn - NỀN SECTION TRẮNG, ẢNH NỀN TRONG TỪNG HỘP */
+/* Styles cho phần Slider Trích dẫn - Nền section trắng, ảnh nền trong từng hộp */
 .quotes-slider-section {
   padding: 3rem 0;
   background-color: var(--background);
@@ -393,7 +393,7 @@ header p {
   scroll-snap-align: start;
 }
 
-/* Cải thiện giao diện Blockquote bên trong item - CÓ ẢNH NỀN VÀ LỚP PHỦ BÊN TRONG */
+/* Cải thiện giao diện Blockquote bên trong item - Có ảnh nền và lớp phủ bên trong */
 .quote-item blockquote {
     background-color: var(--quote-box-background);
     padding: 2rem;
@@ -438,7 +438,7 @@ header p {
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-/* --- CHỈNH SỬA: Kiểu chữ và Căn giữa cho đoạn văn trong quote --- */
+/* --- Chỉnh sửa: Kiểu chữ và Căn giữa cho đoạn văn trong quote --- */
 .quote-item blockquote p {
     font-style: italic;
     font-family: 'Lora', serif;
@@ -455,8 +455,8 @@ header p {
 }
 
 /* ===================================================
-   CÁC RULE RIÊNG CHO TỪNG TRÍCH DẪN (ĐỂ DÙNG ẢNH NỀN KHÁC NHAU)
-   BẠN CẦN THAY THẾ ĐƯỜNG DẪN ẢNH Ở ĐÂY
+   Các rule riêng cho từng trích dẫn (để dùng ảnh nền khác nhau)
+   Bạn cần thay thế đường dẫn ảnh ở đây
    =================================================== */
 
 /* Trích dẫn thứ 1 */
@@ -555,54 +555,54 @@ header p {
  }
 
  .category img {
-   width: 100%; /* Ảnh rộng bằng card */
-   height: 200px; /* Chiều cao cố định cho ảnh */
-   object-fit: cover; /* Cắt ảnh để vừa khung mà không bị méo */
+   width: 100%;
+   height: 200px;
+   object-fit: cover;
    display: block;
    /* Bỏ hiệu ứng transform scale riêng cho ảnh khi hover để tránh xung đột */
-   transition: transform 0.3s ease-out; /* Giữ chuyển động nếu cần */
+   transition: transform 0.3s ease-out;
 }
 
   /* Xóa hiệu ứng hover scale riêng cho ảnh */
   .category:hover img {
-    /* transform: scale(1.05); /* ĐÃ XÓA */ */
+    /* transform: scale(1.05); */
   }
 
 /* Tạo một khu vực riêng cho nội dung văn bản bên trong card */
 .category-content {
-    padding: 1rem; /* Khoảng đệm bên trong khu vực văn bản */
-    background-color: var(--background); /* Nền cho khu vực văn bản */
-    flex-grow: 1; /* Cho phép khu vực nội dung chiếm hết phần không gian còn lại */
-    display: flex; /* Sử dụng flexbox để căn giữa nội dung bên trong */
+    padding: 1rem;
+    background-color: var(--background);
+    flex-grow: 1;
+    display: flex;
     flex-direction: column;
-    justify-content: center; /* Căn giữa nội dung theo chiều dọc */
-    text-align: center; /* Căn giữa văn bản theo chiều ngang */
+    justify-content: center;
+    text-align: center;
 }
 
 
  .category h3 {
    /* Bỏ các thuộc tính position, top, left, bottom vì không còn đặt trên ảnh */
-   position: static; /* ĐÃ THAY ĐỔI */
-   margin: 0 0 0.5rem 0; /* Thêm khoảng trống dưới tiêu đề */
-   color: var(--text-dark); /* Sử dụng màu chữ chính của theme */
-   font-size: 1.1rem; /* Tăng nhẹ kích thước tiêu đề */
-   background: none; /* Bỏ nền chữ */
-   padding: 0; /* Bỏ padding */
-   border-radius: 0; /* Bỏ bo góc */
+   position: static;
+   margin: 0 0 0.5rem 0;
+   color: var(--text-dark);
+   font-size: 1.1rem;
+   background: none;
+   padding: 0;
+   border-radius: 0;
    transition: color 0.3s ease;
  }
 
   /* Thay đổi màu chữ tiêu đề khi rê chuột */
   .category:hover h3 {
-     /* background: rgba(72, 138, 153, 0.7); /* ĐÃ XÓA */ */
-     color: var(--main-color); /* Đổi màu tiêu đề sang màu chủ đạo khi hover */
+     /* background: rgba(72, 138, 153, 0.7); */
+     color: var(--main-color);
   }
 
 /* Thêm style cho đoạn văn mô tả (nếu bạn muốn thêm sau này) */
 .category-content p {
     margin: 0;
     font-size: 0.95rem;
-    color: #555; /* Một màu xám nhẹ hơn cho mô tả */
+    color: #555;
     line-height: 1.4;
 }
 
@@ -610,7 +610,7 @@ header p {
 /* Điều chỉnh lại padding cho section trên mobile nếu cần */
 @media (max-width: 768px) {
   .categories {
-    padding: 1.5rem; /* Giảm padding trên màn hình nhỏ hơn */
+    padding: 1.5rem;
   }
   /* Grid minmax(250px, 1fr) sẽ tự động xử lý việc xếp các card thành 1 cột trên mobile */
 }
@@ -766,7 +766,11 @@ footer {
   height: 200px;
   object-fit: cover;
   display: block;
+   transition: transform 0.3s ease-out;
 }
+
+  .category:hover img {
+  }
 
 .gallery-item p {
   padding: 1rem;
@@ -819,54 +823,4 @@ footer {
 .cta-section .button {
     margin-top: 1.5rem;
 }
-/* --- Style cho phần Main About (Nơi chứa ảnh nền mờ) --- */
-main.about-content {
-  position: relative; /* Cần thiết để pseudo-element ::before định vị tuyệt đối theo nó */
-  padding: 60px 20px; /* Thêm khoảng trống bên trong main để nội dung không bị sát viền. Điều chỉnh tùy ý. */
-  overflow: hidden; /* Đảm bảo lớp giả nền không tràn ra ngoài */
-  /* Các style khác cho main nếu có */
-}
-
-/* --- Pseudo-element ::before làm lớp nền mờ --- */
-main.about-content::before {
-  content: ''; /* Bắt buộc phải có cho pseudo-element hiển thị */
-  position: absolute; /* Đặt vị trí tuyệt đối theo phần tử cha (main.about-content) */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  /* --- Thiết lập ảnh nền --- */
-  /* Sử dụng link ảnh bạn đã cung cấp trực tiếp tại đây */
-  background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/wp-image7015568883964913247.jpg');
-  background-size: cover; /* Ảnh sẽ được điều chỉnh kích thước để phủ kín toàn bộ khu vực nền */
-  background-position: center; /* Căn giữa ảnh trong khu vực */
-  background-repeat: no-repeat; /* Ngăn ảnh lặp lại */
-
-  /* --- Áp dụng hiệu ứng làm mờ --- */
-  filter: blur(5px); /* Độ mờ: Thay '5px' bằng giá trị khác (ví dụ: 3px cho mờ nhẹ, 10px cho mờ nhiều) */
-  -webkit-filter: blur(5px); /* Hỗ trợ một số trình duyệt cũ hơn của WebKit */
-
-  /* --- Đặt lớp nền xuống dưới nội dung --- */
-  z-index: -1; /* Đảm bảo lớp ảnh nền mờ nằm dưới nội dung chính */
-}
-
-/* --- Style cho nội dung bên trong (.container) để nổi bật trên nền mờ (Đề xuất) --- */
-main.about-content .container {
-  position: relative; /* Cần thiết để đảm bảo nội dung nằm trên lớp nền (z-index mặc định >= 0) */
-  z-index: 1; /* Có thể đặt rõ ràng z-index lớn hơn -1 */
-  background-color: rgba(255, 255, 255, 0.8); /* Thêm nền trắng (hoặc màu khác) hơi trong suốt cho khối nội dung để chữ dễ đọc hơn */
-  padding: 20px; /* Khoảng trống bên trong khối nội dung */
-  border-radius: 8px; /* Bo góc cho khối nội dung */
-  max-width: 800px; /* Giới hạn chiều rộng tối đa của nội dung để dễ đọc trên màn hình lớn */
-  margin: 0 auto; /* Căn giữa khối nội dung trên màn hình lớn */
-}
-
-/* --- Điều chỉnh màu chữ nếu cần để dễ đọc trên nền mờ --- */
-main.about-content .container h2,
-main.about-content .container p {
-    color: #333; /* Ví dụ: dùng màu chữ xám đậm */
-    /* text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* Thêm đổ bóng chữ nhẹ để tăng độ tương phản */
-}
-
 /* --- KẾT THÚC BỔ SUNG CSS CHO CÁC SECTION MỚI --- */
