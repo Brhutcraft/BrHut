@@ -217,7 +217,7 @@ header p {
 .quotes-slider-section {
   padding: 3rem 0;
   /* Thay thế background-color bằng background-image */
-  background-image: url('duong-dan-toi-anh-nen-dep-cua-ban.jpg'); /* <--- THAY THẾ BẰNG ĐƯỜNG DẪN ẢNH CỦA BẠN */
+  background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/17453029449734353905743359058891.jpg'); /* <--- ĐÃ CẬP NHẬT ĐƯỜNG DẪN ẢNH CHO BẠN */
   background-size: cover; /* Ảnh sẽ phủ kín toàn bộ khu vực */
   background-position: center center; /* Căn giữa ảnh */
   background-repeat: no-repeat; /* Không lặp lại ảnh */
