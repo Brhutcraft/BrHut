@@ -1,118 +1,62 @@
-document.addEventListener('DOMContentLoaded', function() { // Sửa 'Document' thành 'document'
+// Chờ cho toàn bộ cấu trúc DOM của trang được tải xong
+document.addEventListener('DOMContentLoaded', function() {
 
-    // --- Menu Toggle Logic ---
-    const navLinks = document.getElementById('navLinks');
+    // --- Chức năng Menu Mobile ---
+    // Lấy tham chiếu đến icon hamburger và menu navigation
     const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.getElementById('navLinks'); // Dùng ID đã đặt trong HTML
 
-    hamburger.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-    });
+    // Kiểm tra xem các phần tử có tồn tại không trước khi thêm event listener
+    if (hamburger && navLinks) {
+        // Thêm sự kiện click vào icon hamburger
+        hamburger.addEventListener('click', function() {
+            // Toggle class 'active' cho menu links
+            // Class 'active' này sẽ được dùng trong CSS để hiển thị/ẩn menu
+            navLinks.classList.toggle('active');
 
-    const navLinksMobile = document.querySelectorAll('.nav-links a');
-    navLinksMobile.forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active') && window.innerWidth <= 768) {
+            // Tùy chọn: Thay đổi icon hamburger thành icon đóng (X)
+            // Cần thêm icon đóng vào HTML hoặc tạo qua CSS ::before/::after
+            // Ví dụ: hamburger.querySelector('i').classList.toggle('fa-bars');
+            // hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Tùy chọn: Đóng menu khi click vào một liên kết trong menu (Hữu ích cho các trang single-page)
+        const navLinkItems = navLinks.querySelectorAll('a');
+        navLinkItems.forEach(item => {
+            item.addEventListener('click', function() {
                 navLinks.classList.remove('active');
-            }
-        });
-    });
-
-    document.addEventListener('click', function(event) {
-        const isClickInsideNav = navLinks.contains(event.target);
-        const isClickOnHamburger = hamburger.contains(event.target);
-
-        if (!isClickInsideNav && !isClickOnHamburger && navLinks.classList.contains('active') && window.innerWidth <= 768) {
-             navLinks.classList.remove('active');
-        }
-    });
-
-    // --- Hide/Show Navbar on Scroll (Mobile Only) Logic ---
-    let lastScrollTop = 0;
-    const navbar = document.querySelector('.navbar');
-    let navbarHeight = navbar.offsetHeight;
-
-    window.addEventListener('scroll', function() {
-        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (window.innerWidth <= 768) {
-            if (currentScrollTop > lastScrollTop && currentScrollTop > navbarHeight) {
-                 if (!navLinks.classList.contains('active')) {
-                    navbar.classList.add('hidden');
-                 }
-            } else if (currentScrollTop < lastScrollTop || currentScrollTop <= 0) {
-                 navbar.classList.remove('hidden');
-            }
-        } else {
-             if (navbar.classList.contains('hidden')) {
-                navbar.classList.remove('hidden');
-             }
-        }
-        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
-    });
-
-    window.addEventListener('resize', () => {
-        navbarHeight = navbar.offsetHeight;
-         if (window.innerWidth <= 768) {
-             const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-             if (currentScrollTop > navbarHeight && lastScrollTop > navbarHeight) {
-                  if (!navLinks.classList.contains('active')) {
-                    navbar.classList.add('hidden');
-                 }
-             } else {
-                 navbar.classList.remove('hidden');
-             }
-         } else {
-              navbar.classList.remove('hidden');
-         }
-    });
-
-
-    // --- Horizontal Scroll Animation for Quotes Slider ---
-    // Lấy khung chứa slider và các item trích dẫn
-    const quotesSliderWrapper = document.querySelector('.quotes-slider-wrapper');
-    const quoteItems = document.querySelectorAll('.quotes-slider-wrapper .quote-item');
-
-    // Chỉ chạy code nếu tìm thấy khung slider và có item
-    if (quotesSliderWrapper && quoteItems.length > 0) {
-
-        // Tùy chọn cho Intersection Observer
-        const observerOptions = {
-            root: quotesSliderWrapper, // Thiết lập khung cuộn ngang làm "root" (khung nhìn)
-            rootMargin: '0px', // Không thêm margin cho root
-            threshold: 0.5 // Kích hoạt khi 50% của item nằm trong khung nhìn
-        };
-
-        // Hàm callback sẽ chạy khi một item giao nhau với root
-        const observerCallback = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Nếu item nằm trong khung nhìn
-                    entry.target.classList.add('is-in-view'); // Thêm class để kích hoạt CSS animation
-                    // Nếu chỉ muốn animation chạy 1 lần duy nhất cho mỗi item, bỏ comment dòng dưới:
-                    // observer.unobserve(entry.target);
-                } else {
-                    // Nếu item đi ra khỏi khung nhìn
-                     entry.target.classList.remove('is-in-view'); // Xóa class để có thể re-animate khi cuộn lại
-                }
+                // Tùy chọn: Đảm bảo icon trở lại hamburger
+                // hamburger.querySelector('i').classList.remove('fa-times');
+                // hamburger.querySelector('i').classList.add('fa-bars');
             });
-        };
-
-        // Tạo Intersection Observer
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-        // Bắt đầu theo dõi từng item trích dẫn
-        quoteItems.forEach(item => {
-            observer.observe(item);
         });
+    } else {
+        console.error("Không tìm thấy phần tử .hamburger hoặc #navLinks. Vui lòng kiểm tra lại HTML.");
     }
-    // --- Kết thúc Horizontal Scroll Animation ---
 
 
-    // --- AOS Initialization ---
-    AOS.init({
-      duration: 800,
-      once: true,
-      mirror: false
-    });
+    // --- Khởi tạo Thư viện AOS (Animate On Scroll) ---
+    // Kiểm tra xem thư viện AOS đã được tải chưa trước khi khởi tạo
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            // Các tùy chọn cho AOS (bạn có thể chỉnh sửa)
+            duration: 1000, // Thời gian animation tính bằng ms
+            easing: 'ease-in-out', // Kiểu animation
+            once: true, // Chỉ animation khi cuộn xuống lần đầu
+            mirror: false, // Không lặp lại animation khi cuộn lên/xuống
+            anchorPlacement: 'top-bottom', // Vị trí element so với viewport để trigger animation
+        });
+         console.log("AOS đã được khởi tạo.");
+    } else {
+         console.error("Thư viện AOS chưa được tải. Vui lòng kiểm tra lại đường dẫn trong thẻ <script>.");
+    }
+
+
+    // --- Chú ý về Quotes Slider ---
+    // Logic cho Quotes Slider phức tạp hơn và thường cần thư viện JS chuyên dụng
+    // hoặc code tùy chỉnh để xử lý vuốt, nút điều hướng, auto-play,...
+    // CSS hiện tại đã cho phép cuộn ngang.
+    // Nếu bạn muốn một slider chuyên nghiệp, hãy tìm hiểu về SwiperJS, Slick Carousel, hoặc các thư viện tương tự.
+    console.log("Chức năng Quotes Slider đầy đủ tính năng không có trong script cơ bản này. CSS hỗ trợ cuộn ngang.");
 
 });
