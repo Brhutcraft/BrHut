@@ -1,5 +1,9 @@
 /* style.css - BỘ MÀU TỐI GIẢN & TINH TẾ (ĐÃ BỔ SUNG CÁC SECTION MỚI VÀ ICON SOCIAL FOOTER) */
 
+/* --- BỔ SUNG: Import font Lora từ Google Fonts cho quote --- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* ------------------------------------------------------------- */
+
 :root {
   --main-color: #488A99; /* MÀU CHỦ ĐẠO: Xanh Teal Trầm (Bộ màu 4) */
   --background: #FFFFFF; /* MÀU NỀN CHÍNH: Trắng Tinh Khiết (Bộ màu 4) */
@@ -217,19 +221,11 @@ header p {
 /* Styles cho phần Slider Trích dẫn - NỀN SECTION TRẮNG, ẢNH NỀN TRONG TỪNG HỘP */
 .quotes-slider-section {
   padding: 3rem 0;
-  /* Nền section trở lại màu trắng */
   background-color: var(--background);
-  /* Bỏ ảnh nền và lớp phủ ở đây */
-  /* background-image: none; */
-  /* position: static; */ /* Có thể cần điều chỉnh lại position nếu bỏ pseudo element */
   overflow: hidden;
   text-align: center;
   transition: background-color 0.3s ease;
 }
-
-/* Bỏ lớp phủ ở cấp độ section */
-/* .quotes-slider-section::before { display: none; } */
-
 
 .quotes-slider-section .container {
   max-width: 900px;
@@ -272,36 +268,35 @@ header p {
   flex: 0 0 auto;
   overflow: hidden;
   scroll-snap-align: start;
-   /* Bỏ padding ở item nếu padding nằm trong blockquote */
-   /* padding: 0; */
 }
 
 /* Cải thiện giao diện Blockquote bên trong item - CÓ ẢNH NỀN VÀ LỚP PHỦ BÊN TRONG */
 .quote-item blockquote {
-    /* Khôi phục style hộp */
-    background-color: var(--quote-box-background); /* Nền xám nhạt làm màu dự phòng */
-    padding: 2rem; /* Padding bên trong hộp */
+    background-color: var(--quote-box-background);
+    padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     margin: 0;
-    text-align: left;
+    /* --- CHỈNH SỬA: Bỏ text-align ở đây để set riêng cho p --- */
+    /* text-align: left; */
+    /* ------------------------------------------------------ */
     display: flex;
     flex-direction: column;
     height: 100%;
-    justify-content: space-between;
+    /* --- CHỈNH SỬA: Căn nội dung giữa theo chiều dọc --- */
+    justify-content: center; /* <--- Thay space-between thành center */
+    /* --------------------------------------------------- */
     border-left: 5px solid var(--main-color);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
-    /* --- CHỈNH SỬA: Tăng chiều cao tối thiểu của ô quote (khoảng gấp rưỡi) --- */
-    min-height: 350px; /* <--- Giá trị đã điều chỉnh */
-    /* ------------------------------------------------------------------ */
+    /* Chiều cao tối thiểu của ô quote (khoảng gấp rưỡi) */
+    min-height: 350px; /* Giữ nguyên */
 
-    /* Thêm ảnh nền cho riêng từng hộp */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    position: relative; /* Quan trọng cho lớp phủ bên trong */
-    overflow: hidden; /* Đảm bảo ảnh nền và lớp phủ không tràn viền bo góc */
+    position: relative;
+    overflow: hidden;
 }
 
 /* Thêm lớp phủ (Overlay) BÊN TRONG từng hộp quote để chữ dễ đọc */
@@ -312,21 +307,32 @@ header p {
     left: 0;
     right: 0;
     bottom: 0;
-    /* Lớp phủ màu trắng hơi trong suốt bên trong hộp */
-    background-color: rgba(255, 255, 255, 0.7); /* Điều chỉnh độ trong suốt (0.7) nếu cần */
-    z-index: 1; /* Đặt dưới nội dung chữ */
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 1;
 }
 
 /* Đảm bảo chữ (p và footer) nằm trên lớp phủ bên trong hộp */
 .quote-item blockquote p,
 .quote-item blockquote footer {
-    position: relative; /* Cần để chữ nằm trên lớp phủ (z-index: 1 của overlay) */
+    position: relative;
     z-index: 2;
-    /* Giữ nguyên style và transition cho chữ */
-    opacity: 0; /* opacity ban đầu cho hiệu ứng */
-    transform: translateY(10px); /* vị trí ban đầu cho hiệu ứng */
+    opacity: 0;
+    transform: translateY(10px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
+
+/* --- CHỈNH SỬA: Kiểu chữ và Căn giữa cho đoạn văn trong quote --- */
+.quote-item blockquote p {
+    font-style: italic;
+    font-family: 'Lora', serif;
+    /* BỔ SUNG: Căn giữa văn bản theo chiều ngang */
+    text-align: center; /* <--- Thêm dòng này */
+    /* Có thể điều chỉnh thêm font-size hoặc line-height nếu cần */
+    /* font-size: 1.1rem; */
+    /* line-height: 1.7; */
+}
+/* -------------------------------------------------------------- */
+
 
 /* CSS cho hiệu ứng hiện dần văn bản khi item hiển thị */
 .quote-item.is-in-view blockquote p,
@@ -342,54 +348,48 @@ header p {
 
 /* Trích dẫn thứ 1 */
 .quotes-slider-wrapper .quote-item:nth-child(1) blockquote {
-    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/17453029449734353905743359058891.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH Dẫn 1 */
-    /* Nếu ảnh quá tối/sáng, điều chỉnh lớp phủ riêng cho quote này */
-    /* &::before { background-color: rgba(255, 255, 255, 0.8); } */
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/17453029449734353905743359058891.jpg');
 }
 
 /* Trích dẫn thứ 2 */
 .quotes-slider-wrapper .quote-item:nth-child(2) blockquote {
-    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465133939912896018256963134630.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH DẪN 2 */
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465133939912896018256963134630.jpg');
 }
 
 /* Trích dẫn thứ 3 */
 .quotes-slider-wrapper .quote-item:nth-child(3) blockquote {
-    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465127147144848237814817665275.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH DẪN 3 */
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465127147144848237814817665275.jpg');
 }
 
 /* Trích dẫn thứ 4 */
 .quotes-slider-wrapper .quote-item:nth-child(4) blockquote {
-    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465141859068747544123182836480.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH DẪN 4 */
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465141859068747544123182836480.jpg');
 }
 
 /* Trích dẫn thứ 5 */
 .quotes-slider-wrapper .quote-item:nth-child(5) blockquote {
-    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465126690375003264328334278399.jpg'); /* <--- THAY THẾ ẢNG NỀN CHO TRÍCH DẪN 5 */
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465126690375003264328334278399.jpg');
 }
 
-/* Bạn có thể thêm rule tương tự cho trích dẫn thứ 6, 7, ... nếu có */
-/* .quotes-slider-wrapper .quote-item:nth-child(6) blockquote { ... } */
 
-
-/* Responsive cho item trích dẫn - Tính toán width dựa trên gap */
+/* Responsive cho item trích dẫn - Tính toán width dựa trên gap và yêu cầu mới */
 @media (max-width: 768px) {
     .quotes-slider-wrapper .quote-item {
-         /* --- CHỈNH SỬA: Width 100% để mỗi ô gần vừa màn hình khi lướt trên mobile --- */
-         width: 100%; /* <--- Thay đổi từ calc(...) sang 100% */
-         max-width: none; /* <--- Bỏ giới hạn max-width */
+         /* Chiều rộng 2/3 trên mobile */
+         width: calc(100% / 1.5);
+         max-width: none;
          margin: 0 auto;
-         /* scroll-snap-align: start; Thuộc tính này đã có ở rule chung .quotes-slider-wrapper .quote-item, không cần lặp lại ở đây */
     }
-     /* padding cho wrapper tạo khoảng trống hai bên khi item width là 100% */
+     /* padding cho wrapper tạo khoảng trống hai bên */
      .quotes-slider-wrapper {
-        padding: 0 1.5rem 1.5rem 1.5rem; /* Giữ nguyên padding cho wrapper */
+        padding: 0 1.5rem 1.5rem 1.5rem;
      }
 }
 
 @media (min-width: 769px) {
     .quotes-slider-wrapper .quote-item {
-        /* Giữ nguyên width cho tablet/desktop như lần chỉnh sửa trước */
-        width: calc( (100% - 1.5rem) / 1.5 ); /* Khoảng 1.5 cột */
+        /* Chiều rộng 2/3 trên tablet (hiển thị ~2.25 ô) */
+        width: calc( (100% - 1.5rem) / 2.25 );
         max-width: none;
         margin: 0;
     }
@@ -400,8 +400,8 @@ header p {
 
 @media (min-width: 1024px) {
      .quotes-slider-wrapper .quote-item {
-        /* Giữ nguyên width cho desktop lớn như lần chỉnh sửa trước */
-        width: calc( (100% - 1.5rem * 2) / 2 ); /* 2 cột */
+        /* Chiều rộng 2/3 trên desktop (hiển thị 3 ô) */
+        width: calc( (100% - 1.5rem * 2) / 3 );
      }
       .quotes-slider-wrapper {
          padding: 0 1.5rem 1.5rem 1.5rem;
@@ -415,7 +415,7 @@ header p {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   padding: 2rem;
-  background: var(--background); /* Nền section: Trắng Tinh Khiết */
+  background: var(--background);
   transition: background-color 0.3s ease;
 }
 
@@ -423,9 +423,9 @@ header p {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  background: var(--background); /* Nền từng mục category: Trắng Tinh Khiết */
+  background: var(--background);
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-   box-shadow: 0 4px 8px rgba(0,0,0,0.08); /* Thêm bóng nhẹ cho từng mục */
+   box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 }
 
  .category:hover {
@@ -438,8 +438,7 @@ header p {
    height: 200px;
    object-fit: cover;
    display: block;
-   transition: transform 0.3s ease-out;
- }
+}
 
   .category:hover img {
     transform: scale(1.05);
@@ -449,7 +448,7 @@ header p {
    position: absolute;
    bottom: 10px;
    left: 10px;
-   background: rgba(0,0,0,0.6); /* Đen trong suốt nhạt hơn một chút */
+   background: rgba(0,0,0,0.6);
    color: #fff;
    padding: 0.3rem 0.8rem;
    border-radius: 5px;
@@ -459,13 +458,13 @@ header p {
  }
 
   .category:hover h3 {
-     background: rgba(72, 138, 153, 0.7); /* Nền hover h3: Xanh Teal Trầm trong suốt */
+     background: rgba(72, 138, 153, 0.7);
   }
 
 /* Styles cho phần nội dung chính trang Giới thiệu - Nền trắng tinh khiết */
 .about-content {
   padding: 4rem 0;
-  background-color: var(--background); /* Nền section: Trắng Tinh Khiết */
+  background-color: var(--background);
   transition: background-color 0.3s ease;
 }
 
@@ -479,7 +478,7 @@ header p {
 .about-content h2 {
     font-size: clamp(2rem, 5vw, 2.8rem);
     margin-bottom: 2rem;
-    color: var(--text-dark); /* Chữ tiêu đề: Xám Đậm */
+    color: var(--text-dark);
     line-height: 1.2;
     text-align: center;
 }
@@ -488,11 +487,11 @@ header p {
 .about-content h2 + p {
      font-size: 1.1rem;
      font-style: italic;
-     color: #555; /* Xám đậm hơn */
+     color: #555;
      margin-top: 0;
      margin-bottom: 3rem;
      text-align: center;
-     background-color: transparent; /* Đảm bảo không có nền */
+     background-color: transparent;
      padding: 0;
      box-shadow: none;
      border-radius: 0;
@@ -503,11 +502,11 @@ header p {
     font-size: 1rem;
     line-height: 1.8;
     margin-bottom: 2rem;
-    color: var(--text-dark); /* Chữ paragraph: Xám Đậm */
-    background-color: #F8F8F8; /* Nền khung paragraph: XÁM RẤT NHẠT (Nền phụ) */
+    color: var(--text-dark);
+    background-color: #F8F8F8;
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -529,11 +528,11 @@ header p {
 
 /* Footer - Nền ghi xám nhạt */
 footer {
-  background-color: #D3D3D3; /* Nền footer: XÁM NHẠT (Từ bộ màu 4) */
-  color: var(--text-dark); /* Màu chữ: Xám Đậm */
+  background-color: #D3D3D3;
+  color: var(--text-dark);
   padding: 2rem 1rem;
   text-align: center;
-  border-top: 3px solid var(--main-color); /* Đường viền trên: Xanh Teal Trầm */
+  border-top: 3px solid var(--main-color);
   transition: background-color 0.3s ease;
 }
 
@@ -544,27 +543,27 @@ footer {
 }
 
 .footer-content a {
-  color: var(--main-color); /* Màu link footer: Xanh Teal Trầm */
+  color: var(--main-color);
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 /* Footer Social Icons */
 .footer-social {
-    margin-top: 1.5rem; /* Khoảng cách trên */
+    margin-top: 1.5rem;
     display: flex;
     justify-content: center;
-    gap: 1rem; /* Khoảng cách giữa các icon */
+    gap: 1rem;
 }
 
 .footer-social a {
-    font-size: 1.5rem; /* Kích thước icon */
-    color: var(--text-dark); /* Màu icon: Xám Đậm */
+    font-size: 1.5rem;
+    color: var(--text-dark);
     transition: color 0.3s ease;
 }
 
 .footer-social a:hover {
-    color: var(--main-color); /* Hover icon: Xanh Teal Trầm */
+    color: var(--main-color);
 }
 
 
@@ -572,100 +571,98 @@ footer {
 
 /* Styles cho section Không Gian & Quy Trình (Gallery & Process) */
 .gallery-process-section {
-  padding: 3rem 1.5rem; /* Khoảng đệm trên dưới và hai bên */
-  background-color: var(--background); /* Nền section: Trắng Tinh Khiết (từ biến) */
-  text-align: center; /* Căn giữa tiêu đề */
+  padding: 3rem 1.5rem;
+  background-color: var(--background);
+  text-align: center;
   transition: background-color 0.3s ease;
 }
 
 .gallery-process-section h2 {
-  font-size: clamp(1.5rem, 4vw, 2rem); /* Kích thước chữ phù hợp */
-  margin-bottom: 2.5rem; /* Khoảng cách dưới tiêu đề */
-  color: var(--text-dark); /* Màu chữ: Xám Đậm (từ biến) */
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 2.5rem;
+  color: var(--text-dark);
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout lưới responsive, mỗi cột tối thiểu 280px */
-  gap: 1.5rem; /* Khoảng cách giữa các mục trong lưới */
-  max-width: 1200px; /* Giới hạn chiều rộng lưới */
-  margin: 0 auto; /* Căn giữa lưới */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .gallery-item {
-  background-color: #F8F8F8; /* Nền từng mục: Xám Rất Nhạt (Nền phụ từ bộ màu 4) */
-  border-radius: 8px; /* Góc bo tròn */
-  overflow: hidden; /* Đảm bảo ảnh không tràn ra ngoài */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Bóng nhẹ cho từng mục */
-  display: flex; /* Dùng flexbox để căn chỉnh nội dung bên trong */
-  flex-direction: column; /* Nội dung xếp dọc */
+  background-color: #F8F8F8;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
 .gallery-item:hover {
-   transform: translateY(-5px); /* Hiệu ứng nhấc nhẹ khi hover */
-   box-shadow: 0 4px 15px rgba(0,0,0,0.12); /* Bóng đậm hơn khi hover */
+   transform: translateY(-5px);
+   box-shadow: 0 4px 15px rgba(0,0,0,0.12);
 }
 
 .gallery-item img {
-  width: 100%; /* Ảnh đầy chiều rộng của mục */
-  height: 200px; /* Chiều cao cố định cho ảnh */
-  object-fit: cover; /* Cắt ảnh để vừa khung mà không bị méo */
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
   display: block;
 }
 
 .gallery-item p {
-  padding: 1rem; /* Khoảng đệm cho chú thích */
-  margin-top: auto; /* Đẩy chú thích xuống cuối nếu dùng flex */
+  padding: 1rem;
+  margin-top: auto;
   font-size: 0.95rem;
-  color: var(--text-dark); /* Màu chữ chú thích: Xám Đậm */
-  text-align: left; /* Căn lề trái cho chú thích */
-  background-color: transparent; /* Đảm bảo nền chú thích trong suốt (nền thật là của .gallery-item) */
-  box-shadow: none; /* Bỏ bóng cho paragraph nếu có */
-  border-radius: 0; /* Bỏ bo góc cho paragraph nếu có */
-    /* Đảm bảo các thuộc tính từ .about-content p không ảnh hưởng */
+  color: var(--text-dark);
+  text-align: left;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
     margin-bottom: 0;
-    line-height: 1.5; /* Điều chỉnh line-height nếu cần */
+    line-height: 1.5;
 }
 
 
 /* Styles cho section Kêu Gọi Hành Động Đặc Biệt (Call to Action) */
 .cta-section {
-    padding: 4rem 1.5rem; /* Khoảng đệm trên dưới lớn hơn */
-    background-color: #F8F8F8; /* Nền section: Xám Rất Nhạt (Nền phụ từ bộ màu 4) */
-    text-align: center; /* Căn giữa toàn bộ nội dung */
+    padding: 4rem 1.5rem;
+    background-color: #F8F8F8;
+    text-align: center;
     transition: background-color 0.3s ease;
 }
 
 .cta-section .container {
-    max-width: 800px; /* Giới hạn chiều rộng nội dung CTA */
-    margin: 0 auto; /* Căn giữa container */
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .cta-section h2 {
-    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Kích thước chữ lớn */
-    margin-bottom: 1rem; /* Khoảng cách dưới tiêu đề */
-    color: var(--text-dark); /* Màu chữ: Xám Đậm */
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    margin-bottom: 1rem;
+    color: var(--text-dark);
     line-height: 1.2;
 }
 
 .cta-section p {
-    font-size: clamp(1rem, 3vw, 1.1rem); /* Kích thước chữ phù hợp */
-    margin-bottom: 2rem; /* Khoảng cách dưới paragraph */
-    color: var(--text-dark); /* Màu chữ: Xám Đậm */
-    max-width: 600px; /* Giới hạn chiều rộng paragraph */
-    margin-left: auto; /* Căn giữa paragraph */
-    margin-right: auto; /* Căn giữa paragraph */
-     background-color: transparent; /* Đảm bảo nền paragraph trong suốt (nền thật là của .cta-section) */
-    box-shadow: none; /* Bỏ bóng cho paragraph nếu có */
-    border-radius: 0; /* Bỏ bo góc cho paragraph nếu có */
-    padding: 0; /* Bỏ padding nếu có */
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+     background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
 }
 
 /* Nút trong CTA sẽ tự động dùng style của class .button đã có */
 .cta-section .button {
-    margin-top: 1.5rem; /* Khoảng cách trên nút */
-    /* Màu nền và hover của nút đã được định nghĩa ở rule .button và .button:hover */
+    margin-top: 1.5rem;
 }
 
 /* --- KẾT THÚC BỔ SUNG CSS CHO CÁC SECTION MỚI --- */
