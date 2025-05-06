@@ -292,6 +292,10 @@ header p {
     border-left: 5px solid var(--main-color);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
+    /* --- CHỈNH SỬA: Tăng chiều cao tối thiểu của ô quote (khoảng gấp rưỡi) --- */
+    min-height: 350px; /* <--- Giá trị đã điều chỉnh */
+    /* ------------------------------------------------------------------ */
+
     /* Thêm ảnh nền cho riêng từng hộp */
     background-size: cover;
     background-position: center center;
@@ -338,7 +342,7 @@ header p {
 
 /* Trích dẫn thứ 1 */
 .quotes-slider-wrapper .quote-item:nth-child(1) blockquote {
-    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/17453029449734353905743359058891.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH DẪN 1 */
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/17453029449734353905743359058891.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH Dẫn 1 */
     /* Nếu ảnh quá tối/sáng, điều chỉnh lớp phủ riêng cho quote này */
     /* &::before { background-color: rgba(255, 255, 255, 0.8); } */
 }
@@ -370,22 +374,24 @@ header p {
 /* Responsive cho item trích dẫn - Tính toán width dựa trên gap */
 @media (max-width: 768px) {
     .quotes-slider-wrapper .quote-item {
-         width: calc(100% - (2 * 1.5rem));
-         max-width: 400px;
+         /* --- CHỈNH SỬA: Width 100% để mỗi ô gần vừa màn hình khi lướt trên mobile --- */
+         width: 100%; /* <--- Thay đổi từ calc(...) sang 100% */
+         max-width: none; /* <--- Bỏ giới hạn max-width */
          margin: 0 auto;
-         /* padding: 1.5rem; */ /* Bỏ padding ở đây nếu padding nằm trong blockquote */
+         /* scroll-snap-align: start; Thuộc tính này đã có ở rule chung .quotes-slider-wrapper .quote-item, không cần lặp lại ở đây */
     }
+     /* padding cho wrapper tạo khoảng trống hai bên khi item width là 100% */
      .quotes-slider-wrapper {
-        padding: 0 1.5rem 1.5rem 1.5rem;
+        padding: 0 1.5rem 1.5rem 1.5rem; /* Giữ nguyên padding cho wrapper */
      }
 }
 
 @media (min-width: 769px) {
     .quotes-slider-wrapper .quote-item {
-        width: calc( (100% - 1.5rem) / 2 ); /* 2 cột với gap */
+        /* Giữ nguyên width cho tablet/desktop như lần chỉnh sửa trước */
+        width: calc( (100% - 1.5rem) / 1.5 ); /* Khoảng 1.5 cột */
         max-width: none;
         margin: 0;
-        /* padding: 2rem; */ /* Bỏ padding ở đây nếu padding nằm trong blockquote */
     }
      .quotes-slider-wrapper {
         padding: 0 1.5rem 1.5rem 1.5rem;
@@ -394,8 +400,8 @@ header p {
 
 @media (min-width: 1024px) {
      .quotes-slider-wrapper .quote-item {
-        width: calc( (100% - 3rem) / 3 ); /* 3 cột với gap */
-        /* padding: 2rem; */ /* Bỏ padding ở đây nếu padding nằm trong blockquote */
+        /* Giữ nguyên width cho desktop lớn như lần chỉnh sửa trước */
+        width: calc( (100% - 1.5rem * 2) / 2 ); /* 2 cột */
      }
       .quotes-slider-wrapper {
          padding: 0 1.5rem 1.5rem 1.5rem;
