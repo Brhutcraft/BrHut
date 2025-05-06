@@ -213,13 +213,43 @@ header p {
   transform: translateY(-2px);
 }
 
-/* Styles cho phần Slider Trích dẫn - Nền trắng tuyết */
+/* Styles cho phần Slider Trích dẫn - ÁP DỤNG ẢNH NỀN VÀ LỚP PHỦ */
 .quotes-slider-section {
   padding: 3rem 0;
-  background-color: var(--background); /* Nền section: Trắng Tinh Khiết */
+  /* Thay thế background-color bằng background-image */
+  background-image: url('duong-dan-toi-anh-nen-dep-cua-ban.jpg'); /* <--- THAY THẾ BẰNG ĐƯỜNG DẪN ẢNH CỦA BẠN */
+  background-size: cover; /* Ảnh sẽ phủ kín toàn bộ khu vực */
+  background-position: center center; /* Căn giữa ảnh */
+  background-repeat: no-repeat; /* Không lặp lại ảnh */
+  /* Tùy chọn: Thêm hiệu ứng parallax nhẹ */
+  /* background-attachment: fixed; */
+
+  position: relative; /* Quan trọng để lớp phủ ::before định vị tuyệt đối */
+  overflow: hidden;
+  /* background-color: var(--background); */ /* Bỏ màu nền cũ */
   text-align: center;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; /* Có thể bỏ transition nếu không đổi màu nền */
 }
+
+/* Thêm lớp phủ (Overlay) lên trên ảnh nền để tăng khả năng đọc */
+.quotes-slider-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Sử dụng màu trắng từ biến background với độ trong suốt */
+  background-color: rgba(255, 255, 255, 0.8); /* Màu trắng (#FFFFFF) với 80% độ trong suốt */
+  z-index: 1; /* Đặt lớp phủ ở dưới nội dung quotes */
+}
+
+/* Đảm bảo nội dung quotes và tiêu đề nằm trên lớp phủ */
+.quotes-slider-section > * {
+    position: relative;
+    z-index: 2;
+}
+
 
 .quotes-slider-section .container {
   max-width: 900px;
@@ -231,6 +261,16 @@ header p {
   margin-bottom: 2rem;
   color: var(--text-dark); /* Chữ tiêu đề: Xám Đậm */
 }
+
+/* Styling cho SVG nếu vẫn dùng */
+.quotes-slider-section h2 svg {
+    margin: 0 10px; /* Khoảng cách */
+    width: 25px; /* Kích thước nhỏ hơn */
+    height: 25px;
+    color: var(--main-color); /* Màu Xanh Teal */
+    stroke-width: 2; /* Độ dày nét vẽ */
+}
+
 
 .quotes-slider-wrapper {
   display: flex;
@@ -274,6 +314,7 @@ header p {
 }
 
 /* CSS cho hiệu ứng hiện dần văn bản bên trong item */
+/* Bạn sẽ cần JavaScript để thêm class 'is-in-view' khi item hiển thị */
 .quote-item blockquote p,
 .quote-item blockquote footer {
     opacity: 0;
@@ -301,7 +342,7 @@ header p {
 
 @media (min-width: 769px) {
     .quotes-slider-wrapper .quote-item {
-        width: calc( (100% - 1.5rem) / 2 );
+        width: calc( (100% - 1.5rem) / 2 ); /* 2 cột với gap */
         max-width: none;
         margin: 0;
     }
@@ -312,12 +353,13 @@ header p {
 
 @media (min-width: 1024px) {
      .quotes-slider-wrapper .quote-item {
-        width: calc( (100% - 3rem) / 3 );
+        width: calc( (100% - 3rem) / 3 ); /* 3 cột với gap */
      }
       .quotes-slider-wrapper {
          padding: 0 1.5rem 1.5rem 1.5rem;
       }
 }
+
 
 /* Categories Section - Nền trắng tinh khiết */
 .categories {
@@ -458,7 +500,25 @@ footer {
   font-weight: bold;
   transition: color 0.3s ease;
 }
-/* Footer Social Icons - Đoạn này có vẻ bị cắt */
+
+/* Footer Social Icons */
+.footer-social {
+    margin-top: 1.5rem; /* Khoảng cách trên */
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Khoảng cách giữa các icon */
+}
+
+.footer-social a {
+    font-size: 1.5rem; /* Kích thước icon */
+    color: var(--text-dark); /* Màu icon: Xám Đậm */
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--main-color); /* Hover icon: Xanh Teal Trầm */
+}
+
 
 /* --- BẮT ĐẦU BỔ SUNG CSS CHO CÁC SECTION MỚI --- */
 
