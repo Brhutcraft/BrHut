@@ -340,7 +340,7 @@ header p {
 .quotes-slider-wrapper .quote-item:nth-child(1) blockquote {
     background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/17453029449734353905743359058891.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH DẪN 1 */
     /* Nếu ảnh quá tối/sáng, điều chỉnh lớp phủ riêng cho quote này */
-    /* &::before { background-color: rgba(255, 255, 255, 0.9); } */
+    /* &::before { background-color: rgba(255, 255, 255, 0.6); } */
 }
 
 /* Trích dẫn thứ 2 */
