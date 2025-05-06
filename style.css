@@ -1,4 +1,4 @@
-/* style.css - BỘ MÀU TỐI GIẢN & TINH TẾ (ĐÃ BỔ SUNG CÁC SECTION MỚI, ICON SOCIAL FOOTER, VÀ MOBILE MENU SLIDE-IN) */
+/* style.css - BỘ MÀU TỐI GIẢN&TINH TẾ (ĐÃ BỔ SUNG CÁC SECTION MỚI, ICON SOCIAL FOOTER, VÀ MOBILE MENU SLIDE-IN) */
 
 /* --- BỔ SUNG: Import font Lora từ Google Fonts cho quote --- */
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap');
@@ -172,56 +172,44 @@ a {
     max-width: 300px; /* Chiều rộng tối đa trên các màn hình tablet */
     height: 100vh; /* Chiếm toàn bộ chiều cao màn hình */
     background-color: var(--mobile-menu-bg); /* Nền menu */
-    z-index: 1001; /* Tăng z-index để chắc chắn nằm trên navbar (1000) */
+    z-index: 1000; /* Nằm trên overlay */
     transform: translateX(-100%); /* Ban đầu nằm ngoài màn hình về bên trái */
     transition: transform 0.3s ease-in-out; /* Hiệu ứng trượt */
     box-shadow: 2px 0 8px rgba(0,0,0,0.1); /* Bóng đổ nhẹ cạnh menu */
     overflow-y: auto; /* Cho phép cuộn nếu nội dung menu dài */
     -webkit-overflow-scrolling: touch; /* Cải thiện cuộn trên iOS */
-    display: flex; /* Use flexbox to structure content and button */
-    flex-direction: column;
 }
 
 .mobile-menu-wrapper.open {
     transform: translateX(0); /* Trượt vào màn hình */
 }
 
-/* Nội dung bên trong Mobile Menu (chứa links, logo, etc. ngoại trừ nút đóng mới) */
+/* Nội dung bên trong Mobile Menu */
 .mobile-menu {
-    padding: 2rem 1.5rem 1rem 1.5rem; /* Padding top, sides, bottom */
-    flex-grow: 1; /* Allow content area to fill space */
+    padding: 2rem 1.5rem; /* Padding bên trong menu */
     display: flex;
     flex-direction: column;
-    /* Items within .mobile-menu (like .nav-links) will be flex items */
 }
 
 /* Nút đóng menu */
 .close-btn {
-    /* Vị trí mới ở dưới cùng chính giữa */
-    position: absolute; /* Định vị tuyệt đối so với mobile-menu-wrapper */
-    bottom: 1.5rem; /* Khoảng cách từ cạnh dưới */
-    left: 50%; /* Điểm bắt đầu từ giữa theo chiều ngang */
-    transform: translateX(-50%); /* Dịch sang trái 50% chiều rộng của nút để căn giữa */
-
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
     font-size: 1.8rem;
     color: var(--mobile-menu-text); /* Màu nút đóng */
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0.5rem; /* Thêm padding để vùng bấm lớn hơn */
-    z-index: 1021; /* Z-index cao để đảm bảo nhấp được */
-    transition: color 0.3s ease;
+    padding: 0.5rem;
+    z-index: 1020; /* Đảm bảo nút đóng nằm trên mọi thứ */
 }
-
-.close-btn:hover {
-    color: var(--main-color);
-}
-
 
 /* Style danh sách link trong mobile menu */
 .mobile-menu .nav-links {
     display: flex; /* Override display none từ responsive default */
     flex-direction: column; /* Xếp các link theo cột dọc */
+    margin-top: 2.5rem; /* Khoảng cách từ nút đóng */
     padding: 0; /* Bỏ padding default của ul */
     gap: 0; /* Bỏ gap default */
 }
@@ -248,20 +236,6 @@ a {
      color: var(--main-color); /* Đổi màu khi hover */
      background-color: rgba(0, 0, 0, 0.05); /* Hiệu ứng nền nhẹ khi hover */
 }
-
-/* If you want to add a header (like logo) in the mobile menu */
-.mobile-menu-header {
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--mobile-menu-border);
-    text-align: center; /* Center logo if it's an image */
-}
-.mobile-menu-header img {
-    max-width: 120px; /* Adjust size as needed */
-    height: auto;
-    border-radius: 8px;
-}
-
 
 /* --- KẾT THÚC MOBILE MENU SLIDE-IN STYLES --- */
 
@@ -321,6 +295,230 @@ a {
      body.menu-open {
          overflow-y: auto;
      }
+}
+
+
+header {
+  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/img_20250502_1931008708036891340761849.png') center/cover no-repeat;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-light); /* Chữ trên banner: Trắng */
+  padding: 1rem;
+  position: relative;
+}
+
+header h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+header p {
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  max-width: 600px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.button {
+  margin-top: 1.5rem;
+  background: rgba(169, 169, 169, 0.7); /* Giữ nguyên: Nút Ghi Xám với opacity 0.7 */
+  padding: 0.7rem 1.2rem;
+  color: var(--text-light); /* Giữ màu chữ trắng */
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #808080; /* Giữ nguyên: Ghi Xám Đặc hơn khi hover */
+  transform: translateY(-2px);
+}
+
+/* Styles cho phần Slider Trích dẫn - NỀN SECTION TRẮNG, ẢNH NỀN TRONG TỪNG HỘP */
+.quotes-slider-section {
+  padding: 3rem 0;
+  background-color: var(--background);
+  overflow: hidden;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.quotes-slider-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.quotes-slider-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 2rem;
+  color: var(--text-dark);
+}
+
+/* Styling cho SVG nếu vẫn dùng */
+.quotes-slider-section h2 svg {
+    margin: 0 10px;
+    width: 25px;
+    height: 25px;
+    color: var(--main-color);
+    stroke-width: 2;
+}
+
+
+.quotes-slider-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1.5rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.quotes-slider-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.quotes-slider-wrapper .quote-item {
+  flex: 0 0 auto;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* Cải thiện giao diện Blockquote bên trong item - CÓ ẢNH NỀN VÀ LỚP PHỦ BÊN TRONG */
+.quote-item blockquote {
+    background-color: var(--quote-box-background);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    border-left: 5px solid var(--main-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    min-height: 350px;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Thêm lớp phủ (Overlay) BÊN TRONG từng hộp quote để chữ dễ đọc */
+.quote-item blockquote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 1;
+}
+
+/* Đảm bảo chữ (p và footer) nằm trên lớp phủ bên trong hộp */
+.quote-item blockquote p,
+.quote-item blockquote footer {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* --- CHỈNH SỬA: Kiểu chữ và Căn giữa cho đoạn văn trong quote --- */
+.quote-item blockquote p {
+    font-style: italic;
+    font-family: 'Lora', serif;
+    text-align: center;
+}
+/* -------------------------------------------------------------- */
+
+
+/* CSS cho hiệu ứng hiện dần văn bản khi item hiển thị */
+.quote-item.is-in-view blockquote p,
+.quote-item.is-in-view blockquote footer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===================================================
+   CÁC RULE RIÊNG CHO TỪNG TRÍCH DẪN (ĐỂ DÙNG ẢNH NỀN KHÁC NHAU)
+   BẠN CẦN THAY THẾ ĐƯỜNG DẪN ẢNH Ở ĐÂY
+   =================================================== */
+
+/* Trích dẫn thứ 1 */
+.quotes-slider-wrapper .quote-item:nth-child(1) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/17453029449734353905743359058891.jpg');
+}
+
+/* Trích dẫn thứ 2 */
+.quotes-slider-wrapper .quote-item:nth-child(2) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465133939912896018256963134630.jpg');
+}
+
+/* Trích dẫn thứ 3 */
+.quotes-slider-wrapper .quote-item:nth-child(3) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465127147144848237814817665275.jpg');
+}
+
+/* Trích dẫn thứ 4 */
+.quotes-slider-wrapper .quote-item:nth-child(4) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465141859068747544123182836480.jpg');
+}
+
+/* Trích dẫn thứ 5 */
+.quotes-slider-wrapper .quote-item:nth-child(5) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465126690375003264328334278399.jpg');
+}
+
+
+/* Responsive cho item trích dẫn - Tính toán width dựa trên gap và yêu cầu mới */
+@media (max-width: 768px) {
+    .quotes-slider-wrapper .quote-item {
+         /* Chiều rộng 2/3 trên mobile */
+         width: calc(100% / 1.5);
+         max-width: none;
+         margin: 0 auto;
+    }
+     /* padding cho wrapper tạo khoảng trống hai bên */
+     .quotes-slider-wrapper {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+     }
+}
+
+@media (min-width: 769px) {
+    .quotes-slider-wrapper .quote-item {
+        /* Chiều rộng 2/3 trên tablet (hiển thị ~2.25 ô) */
+        width: calc( (100% - 1.5rem) / 2.25 );
+        max-width: none;
+        margin: 0;
+    }
+     .quotes-slider-wrapper {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+     }
+}
+
+@media (min-width: 1024px) {
+     .quotes-slider-wrapper .quote-item {
+        /* Chiều rộng 2/3 trên desktop (hiển thị 3 ô) */
+        width: calc( (100% - 1.5rem * 2) / 3 );
+     }
+      .quotes-slider-wrapper {
+         padding: 0 1.5rem 1.5rem 1.5rem;
+      }
 }
 
 
@@ -474,7 +672,7 @@ a {
 }
 
 /* Đảm bảo tiêu đề H2 đầu tiên không có margin trên thừa */
-.about-content .container > h2:first-child {
+.about-content .container>h2:first-child {
     margin-top: 0;
 }
 
@@ -526,7 +724,7 @@ footer {
 
 /* --- BẮT ĐẦU BỔ SUNG CSS CHO CÁC SECTION MỚI (Gallery, CTA) --- */
 
-/* Styles cho section Không Gian & Quy Trình (Gallery & Process) */
+/* Styles cho section Không Gian&Quy Trình (Gallery&Process) */
 .gallery-process-section {
   padding: 3rem 1.5rem;
   background-color: var(--background);
