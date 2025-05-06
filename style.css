@@ -7,6 +7,7 @@
   --text-light: #FFFFFF; /* Giữ nguyên: Trắng */
   --accent: #77A1D3; /* Xanh da trời đậm hơn - Nếu có dùng */
   --accent-secondary: #9E9E9E; /* Xám đậm hơn một chút - Nếu có dùng */
+  --quote-box-background: #F8F8F8; /* Nền xám rất nhạt cho hộp quote (dự phòng hoặc khi không có ảnh) */
 }
 
 * {
@@ -171,7 +172,7 @@ a {
 }
 
 header {
-  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b38173713251750086403988.jpg') center/cover no-repeat;
+  background: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/screenshot_2025-04-24-07-26-52-97_99c04817c0de5652397fc8b56c3b381750086403988.jpg') center/cover no-repeat;
   height: 70vh;
   display: flex;
   flex-direction: column;
@@ -213,42 +214,21 @@ header p {
   transform: translateY(-2px);
 }
 
-/* Styles cho phần Slider Trích dẫn - ÁP DỤNG ẢNH NỀN VÀ LỚP PHỦ */
+/* Styles cho phần Slider Trích dẫn - NỀN SECTION TRẮNG, ẢNH NỀN TRONG TỪNG HỘP */
 .quotes-slider-section {
   padding: 3rem 0;
-  /* Thay thế background-color bằng background-image */
-  background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/17453029449734353905743359058891.jpg'); /* <--- ĐÃ CẬP NHẬT ĐƯỜNG DẪN ẢNH CHO BẠN */
-  background-size: cover; /* Ảnh sẽ phủ kín toàn bộ khu vực */
-  background-position: center center; /* Căn giữa ảnh */
-  background-repeat: no-repeat; /* Không lặp lại ảnh */
-  /* Tùy chọn: Thêm hiệu ứng parallax nhẹ */
-  /* background-attachment: fixed; */
-
-  position: relative; /* Quan trọng để lớp phủ ::before định vị tuyệt đối */
+  /* Nền section trở lại màu trắng */
+  background-color: var(--background);
+  /* Bỏ ảnh nền và lớp phủ ở đây */
+  /* background-image: none; */
+  /* position: static; */ /* Có thể cần điều chỉnh lại position nếu bỏ pseudo element */
   overflow: hidden;
-  /* background-color: var(--background); */ /* Bỏ màu nền cũ */
   text-align: center;
-  transition: background-color 0.3s ease; /* Có thể bỏ transition nếu không đổi màu nền */
+  transition: background-color 0.3s ease;
 }
 
-/* Thêm lớp phủ (Overlay) lên trên ảnh nền để tăng khả năng đọc */
-.quotes-slider-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* Sử dụng màu trắng từ biến background với độ trong suốt */
-  background-color: rgba(255, 255, 255, 0.8); /* Màu trắng (#FFFFFF) với 80% độ trong suốt */
-  z-index: 1; /* Đặt lớp phủ ở dưới nội dung quotes */
-}
-
-/* Đảm bảo nội dung quotes và tiêu đề nằm trên lớp phủ */
-.quotes-slider-section > * {
-    position: relative;
-    z-index: 2;
-}
+/* Bỏ lớp phủ ở cấp độ section */
+/* .quotes-slider-section::before { display: none; } */
 
 
 .quotes-slider-section .container {
@@ -259,16 +239,16 @@ header p {
 .quotes-slider-section h2 {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin-bottom: 2rem;
-  color: var(--text-dark); /* Chữ tiêu đề: Xám Đậm */
+  color: var(--text-dark);
 }
 
 /* Styling cho SVG nếu vẫn dùng */
 .quotes-slider-section h2 svg {
-    margin: 0 10px; /* Khoảng cách */
-    width: 25px; /* Kích thước nhỏ hơn */
+    margin: 0 10px;
+    width: 25px;
     height: 25px;
-    color: var(--main-color); /* Màu Xanh Teal */
-    stroke-width: 2; /* Độ dày nét vẽ */
+    color: var(--main-color);
+    stroke-width: 2;
 }
 
 
@@ -279,11 +259,8 @@ header p {
   gap: 1.5rem;
   padding: 0 1.5rem 1.5rem 1.5rem;
 
-  /* Ẩn thanh cuộn mặc định */
   scrollbar-width: none;
   -ms-overflow-style: none;
-
-  /* Làm mượt thao tác cuộn/snap */
   scroll-behavior: smooth;
 }
 
@@ -295,38 +272,100 @@ header p {
   flex: 0 0 auto;
   overflow: hidden;
   scroll-snap-align: start;
+   /* Bỏ padding ở item nếu padding nằm trong blockquote */
+   /* padding: 0; */
 }
 
-/* Cải thiện giao diện Blockquote bên trong item - Nền xám rất nhạt */
+/* Cải thiện giao diện Blockquote bên trong item - CÓ ẢNH NỀN VÀ LỚP PHỦ BÊN TRONG */
 .quote-item blockquote {
-    background-color: #F8F8F8; /* Nền quote item: Xám Rất Nhạt (Nền phụ) */
-    padding: 2rem;
+    /* Khôi phục style hộp */
+    background-color: var(--quote-box-background); /* Nền xám nhạt làm màu dự phòng */
+    padding: 2rem; /* Padding bên trong hộp */
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Bóng nhẹ hơn */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     margin: 0;
     text-align: left;
     display: flex;
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
-    border-left: 5px solid var(--main-color); /* Đường viền trái: Xanh Teal Trầm */
+    border-left: 5px solid var(--main-color);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    /* Thêm ảnh nền cho riêng từng hộp */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative; /* Quan trọng cho lớp phủ bên trong */
+    overflow: hidden; /* Đảm bảo ảnh nền và lớp phủ không tràn viền bo góc */
 }
 
-/* CSS cho hiệu ứng hiện dần văn bản bên trong item */
-/* Bạn sẽ cần JavaScript để thêm class 'is-in-view' khi item hiển thị */
+/* Thêm lớp phủ (Overlay) BÊN TRONG từng hộp quote để chữ dễ đọc */
+.quote-item blockquote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Lớp phủ màu trắng hơi trong suốt bên trong hộp */
+    background-color: rgba(255, 255, 255, 0.7); /* Điều chỉnh độ trong suốt (0.7) nếu cần */
+    z-index: 1; /* Đặt dưới nội dung chữ */
+}
+
+/* Đảm bảo chữ (p và footer) nằm trên lớp phủ bên trong hộp */
 .quote-item blockquote p,
 .quote-item blockquote footer {
-    opacity: 0;
-    transform: translateY(10px);
+    position: relative; /* Cần để chữ nằm trên lớp phủ (z-index: 1 của overlay) */
+    z-index: 2;
+    /* Giữ nguyên style và transition cho chữ */
+    opacity: 0; /* opacity ban đầu cho hiệu ứng */
+    transform: translateY(10px); /* vị trí ban đầu cho hiệu ứng */
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
+/* CSS cho hiệu ứng hiện dần văn bản khi item hiển thị */
 .quote-item.is-in-view blockquote p,
 .quote-item.is-in-view blockquote footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ===================================================
+   CÁC RULE RIÊNG CHO TỪNG TRÍCH DẪN (ĐỂ DÙNG ẢNH NỀN KHÁC NHAU)
+   BẠN CẦN THAY THẾ ĐƯỜNG DẪN ẢNH Ở ĐÂY
+   =================================================== */
+
+/* Trích dẫn thứ 1 */
+.quotes-slider-wrapper .quote-item:nth-child(1) blockquote {
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/04/17453029449734353905743359058891.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH DẪN 1 */
+    /* Nếu ảnh quá tối/sáng, điều chỉnh lớp phủ riêng cho quote này */
+    /* &::before { background-color: rgba(255, 255, 255, 0.9); } */
+}
+
+/* Trích dẫn thứ 2 */
+.quotes-slider-wrapper .quote-item:nth-child(2) blockquote {
+    background-image: url('duong-dan-anh-nen-quote-2.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH DẪN 2 */
+}
+
+/* Trích dẫn thứ 3 */
+.quotes-slider-wrapper .quote-item:nth-child(3) blockquote {
+    background-image: url('duong-dan-anh-nen-quote-3.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH DẪN 3 */
+}
+
+/* Trích dẫn thứ 4 */
+.quotes-slider-wrapper .quote-item:nth-child(4) blockquote {
+    background-image: url('duong-dan-anh-nen-quote-4.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH DẪN 4 */
+}
+
+/* Trích dẫn thứ 5 */
+.quotes-slider-wrapper .quote-item:nth-child(5) blockquote {
+    background-image: url('duong-dan-anh-nen-quote-5.jpg'); /* <--- THAY THẾ ẢNG NỀN CHO TRÍCH DẪN 5 */
+}
+
+/* Bạn có thể thêm rule tương tự cho trích dẫn thứ 6, 7, ... nếu có */
+/* .quotes-slider-wrapper .quote-item:nth-child(6) blockquote { ... } */
+
 
 /* Responsive cho item trích dẫn - Tính toán width dựa trên gap */
 @media (max-width: 768px) {
@@ -334,6 +373,7 @@ header p {
          width: calc(100% - (2 * 1.5rem));
          max-width: 400px;
          margin: 0 auto;
+         /* padding: 1.5rem; */ /* Bỏ padding ở đây nếu padding nằm trong blockquote */
     }
      .quotes-slider-wrapper {
         padding: 0 1.5rem 1.5rem 1.5rem;
@@ -345,6 +385,7 @@ header p {
         width: calc( (100% - 1.5rem) / 2 ); /* 2 cột với gap */
         max-width: none;
         margin: 0;
+        /* padding: 2rem; */ /* Bỏ padding ở đây nếu padding nằm trong blockquote */
     }
      .quotes-slider-wrapper {
         padding: 0 1.5rem 1.5rem 1.5rem;
@@ -354,6 +395,7 @@ header p {
 @media (min-width: 1024px) {
      .quotes-slider-wrapper .quote-item {
         width: calc( (100% - 3rem) / 3 ); /* 3 cột với gap */
+        /* padding: 2rem; */ /* Bỏ padding ở đây nếu padding nằm trong blockquote */
      }
       .quotes-slider-wrapper {
          padding: 0 1.5rem 1.5rem 1.5rem;
