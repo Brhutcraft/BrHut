@@ -409,7 +409,7 @@ header p {
 }
 
 
-/* Categories Section - Nền trắng tinh khiết */
+/* Categories Section - Chuyển sang dạng Card */
 .categories {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -417,49 +417,91 @@ header p {
   padding: 2rem;
   background: var(--background);
   transition: background-color 0.3s ease;
+   /* Thêm max-width và margin auto để căn giữa khối trên màn hình lớn */
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .category {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--background);
+  /* position: relative; /* Có thể giữ hoặc bỏ tùy nếu không dùng cho mục đích khác */ */
+  border-radius: 10px; /* Góc bo tròn cho card */
+  overflow: hidden; /* Đảm bảo ảnh và nội dung không tràn ra ngoài góc bo tròn */
+  background: var(--background); /* Nền cho toàn bộ card (thường là màu nền trang hoặc màu nhạt hơn) */
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-   box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08); /* Bóng đổ nhẹ tạo hiệu ứng nổi */
+  display: flex; /* Sử dụng Flexbox để bố trí nội dung bên trong */
+  flex-direction: column; /* Xếp các phần tử con (ảnh, nội dung) theo cột dọc */
+  height: 100%; /* Đảm bảo các card có chiều cao bằng nhau trong grid */
+  text-decoration: none; /* Bỏ gạch chân mặc định của link */
+  color: inherit; /* Kế thừa màu chữ từ body */
 }
 
  .category:hover {
-   transform: translateY(-5px) scale(1.02);
-   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+   transform: translateY(-5px) scale(1.02); /* Nâng nhẹ và phóng to một chút khi rê chuột */
+   box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Tăng bóng đổ khi rê chuột */
  }
 
  .category img {
-   width: 100%;
-   height: 200px;
-   object-fit: cover;
+   width: 100%; /* Ảnh rộng bằng card */
+   height: 200px; /* Chiều cao cố định cho ảnh */
+   object-fit: cover; /* Cắt ảnh để vừa khung mà không bị méo */
    display: block;
+   /* Bỏ hiệu ứng transform scale riêng cho ảnh khi hover để tránh xung đột */
+   transition: transform 0.3s ease-out; /* Giữ chuyển động nếu cần */
 }
 
+  /* Xóa hiệu ứng hover scale riêng cho ảnh */
   .category:hover img {
-    transform: scale(1.05);
+    /* transform: scale(1.05); /* ĐÃ XÓA */ */
   }
+
+/* Tạo một khu vực riêng cho nội dung văn bản bên trong card */
+.category-content {
+    padding: 1rem; /* Khoảng đệm bên trong khu vực văn bản */
+    background-color: var(--background); /* Nền cho khu vực văn bản */
+    flex-grow: 1; /* Cho phép khu vực nội dung chiếm hết phần không gian còn lại */
+    display: flex; /* Sử dụng flexbox để căn giữa nội dung bên trong */
+    flex-direction: column;
+    justify-content: center; /* Căn giữa nội dung theo chiều dọc */
+    text-align: center; /* Căn giữa văn bản theo chiều ngang */
+}
+
 
  .category h3 {
-   position: absolute;
-   bottom: 10px;
-   left: 10px;
-   background: rgba(0,0,0,0.6);
-   color: #fff;
-   padding: 0.3rem 0.8rem;
-   border-radius: 5px;
-   font-size: 1rem;
-   margin: 0;
-   transition: background 0.3s ease;
+   /* Bỏ các thuộc tính position, top, left, bottom vì không còn đặt trên ảnh */
+   position: static; /* ĐÃ THAY ĐỔI */
+   margin: 0 0 0.5rem 0; /* Thêm khoảng trống dưới tiêu đề */
+   color: var(--text-dark); /* Sử dụng màu chữ chính của theme */
+   font-size: 1.1rem; /* Tăng nhẹ kích thước tiêu đề */
+   background: none; /* Bỏ nền chữ */
+   padding: 0; /* Bỏ padding */
+   border-radius: 0; /* Bỏ bo góc */
+   transition: color 0.3s ease;
  }
 
+  /* Thay đổi màu chữ tiêu đề khi rê chuột */
   .category:hover h3 {
-     background: rgba(72, 138, 153, 0.7);
+     /* background: rgba(72, 138, 153, 0.7); /* ĐÃ XÓA */ */
+     color: var(--main-color); /* Đổi màu tiêu đề sang màu chủ đạo khi hover */
   }
+
+/* Thêm style cho đoạn văn mô tả (nếu bạn muốn thêm sau này) */
+.category-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555; /* Một màu xám nhẹ hơn cho mô tả */
+    line-height: 1.4;
+}
+
+
+/* Điều chỉnh lại padding cho section trên mobile nếu cần */
+@media (max-width: 768px) {
+  .categories {
+    padding: 1.5rem; /* Giảm padding trên màn hình nhỏ hơn */
+  }
+  /* Grid minmax(250px, 1fr) sẽ tự động xử lý việc xếp các card thành 1 cột trên mobile */
+}
+
 
 /* Styles cho phần nội dung chính trang Giới thiệu - Nền trắng tinh khiết */
 .about-content {
