@@ -345,7 +345,7 @@ header p {
 
 /* Trích dẫn thứ 2 */
 .quotes-slider-wrapper .quote-item:nth-child(2) blockquote {
-    background-image: url('duong-dan-anh-nen-quote-2.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH DẪN 2 */
+    background-image: url('https://brhut.wordpress.com/wp-content/uploads/2025/05/17465133939912896018256963134630.jpg'); /* <--- THAY THẾ ẢNH NỀN CHO TRÍCH DẪN 2 */
 }
 
 /* Trích dẫn thứ 3 */
